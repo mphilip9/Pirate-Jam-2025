@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=13 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://base.gd" id="1_cgxds"]
 [ext_resource type="Texture2D" uid="uid://bynjxnmtcmkye" path="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn forest (clean).png" id="1_jsi1a"]
@@ -1466,6 +1466,12 @@ texture = ExtResource("1_jsi1a")
 [sub_resource type="TileSet" id="TileSet_507lf"]
 sources/1 = SubResource("TileSetAtlasSource_amoud")
 
+[sub_resource type="Curve2D" id="Curve2D_8bpkv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -423, 291, 0, 0, 0, 0, -308, 262, 0, 0, 0, 0, -207, 187, 0, 0, 0, 0, -159, 170, 0, 0, 0, 0, -113, 167, 0, 0, 0, 0, -80, 149, 0, 0, 0, 0, 81, 148, 0, 0, 0, 0, 175, 112, 0, 0, 0, 0, 212, 51, 0, 0, 0, 0, 218, -24, 0, 0, 0, 0, 196, -28, 0, 0, 0, 0, 194, -170, 0, 0, 0, 0, -348, -174, 0, 0, 0, 0, -363, -159, 0, 0, 0, 0, -411, -159)
+}
+point_count = 15
+
 [node name="Base" type="Node2D"]
 script = ExtResource("1_cgxds")
 
@@ -1488,3 +1494,6 @@ tile_set = SubResource("TileSet_507lf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_8bpkv")
