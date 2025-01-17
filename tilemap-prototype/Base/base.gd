@@ -9,30 +9,22 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var used_grass_cells = grass.get_used_cells()
-	var used_ground_cells = ground.get_used_cells()
-	var used_object_cells = objects.get_used_cells()
 	var grass_rect = grass.get_used_rect()
-#	Remove cells
-	for cell in used_ground_cells:
-		ground.erase_cell(cell)
-	for cell in used_object_cells:
-		objects.erase_cell(cell)
 	var path_cells = []
 	
-#	Start and end points
+	# Start and end points
 	var start_x = grass_rect.position.x+2
-	var start_y = grass_rect.position.y + grass_rect.size.y-4
+	var start_y = grass_rect.position.y + grass_rect.size.y-8
 	var end_x = grass_rect.position.x + grass_rect.size.x -3
-	var end_y = grass_rect.position.y+3
+	var end_y = grass_rect.position.y+8
 	# use easy_mapout function for coordinates
-	path_cells += easy_mapout(start_x,end_x,end_y,start_y)
+	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)
 	path_cells = remove_consecutive_duplicates(path_cells)
 	ene_path.curve.clear_points()
-	print (ene_path.curve.get_baked_points())
-	
+	# set enenmy path according to the path_cells
 	for i in path_cells :
 		ene_path.curve.add_point(Vector2(i)*16)
-	print (ene_path.curve.get_baked_points())
+		
 	ground.set_cells_terrain_path(
 		path_cells, 
 		0,  # same terrain set
@@ -48,13 +40,15 @@ func remove_consecutive_duplicates(path):
 			cleaned_path.append(cell)
 	return cleaned_path
 
-func easy_mapout(start_x, end_x, start_y, end_y):
+func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 	var max_x_ind = end_x - start_x 
 	var max_y_ind = end_y - start_y
 	# path collecting array
 	var path_array = []
-	#set random start point
-	var curr_point = [(randi_range(0,max_y_ind)),0] #y,x coord
+	var curr_point = start_coord
+	#set random start point unless specified
+	if start_coord == 0 :
+		curr_point = [(randi_range(0,max_y_ind)),0] #y,x coord
 	path_array.append(Vector2i(start_x - 1,curr_point[0] + start_y))
 	path_array.append(Vector2i(start_x, curr_point[0] + start_y)) # x, y coord
 	# save choice of direction and last direction to avoid overlap
