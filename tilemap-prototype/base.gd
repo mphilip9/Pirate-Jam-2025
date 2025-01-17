@@ -1,4 +1,5 @@
 extends Node2D
+@onready var ene_path = $Path2D
 @onready var grass = $Maps/Grass
 @onready var ground = $Maps/Ground
 @onready var objects = $Maps/Objects
@@ -26,6 +27,12 @@ func _ready():
 	# use easy_mapout function for coordinates
 	path_cells += easy_mapout(start_x,end_x,end_y,start_y)
 	path_cells = remove_consecutive_duplicates(path_cells)
+	ene_path.curve.clear_points()
+	print (ene_path.curve.get_baked_points())
+	
+	for i in path_cells :
+		ene_path.curve.add_point(Vector2(i)*16)
+	print (ene_path.curve.get_baked_points())
 	ground.set_cells_terrain_path(
 		path_cells, 
 		0,  # same terrain set
