@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtae5i6boo0w8"
-path="res://.godot/imported/summer forest wang tiles.png-a15cf186fb734b32f2ea1d59113f2071.ctex"
+path="res://.godot/imported/summer forest wang tiles.png-d935633f0efd371ac3885d711df9d57b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png"
-dest_files=["res://.godot/imported/summer forest wang tiles.png-a15cf186fb734b32f2ea1d59113f2071.ctex"]
+source_file="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png"
+dest_files=["res://.godot/imported/summer forest wang tiles.png-d935633f0efd371ac3885d711df9d57b.ctex"]
 
 [params]
 

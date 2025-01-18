@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cillbavcnhmo5"
-path="res://.godot/imported/summer mushroom, yellow chantrelle.png-345a1e0f17ce2c27ef895185e0069b39.ctex"
+path="res://.godot/imported/summer mushroom, yellow chantrelle.png-f5ac9b66107b7ac7f858857fbc3d100b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer mushroom, yellow chantrelle.png"
-dest_files=["res://.godot/imported/summer mushroom, yellow chantrelle.png-345a1e0f17ce2c27ef895185e0069b39.ctex"]
+source_file="res://assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer mushroom, yellow chantrelle.png"
+dest_files=["res://.godot/imported/summer mushroom, yellow chantrelle.png-f5ac9b66107b7ac7f858857fbc3d100b.ctex"]
 
 [params]
 

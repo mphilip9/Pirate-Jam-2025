@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlsdihcsafquc"
-path="res://.godot/imported/autumn water sparkles B 16x16.png-ef3ed3662119fa517dfa221046ba87ea.ctex"
+path="res://.godot/imported/autumn water sparkles B 16x16.png-b1b8267dd9d60c10e16916f61d9239e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn animations/autumn water sparkles B 16x16.png"
-dest_files=["res://.godot/imported/autumn water sparkles B 16x16.png-ef3ed3662119fa517dfa221046ba87ea.ctex"]
+source_file="res://assets/20.06a - Autumn Forest 4.1/autumn animations/autumn water sparkles B 16x16.png"
+dest_files=["res://.godot/imported/autumn water sparkles B 16x16.png-b1b8267dd9d60c10e16916f61d9239e3.ctex"]
 
 [params]
 

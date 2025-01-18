@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://t3600e547hsp"
-path="res://.godot/imported/bonus bridge.png-631c8215fff7d08e32af9f3e67647df4.ctex"
+path="res://.godot/imported/bonus bridge.png-7dd8957df74082b77b1948279d306b61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/extras/bonus bridge.png"
-dest_files=["res://.godot/imported/bonus bridge.png-631c8215fff7d08e32af9f3e67647df4.ctex"]
+source_file="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/extras/bonus bridge.png"
+dest_files=["res://.godot/imported/bonus bridge.png-7dd8957df74082b77b1948279d306b61.ctex"]
 
 [params]
 

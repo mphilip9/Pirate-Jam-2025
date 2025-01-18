@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5ktxmhbwgwni"
-path="res://.godot/imported/summer tree, maple leaf.png-860c950d51a1210893a9b4f31548ac3b.ctex"
+path="res://.godot/imported/summer tree, maple leaf.png-3ee548dbaf6e52f3d8f97241ffc95ae5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tree, maple leaf.png"
-dest_files=["res://.godot/imported/summer tree, maple leaf.png-860c950d51a1210893a9b4f31548ac3b.ctex"]
+source_file="res://assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tree, maple leaf.png"
+dest_files=["res://.godot/imported/summer tree, maple leaf.png-3ee548dbaf6e52f3d8f97241ffc95ae5.ctex"]
 
 [params]
 
