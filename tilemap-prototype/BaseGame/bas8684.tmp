@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://BaseGame/turret_manger.gd" id="5_mctdo"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
 [ext_resource type="PackedScene" uid="uid://dljjg3m4q3e0u" path="res://Enemy/enemy.tscn" id="7_fvky2"]
-[ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
+[ext_resource type="Script" path="res://BaseGame/difficulty_manager.gd" id="9_uu60v"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
@@ -1892,9 +1892,10 @@ _data = {
 }
 point_count = 1
 
-[sub_resource type="Curve" id="Curve_lduum"]
+[sub_resource type="Curve" id="Curve_x4vfb"]
+min_value = 0.25
 max_value = 2.0
-_data = [Vector2(0, 2), 0.0, -2.0, 0, 1, Vector2(1, 0), -2.0, 0.0, 1, 0]
+_data = [Vector2(0, 0.25), 0.0, 1.75, 0, 1, Vector2(1, 2), 1.75, 0.0, 1, 0]
 point_count = 2
 
 [node name="BaseLevel" type="Node2D"]
@@ -1924,11 +1925,10 @@ zoom = Vector2(2, 2)
 [node name="TurretManger" type="Node2D" parent="."]
 script = ExtResource("5_mctdo")
 
-[node name="Path2D" type="Path2D" parent="." node_paths=PackedStringArray("difficulty_manager")]
+[node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_8bpkv")
 script = ExtResource("6_3vj5o")
 enemy_scene = ExtResource("7_fvky2")
-difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Timer" type="Timer" parent="Path2D"]
 wait_time = 2.0
@@ -1939,8 +1939,9 @@ position = Vector2(3296, 618)
 scale = Vector2(1.28125, 1.38672)
 texture = ExtResource("12_wsm7c")
 
-[node name="DifficultyManager" parent="." instance=ExtResource("8_6sswj")]
-spawn_time_curve = SubResource("Curve_lduum")
+[node name="DifficultyManager" type="Node2D" parent="."]
+script = ExtResource("9_uu60v")
+spawn_time_curve = SubResource("Curve_x4vfb")
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
