@@ -1,7 +1,10 @@
 class_name Enemy
 extends PathFollow2D
 
+# variables that will apply to each enemy class
 @export var speed: float = 100.0
+
+
 @onready var body: AnimatedSprite2D = $EnemySpirte/body
 var last_fram_pos = Vector2()
 
