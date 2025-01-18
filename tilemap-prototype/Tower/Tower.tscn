@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://baak5eekb802x"]
 
-[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="1_4ubff"]
-[ext_resource type="Texture2D" uid="uid://olu7q533kw37" path="res://assets/VampireProfileWalk/MushroomHandGrasp.png" id="2_ixeru"]
-[ext_resource type="Texture2D" uid="uid://cefyloxmk1hjq" path="res://assets/VampireProfileWalk/image01.PNG" id="3_1k5jy"]
+[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="1_4ubff"]
+[ext_resource type="Texture2D" uid="uid://olu7q533kw37" path="res://Assets/VampireProfileWalk/MushroomHandGrasp.png" id="2_ixeru"]
+[ext_resource type="Texture2D" uid="uid://cefyloxmk1hjq" path="res://Assets/VampireProfileWalk/image01.PNG" id="3_1k5jy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f218w"]
 atlas = ExtResource("1_4ubff")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c84w223s3re6a"
-path="res://.godot/imported/VampireProfileWalk - 0.png-00adcb705790c5d9a94cd7c9225f5c39.ctex"
+path="res://.godot/imported/VampireProfileWalk - 0.png-1581a633b431806eeeb6a69dba3d6e55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/_old stuff (deprecated)/VampireProfileWalk/VampireProfileWalk - 0.png"
-dest_files=["res://.godot/imported/VampireProfileWalk - 0.png-00adcb705790c5d9a94cd7c9225f5c39.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/_old stuff (deprecated)/VampireProfileWalk/VampireProfileWalk - 0.png"
+dest_files=["res://.godot/imported/VampireProfileWalk - 0.png-1581a633b431806eeeb6a69dba3d6e55.ctex"]
 
 [params]
 

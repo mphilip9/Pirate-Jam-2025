@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnjk83wwlutek"
-path="res://.godot/imported/summer forest, tree wall (canopy only) 128x128.png-ec300fa52d7329609c7625345c64f4f2.ctex"
+path="res://.godot/imported/summer forest, tree wall (canopy only) 128x128.png-258d6de5fa27192016056502c680bcd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/summer tree wall/summer forest, tree wall (canopy only) 128x128.png"
-dest_files=["res://.godot/imported/summer forest, tree wall (canopy only) 128x128.png-ec300fa52d7329609c7625345c64f4f2.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/summer tree wall/summer forest, tree wall (canopy only) 128x128.png"
+dest_files=["res://.godot/imported/summer forest, tree wall (canopy only) 128x128.png-258d6de5fa27192016056502c680bcd1.ctex"]
 
 [params]
 

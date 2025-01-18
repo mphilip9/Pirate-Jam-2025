@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgdhkqjj78imo"
-path="res://.godot/imported/summer mushroom, shiitake.png-078a18f1008e414c009450885e4ef6d9.ctex"
+path="res://.godot/imported/summer mushroom, shiitake.png-72ad467c35b66ad5edca27fe7bf709ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer mushroom, shiitake.png"
-dest_files=["res://.godot/imported/summer mushroom, shiitake.png-078a18f1008e414c009450885e4ef6d9.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer mushroom, shiitake.png"
+dest_files=["res://.godot/imported/summer mushroom, shiitake.png-72ad467c35b66ad5edca27fe7bf709ff.ctex"]
 
 [params]
 

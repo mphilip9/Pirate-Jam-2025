@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl2y6h6bva0mg"
-path="res://.godot/imported/summer 32x32.png-04a55ae79d81eb1408cdd73625c527c1.ctex"
+path="res://.godot/imported/summer 32x32.png-1781492b9833e8483021a714358859ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.04c - Summer Forest 4.2/summer sheets/summer 32x32.png"
-dest_files=["res://.godot/imported/summer 32x32.png-04a55ae79d81eb1408cdd73625c527c1.ctex"]
+source_file="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer 32x32.png"
+dest_files=["res://.godot/imported/summer 32x32.png-1781492b9833e8483021a714358859ea.ctex"]
 
 [params]
 

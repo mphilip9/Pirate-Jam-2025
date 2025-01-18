@@ -20,6 +20,7 @@ func _ready():
 	# use easy_mapout function for coordinates
 	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)
 	path_cells = remove_consecutive_duplicates(path_cells)
+	
 	ene_path.curve.clear_points()
 	# set enenmy path according to the path_cells
 	for i in path_cells :
