@@ -13,7 +13,7 @@ var current_health: int:
 			queue_free()
 
 
-@onready var body: AnimatedSprite2D = $Sprite/body
+@onready var body: AnimatedSprite2D = $Sprite/Body
 
 var last_fram_pos = Vector2()
 
