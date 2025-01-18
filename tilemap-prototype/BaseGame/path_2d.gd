@@ -12,8 +12,3 @@ func _ready() -> void:
 	print('making an enemy')
 	var new_enemy = enemy_scene.instantiate()
 	add_child(new_enemy)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

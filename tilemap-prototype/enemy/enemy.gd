@@ -1,11 +1,20 @@
 class_name Enemy
 extends PathFollow2D
 
-# variables that will apply to each enemy class
 @export var speed: float = 100.0
+@export var max_health : int = 50
+@export var gold_value := 15
+
+var current_health: int:
+	set(health_in):
+		if health_in < current_health:
+			current_health = health_in
+		if current_health < 1:
+			queue_free()
 
 
-@onready var body: AnimatedSprite2D = $EnemySpirte/body
+@onready var body: AnimatedSprite2D = $Sprite/body
+
 var last_fram_pos = Vector2()
 
 
@@ -19,10 +28,10 @@ func _process(delta: float) -> void:
 	
 	elif diff_vector.y != 0 :
 		if diff_vector.y > 0 :
-			body.play("bot")
+			body.play("down")
 		
 		elif diff_vector.y < 0 :
-			body.play("top")
+			body.play("up")
 
 	last_fram_pos = position
 	if progress_ratio == 1.0:
