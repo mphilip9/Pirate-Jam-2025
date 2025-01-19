@@ -36,8 +36,7 @@ func _ready():
 	)
 
 func _input(event):
-	if event is InputEventMouseButton:
-		
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and preview_tower:
 		var tower_scene = tower.instantiate()
 		tower_scene.position = get_global_mouse_position()
 		add_child(tower_scene)
