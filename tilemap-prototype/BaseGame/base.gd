@@ -7,6 +7,7 @@ const tower = preload("res://Tower/eye_tower.tscn")
 @export var preview_tower = false
 @export var preview_tower_scene: Node2D
 
+@onready var castle = $Castle
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,17 +18,16 @@ func _ready():
 	# Start and end points
 	var start_x = grass_rect.position.x+2
 	var start_y = grass_rect.position.y + grass_rect.size.y-8
-	var end_x = grass_rect.position.x + grass_rect.size.x -3
+	var end_x = grass_rect.position.x + grass_rect.size.x -10
 	var end_y = grass_rect.position.y+8
 	# use easy_mapout function for coordinates
 	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)
 	path_cells = remove_consecutive_duplicates(path_cells)
-	
+	castle.position = Vector2(castle.position.x, (path_cells[-1].y-2.5)*16 )
 	ene_path.curve.clear_points()
 	# set enenmy path according to the path_cells
 	for i in path_cells :
 		ene_path.curve.add_point(Vector2(i)*16)
-		
 	ground.set_cells_terrain_path(
 		path_cells, 
 		0,  # same terrain set
