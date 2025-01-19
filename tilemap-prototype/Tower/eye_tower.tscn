@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0x02d7m2vpen"]
+
+[ext_resource type="Script" path="res://Tower/eye_tower.gd" id="1_gho1v"]
+[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="2_56n2s"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_y0e67"]
+
+[sub_resource type="Resource" id="Resource_eplmh"]
+script = ExtResource("2_y0e67")
+damage = 10
+range = 100
+tier = 0
+max_tier = 0
+preview = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv7c6"]
+atlas = ExtResource("2_56n2s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vptis"]
+
+[node name="EyeTower" type="Node2D"]
+script = ExtResource("1_gho1v")
+tower_stats = SubResource("Resource_eplmh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_pv7c6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="RangeCollisionShape" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_vptis")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
