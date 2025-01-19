@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chttcrswhld5d"
-path="res://.godot/imported/summer tree, birch log.png-dbb0131fe8eefd6ff8941907d0f44213.ctex"
+path="res://.godot/imported/summer tree, birch log.png-948f8161f8ad1f2306a7d66be68bea22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tree, birch log.png"
-dest_files=["res://.godot/imported/summer tree, birch log.png-dbb0131fe8eefd6ff8941907d0f44213.ctex"]
+source_file="res://assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tree, birch log.png"
+dest_files=["res://.godot/imported/summer tree, birch log.png-948f8161f8ad1f2306a7d66be68bea22.ctex"]
 
 [params]
 

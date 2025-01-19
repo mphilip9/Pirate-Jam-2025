@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2bhoaly6cf02"
-path="res://.godot/imported/bonus shadows.png-77f030a9c58119856cca26df67be4778.ctex"
+path="res://.godot/imported/bonus shadows.png-7767c127557fffd8f0c6776be04e5f61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.04c - Summer Forest 4.2/extras/bonus shadows.png"
-dest_files=["res://.godot/imported/bonus shadows.png-77f030a9c58119856cca26df67be4778.ctex"]
+source_file="res://assets/20.04c - Summer Forest 4.2/extras/bonus shadows.png"
+dest_files=["res://.godot/imported/bonus shadows.png-7767c127557fffd8f0c6776be04e5f61.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0ufvmjkfk37v"
-path="res://.godot/imported/summer forest.png-c1eb3adcd2d1f4f526714b5935abcf4d.ctex"
+path="res://.godot/imported/summer forest.png-2a4be8890cf24e5758795f9cfb1acd91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer forest.png"
-dest_files=["res://.godot/imported/summer forest.png-c1eb3adcd2d1f4f526714b5935abcf4d.ctex"]
+source_file="res://assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer forest.png"
+dest_files=["res://.godot/imported/summer forest.png-2a4be8890cf24e5758795f9cfb1acd91.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cythgracy46g3"
-path="res://.godot/imported/autumn trees (leaves) 80x112.png-0294d42088f079cefc877d307a3f9078.ctex"
+path="res://.godot/imported/autumn trees (leaves) 80x112.png-92b49663ed994d667d18785e8433996c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn trees (leaves) 80x112.png"
-dest_files=["res://.godot/imported/autumn trees (leaves) 80x112.png-0294d42088f079cefc877d307a3f9078.ctex"]
+source_file="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn trees (leaves) 80x112.png"
+dest_files=["res://.godot/imported/autumn trees (leaves) 80x112.png-92b49663ed994d667d18785e8433996c.ctex"]
 
 [params]
 

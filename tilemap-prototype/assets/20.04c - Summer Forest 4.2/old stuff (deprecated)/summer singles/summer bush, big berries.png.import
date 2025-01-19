@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cieufd6s7cj7g"
-path="res://.godot/imported/summer bush, big berries.png-15430004f245fa73d2467685f4b9f073.ctex"
+path="res://.godot/imported/summer bush, big berries.png-765619f46195cbc47ea34171ef217d86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer bush, big berries.png"
-dest_files=["res://.godot/imported/summer bush, big berries.png-15430004f245fa73d2467685f4b9f073.ctex"]
+source_file="res://assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer bush, big berries.png"
+dest_files=["res://.godot/imported/summer bush, big berries.png-765619f46195cbc47ea34171ef217d86.ctex"]
 
 [params]
 

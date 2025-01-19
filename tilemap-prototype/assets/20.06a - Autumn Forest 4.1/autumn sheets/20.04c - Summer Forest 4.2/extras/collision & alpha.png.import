@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddmnor7cy5o1x"
-path="res://.godot/imported/collision & alpha.png-afe1c8613edbdda342772d8bfa6d5c48.ctex"
+path="res://.godot/imported/collision & alpha.png-c48f5f538be9626a2d830e2ee4642663.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/extras/collision & alpha.png"
-dest_files=["res://.godot/imported/collision & alpha.png-afe1c8613edbdda342772d8bfa6d5c48.ctex"]
+source_file="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/extras/collision & alpha.png"
+dest_files=["res://.godot/imported/collision & alpha.png-c48f5f538be9626a2d830e2ee4642663.ctex"]
 
 [params]
 

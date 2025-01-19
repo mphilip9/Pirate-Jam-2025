@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce4h873b3neud"
-path="res://.godot/imported/tree wall autotile setup.png-0af013ce0677a6a745b848db9da922f1.ctex"
+path="res://.godot/imported/tree wall autotile setup.png-87b1b0400311df80f1cd380dff189b4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn tree wall/tree wall autotile setup.png"
-dest_files=["res://.godot/imported/tree wall autotile setup.png-0af013ce0677a6a745b848db9da922f1.ctex"]
+source_file="res://assets/20.06a - Autumn Forest 4.1/autumn tree wall/tree wall autotile setup.png"
+dest_files=["res://.godot/imported/tree wall autotile setup.png-87b1b0400311df80f1cd380dff189b4e.ctex"]
 
 [params]
 

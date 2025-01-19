@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct5p5ko4tl3wc"
-path="res://.godot/imported/summer rock, big.png-c1811964e5322c0038473bf759718274.ctex"
+path="res://.godot/imported/summer rock, big.png-caf66bdef31cf9018a9acc49aab63ea6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer rock, big.png"
-dest_files=["res://.godot/imported/summer rock, big.png-c1811964e5322c0038473bf759718274.ctex"]
+source_file="res://assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer rock, big.png"
+dest_files=["res://.godot/imported/summer rock, big.png-caf66bdef31cf9018a9acc49aab63ea6.ctex"]
 
 [params]
 
