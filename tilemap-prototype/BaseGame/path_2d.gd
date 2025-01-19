@@ -1,7 +1,6 @@
 extends Path2D
 
 @onready var path_follow = $PathFollow2D
-@onready var ene_animation = $PathFollow2D/EnemySpirte/body
 @export var enemy_scene: PackedScene
 var ene_speed = 100
 var last_fram_pos = Vector2()
