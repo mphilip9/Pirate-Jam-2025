@@ -1,18 +1,17 @@
 extends Path2D
 
-@onready var path_follow = $PathFollow2D
 @export var enemy_scene: PackedScene
-var ene_speed = 100
-var last_fram_pos = Vector2()
+@export var difficulty_manager: Node
+@onready var timer: Timer = $Timer
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print('making an enemy')
+func spawn_enemy() -> void:
 	var new_enemy = enemy_scene.instantiate()
 	add_child(new_enemy)
+	timer.wait_time = difficulty_manager.get_spawn_time()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+func _on_difficulty_manager_stop_spawning_enemies() -> void:
+	print('hit end of enemy spawning')
+	timer.stop() 
+	
