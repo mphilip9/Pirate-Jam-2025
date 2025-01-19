@@ -6,4 +6,6 @@ extends Resource
 @export var tier: int
 @export var max_tier: int
 @export var preview: bool = true
+@export var projectile_scene: PackedScene
+@export var rate_of_fire: int
 #@export var preview_sprite

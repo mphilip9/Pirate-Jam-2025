@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0x02d7m2vpen"]
+[gd_scene load_steps=8 format=3 uid="uid://b0x02d7m2vpen"]
 
 [ext_resource type="Script" path="res://Tower/eye_tower.gd" id="1_gho1v"]
 [ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="2_56n2s"]
-[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_y0e67"]
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/spore_projectile.tscn" id="2_cyk77"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_w6cyj"]
 
-[sub_resource type="Resource" id="Resource_eplmh"]
-script = ExtResource("2_y0e67")
-damage = 10
+[sub_resource type="Resource" id="Resource_45tk3"]
+script = ExtResource("3_w6cyj")
+damage = 0
 range = 100
 tier = 0
 max_tier = 0
 preview = true
+projectile_scene = ExtResource("2_cyk77")
+rate_of_fire = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pv7c6"]
 atlas = ExtResource("2_56n2s")
@@ -20,7 +23,7 @@ region = Rect2(0, 0, 64, 64)
 
 [node name="EyeTower" type="Node2D"]
 script = ExtResource("1_gho1v")
-tower_stats = SubResource("Resource_eplmh")
+eye_tower_stats = SubResource("Resource_45tk3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_pv7c6")
