@@ -1,7 +1,7 @@
 class_name Enemy
 extends PathFollow2D
 
-@export var speed: float = 100.0
+@export var speed: float = 500.0
 @export var max_health : int = 100
 @export var gold_value := 15
 @onready var animation_player: AnimationPlayer = $Sprite/Body/AnimationPlayer
@@ -24,6 +24,7 @@ func _ready() -> void:
 	current_health = max_health
 	
 func _process(delta: float) -> void:
+	var castle = get_node("../../Castle")
 	# progress is the metric the PathFollow3D node uses to track where it is along its parent Path
 	progress += delta * speed
 
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 	last_fram_pos = position
 	if progress_ratio == 1.0:
 		print('reached the end')
+		castle.take_damage()
 		set_process(false)
 		queue_free()
 		

@@ -1,5 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://do41p3vaq1ret"]
-
+[gd_scene load_steps=28 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -9,9 +8,7 @@
 [ext_resource type="Script" path="res://BaseGame/turret_manger.gd" id="5_mctdo"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
 [ext_resource type="PackedScene" uid="uid://dljjg3m4q3e0u" path="res://Enemy/enemy.tscn" id="7_fvky2"]
-
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
-
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
