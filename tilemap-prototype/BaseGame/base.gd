@@ -19,7 +19,6 @@ func _ready():
 	# use easy_mapout function for coordinates
 	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)
 	path_cells = remove_consecutive_duplicates(path_cells)
-	print(Vector2(path_cells[-1]*16))
 	castle.position = Vector2(castle.position.x, (path_cells[-1].y-2.5)*16 )
 	ene_path.curve.clear_points()
 	# set enenmy path according to the path_cells

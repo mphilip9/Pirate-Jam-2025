@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmaf23xr1pinb"
-path="res://.godot/imported/char_a_p1_1out_boxr_v01.png-ab1e1ce906ccd88515234c3537c32943.ctex"
+path="res://.godot/imported/char_a_p1_1out_boxr_v01.png-0e79770c7108f990e004b8cc73c37785.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/extras/FREE Mana Seed Character Base Demo/char_a_p1/1out/char_a_p1_1out_boxr_v01.png"
-dest_files=["res://.godot/imported/char_a_p1_1out_boxr_v01.png-ab1e1ce906ccd88515234c3537c32943.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/extras/FREE Mana Seed Character Base Demo/char_a_p1/1out/char_a_p1_1out_boxr_v01.png"
+dest_files=["res://.godot/imported/char_a_p1_1out_boxr_v01.png-0e79770c7108f990e004b8cc73c37785.ctex"]
 
 [params]
 

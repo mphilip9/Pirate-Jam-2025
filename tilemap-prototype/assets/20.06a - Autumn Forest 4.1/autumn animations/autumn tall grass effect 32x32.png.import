@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8ib5fyhaeoxf"
-path="res://.godot/imported/autumn tall grass effect 32x32.png-1d7db9459ebfb70deddc378a5b923be8.ctex"
+path="res://.godot/imported/autumn tall grass effect 32x32.png-cd35fb18a7c1f3ee1e42889d5a3625e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/autumn animations/autumn tall grass effect 32x32.png"
-dest_files=["res://.godot/imported/autumn tall grass effect 32x32.png-1d7db9459ebfb70deddc378a5b923be8.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn animations/autumn tall grass effect 32x32.png"
+dest_files=["res://.godot/imported/autumn tall grass effect 32x32.png-cd35fb18a7c1f3ee1e42889d5a3625e5.ctex"]
 
 [params]
 

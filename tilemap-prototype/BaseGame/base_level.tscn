@@ -1,19 +1,14 @@
-[gd_scene load_steps=33 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=26 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
-[ext_resource type="Texture2D" uid="uid://bynjxnmtcmkye" path="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn forest (clean).png" id="2_t5sja"]
-[ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="3_ytvyd"]
-[ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
+[ext_resource type="Texture2D" uid="uid://bynjxnmtcmkye" path="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn forest (clean).png" id="2_t5sja"]
+[ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="3_ytvyd"]
+[ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
 [ext_resource type="Script" path="res://BaseGame/turret_manger.gd" id="5_mctdo"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
 [ext_resource type="PackedScene" uid="uid://dljjg3m4q3e0u" path="res://Enemy/enemy.tscn" id="7_fvky2"]
-[ext_resource type="Texture2D" uid="uid://dww4cbhvnxcp0" path="res://assets/VampireProfileWalk/VampireProfileWalk - 0.png" id="7_pp6u0"]
-[ext_resource type="Texture2D" uid="uid://dklbfpmr04rlx" path="res://assets/VampireProfileWalk/VampireProfileWalk - 1.png" id="8_7ikmu"]
-[ext_resource type="Texture2D" uid="uid://blprqon5qujqh" path="res://assets/VampireProfileWalk/VampireProfileWalk - 2.png" id="9_xv73s"]
-[ext_resource type="Texture2D" uid="uid://dd7vav5enlp3b" path="res://assets/VampireProfileWalk/VampireProfileWalk - 3.png" id="10_0sqdj"]
-[ext_resource type="Texture2D" uid="uid://buidda5fi3r4t" path="res://assets/VampireProfileWalk/VampireProfileWalk - 4.png" id="11_q2os6"]
-[ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
+[ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1897,31 +1892,6 @@ _data = {
 }
 point_count = 1
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_250rr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_pp6u0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_7ikmu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_xv73s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_0sqdj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_q2os6")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ikc68"]
-
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_btitk")
 
@@ -1958,15 +1928,6 @@ enemy_scene = ExtResource("7_fvky2")
 position = Vector2(412, 132)
 rotation = 0.0161077
 rotates = false
-
-[node name="EnemySpirte" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
-
-[node name="body" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/EnemySpirte"]
-sprite_frames = SubResource("SpriteFrames_250rr")
-animation = &"right"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/EnemySpirte"]
-shape = SubResource("CircleShape2D_ikc68")
 
 [node name="Animations,Page1" type="Sprite2D" parent="."]
 position = Vector2(3296, 618)

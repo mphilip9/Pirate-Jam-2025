@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4ytuq8r0rcrh"
-path="res://.godot/imported/summer tree, chestnut stump.png-b52a78eb9f14565d61b1fd5ec8121295.ctex"
+path="res://.godot/imported/summer tree, chestnut stump.png-b819c3a6d32330ff0d4b93c3848e0081.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tree, chestnut stump.png"
-dest_files=["res://.godot/imported/summer tree, chestnut stump.png-b52a78eb9f14565d61b1fd5ec8121295.ctex"]
+source_file="res://Assets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tree, chestnut stump.png"
+dest_files=["res://.godot/imported/summer tree, chestnut stump.png-b819c3a6d32330ff0d4b93c3848e0081.ctex"]
 
 [params]
 

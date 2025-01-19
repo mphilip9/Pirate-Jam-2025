@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqrbs6x0g1w5t"
-path="res://.godot/imported/paper doll demonstration.png-02977f58ffe6de5890210f134335410d.ctex"
+path="res://.godot/imported/paper doll demonstration.png-4b2588d1d2680946bc1de226cd0ca60e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/extras/guides/paper doll demonstration.png"
-dest_files=["res://.godot/imported/paper doll demonstration.png-02977f58ffe6de5890210f134335410d.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/extras/guides/paper doll demonstration.png"
+dest_files=["res://.godot/imported/paper doll demonstration.png-4b2588d1d2680946bc1de226cd0ca60e.ctex"]
 
 [params]
 
