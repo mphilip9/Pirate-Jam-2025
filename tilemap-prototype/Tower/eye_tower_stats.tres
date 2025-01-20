@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=3 format=3 uid="uid://dqvllxd7wodtb"]
+
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/spore_projectile.tscn" id="1_wvujx"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_85be0"]
+
+[resource]
+script = ExtResource("2_85be0")
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = true
+projectile_scene = ExtResource("1_wvujx")
+rate_of_fire = 0.5
+cost = 50

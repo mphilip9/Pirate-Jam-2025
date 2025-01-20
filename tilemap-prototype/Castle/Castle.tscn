@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlkb681j8x2vp"]
 
 [ext_resource type="Script" path="res://Castle/castle.gd" id="1_k1fg6"]
-[ext_resource type="Texture2D" uid="uid://dsxwrwqmn0in4" path="res://Assets/VampireProfileWalk/MushroomCastle_.png" id="2_opc00"]
+[ext_resource type="Texture2D" uid="uid://dsxwrwqmn0in4" path="res://assets/VampireProfileWalk/MushroomCastle_.png" id="2_opc00"]
 
 [node name="Castle" type="Node2D"]
 script = ExtResource("1_k1fg6")
