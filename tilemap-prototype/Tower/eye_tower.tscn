@@ -50,6 +50,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_vptis"]
 
 [node name="EyeTower" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_gho1v")
 eye_tower_stats = ExtResource("2_dj7ay")
 

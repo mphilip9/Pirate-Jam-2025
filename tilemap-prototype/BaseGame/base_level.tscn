@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=29 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
 [ext_resource type="PackedScene" uid="uid://cqid37pyhc03a" path="res://Enemy/VampireEnemy.tscn" id="7_mqby1"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
+[ext_resource type="Script" path="res://Singletons/game_data.gd" id="11_fplxj"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
@@ -1948,5 +1949,17 @@ position = Vector2(337, -16)
 [node name="DifficultyManager" parent="." instance=ExtResource("8_6sswj")]
 spawn_time_curve = SubResource("Curve_lduum")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="HUD"]
+offset_right = 100.0
+offset_bottom = 50.0
+size_flags_horizontal = 4
+text = "eye"
+
+[node name="GameData" type="Node2D" parent="."]
+script = ExtResource("11_fplxj")
+
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
+[connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
