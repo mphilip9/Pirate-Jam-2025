@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dljjg3m4q3e0u"]
+[gd_scene load_steps=27 format=3 uid="uid://dljjg3m4q3e0u"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_mh5qp"]
 [ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="1_tbwxa"]
@@ -164,7 +164,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xau8a"]
 resource_name = "take_damage"
-length = 0.1
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -172,10 +172,10 @@ tracks/0/path = NodePath("..:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.764153, 0.173864, 0.292226, 0.545098)]
+"values": [Color(1, 1, 1, 1), Color(0.764153, 0.173864, 0.292226, 0.545098), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0fu7v"]
@@ -185,6 +185,9 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vrt3j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57dqi"]
+radius = 14.0
 
 [node name="Enemy" type="PathFollow2D"]
 rotates = false
@@ -205,3 +208,9 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite"]
 shape = SubResource("CircleShape2D_vrt3j")
+
+[node name="Hitbox" type="Area2D" parent="Sprite" groups=["enemy"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
+shape = SubResource("CircleShape2D_57dqi")

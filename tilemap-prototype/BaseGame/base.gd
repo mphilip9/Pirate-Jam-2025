@@ -3,6 +3,10 @@ extends Node2D
 @onready var grass = $Maps/Grass
 @onready var ground = $Maps/Ground
 @onready var objects = $Maps/Objects
+const tower = preload("res://Tower/eye_tower.tscn")
+@export var preview_tower = false
+@export var preview_tower_scene: Node2D
+
 @onready var castle = $Castle
 
 # Called when the node enters the scene tree for the first time.
@@ -30,6 +34,24 @@ func _ready():
 		0,       # the "ground" terrain
 		 false
 	)
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and preview_tower:
+		var tower_scene = tower.instantiate()
+		tower_scene.position = get_global_mouse_position()
+		add_child(tower_scene)
+		print("Mouse Click/Unclick at: ", event.position)
+	elif InputEventMouseMotion and preview_tower:
+		preview_tower_scene.position = get_global_mouse_position()
+#		enter key
+	if event.is_action_pressed('ui_accept'):
+		if (preview_tower):
+			preview_tower_scene.queue_free()
+			preview_tower = false
+		else:
+			preview_tower = true
+			preview_tower_scene = tower.instantiate()
+			add_child(preview_tower_scene)
 	
 
 func remove_consecutive_duplicates(path):
