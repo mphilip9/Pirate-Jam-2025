@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
 [ext_resource type="Script" path="res://BaseGame/turret_manger.gd" id="5_mctdo"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
-[ext_resource type="PackedScene" uid="uid://dljjg3m4q3e0u" path="res://Enemy/enemy.tscn" id="7_fvky2"]
+[ext_resource type="PackedScene" uid="uid://cqid37pyhc03a" path="res://Enemy/VampireEnemy.tscn" id="7_mqby1"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 
@@ -1894,8 +1894,9 @@ _data = {
 point_count = 1
 
 [sub_resource type="Curve" id="Curve_lduum"]
+min_value = 0.75
 max_value = 2.0
-_data = [Vector2(0, 2), 0.0, -2.0, 0, 1, Vector2(1, 0), -2.0, 0.0, 1, 0]
+_data = [Vector2(0, 2), 0.0, -1.25, 0, 1, Vector2(1, 0.75), -1.25, 0.0, 1, 0]
 point_count = 2
 
 [node name="BaseLevel" type="Node2D"]
@@ -1928,7 +1929,7 @@ script = ExtResource("5_mctdo")
 [node name="Path2D" type="Path2D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve2D_8bpkv")
 script = ExtResource("6_3vj5o")
-enemy_scene = ExtResource("7_fvky2")
+enemy_scene = ExtResource("7_mqby1")
 difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Timer" type="Timer" parent="Path2D"]

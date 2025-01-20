@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dljjg3m4q3e0u"]
+[gd_scene load_steps=28 format=3 uid="uid://dljjg3m4q3e0u"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_mh5qp"]
 [ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="1_tbwxa"]
+[ext_resource type="Resource" uid="uid://djp4uiwxdcm8f" path="res://Resources/naked_guy_stats.tres" id="2_hyluk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nknpw"]
 atlas = ExtResource("1_tbwxa")
@@ -194,12 +195,14 @@ rotates = false
 cubic_interp = false
 loop = false
 script = ExtResource("1_mh5qp")
+stats = ExtResource("2_hyluk")
 
 [node name="Sprite" type="CharacterBody2D" parent="."]
 
 [node name="Body" type="AnimatedSprite2D" parent="Sprite"]
 sprite_frames = SubResource("SpriteFrames_87j6h")
-animation = &"right"
+animation = &"down"
+frame_progress = 0.72787
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/Body"]
 libraries = {

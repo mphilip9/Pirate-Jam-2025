@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Tower/eye_tower.gd" id="1_gho1v"]
 [ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="2_56n2s"]
-[ext_resource type="Resource" uid="uid://dqvllxd7wodtb" path="res://Tower/eye_tower_stats.tres" id="2_dj7ay"]
+[ext_resource type="Resource" uid="uid://dqvllxd7wodtb" path="res://Resources/eye_tower_stats.tres" id="2_dj7ay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pv7c6"]
 atlas = ExtResource("2_56n2s")
