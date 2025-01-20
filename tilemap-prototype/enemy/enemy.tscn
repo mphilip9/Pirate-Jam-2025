@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://dljjg3m4q3e0u"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_mh5qp"]
-[ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="1_tbwxa"]
+[ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="1_tbwxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nknpw"]
 atlas = ExtResource("1_tbwxa")

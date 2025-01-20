@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcuq1g2sith2w"
-path="res://.godot/imported/char_a_p1_4har_dap1_v01.png-4ebcaaa5c0788c5712d8db00ef52950d.ctex"
+path="res://.godot/imported/char_a_p1_4har_dap1_v01.png-676601cbeff15c927f8ce40065f1869a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/extras/char_a_p1/4har/char_a_p1_4har_dap1_v01.png"
-dest_files=["res://.godot/imported/char_a_p1_4har_dap1_v01.png-4ebcaaa5c0788c5712d8db00ef52950d.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/extras/char_a_p1/4har/char_a_p1_4har_dap1_v01.png"
+dest_files=["res://.godot/imported/char_a_p1_4har_dap1_v01.png-676601cbeff15c927f8ce40065f1869a.ctex"]
 
 [params]
 

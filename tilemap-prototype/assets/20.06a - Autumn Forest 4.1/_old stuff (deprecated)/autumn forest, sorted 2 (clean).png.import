@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2yon04abos7u"
-path="res://.godot/imported/autumn forest, sorted 2 (clean).png-51f9b4d5e177a9859cb00a38c7134f74.ctex"
+path="res://.godot/imported/autumn forest, sorted 2 (clean).png-9d74b51639dfd7e77fd251d43778ae5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/_old stuff (deprecated)/autumn forest, sorted 2 (clean).png"
-dest_files=["res://.godot/imported/autumn forest, sorted 2 (clean).png-51f9b4d5e177a9859cb00a38c7134f74.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/_old stuff (deprecated)/autumn forest, sorted 2 (clean).png"
+dest_files=["res://.godot/imported/autumn forest, sorted 2 (clean).png-9d74b51639dfd7e77fd251d43778ae5c.ctex"]
 
 [params]
 

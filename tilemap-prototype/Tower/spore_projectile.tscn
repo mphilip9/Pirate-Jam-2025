@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8n3mwla1kpds"]
 
-[ext_resource type="Texture2D" uid="uid://ba8ho1duqel0r" path="res://assets/VampireProfileWalk/BlueSporeSheet.png" id="1_4gyre"]
+[ext_resource type="Texture2D" uid="uid://ba8ho1duqel0r" path="res://Assets/VampireProfileWalk/BlueSporeSheet.png" id="1_4gyre"]
 [ext_resource type="Script" path="res://Tower/spore_projectile.gd" id="1_kgyrr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi6ru"]

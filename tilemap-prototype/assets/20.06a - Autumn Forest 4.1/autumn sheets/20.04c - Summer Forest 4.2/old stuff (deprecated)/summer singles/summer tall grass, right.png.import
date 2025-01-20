@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b50utisq24cem"
-path="res://.godot/imported/summer tall grass, right.png-0c0b6508b3dd5bbb4840e067d4504fbf.ctex"
+path="res://.godot/imported/summer tall grass, right.png-21e20b13408b9ffa2c475988f53e175d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tall grass, right.png"
-dest_files=["res://.godot/imported/summer tall grass, right.png-0c0b6508b3dd5bbb4840e067d4504fbf.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/20.04c - Summer Forest 4.2/old stuff (deprecated)/summer singles/summer tall grass, right.png"
+dest_files=["res://.godot/imported/summer tall grass, right.png-21e20b13408b9ffa2c475988f53e175d.ctex"]
 
 [params]
 

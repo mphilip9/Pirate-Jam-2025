@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgbfku7sqwi6w"
-path="res://.godot/imported/autumn forest, tree wall (leaves) 128x128.png-8d0c1d8af948ed36be3dd46faddff226.ctex"
+path="res://.godot/imported/autumn forest, tree wall (leaves) 128x128.png-6a64af7cb9de6871b8b04d069262c75c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/20.06a - Autumn Forest 4.1/autumn tree wall/autumn forest, tree wall (leaves) 128x128.png"
-dest_files=["res://.godot/imported/autumn forest, tree wall (leaves) 128x128.png-8d0c1d8af948ed36be3dd46faddff226.ctex"]
+source_file="res://Assets/20.06a - Autumn Forest 4.1/autumn tree wall/autumn forest, tree wall (leaves) 128x128.png"
+dest_files=["res://.godot/imported/autumn forest, tree wall (leaves) 128x128.png-6a64af7cb9de6871b8b04d069262c75c.ctex"]
 
 [params]
 
