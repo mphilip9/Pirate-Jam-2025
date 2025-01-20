@@ -11,7 +11,9 @@ region = Rect2(0, 0, 16, 16)
 radius = 8.0
 
 [node name="SporeProjectile" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_kgyrr")
+speed = 700.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_bi6ru")

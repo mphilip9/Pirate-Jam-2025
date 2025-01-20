@@ -1,7 +1,7 @@
 #class_name Enemy
 extends PathFollow2D
 
-@export var speed: float = 500.0
+@export var speed: float = 200.0
 @export var max_health : int = 100
 @export var gold_value := 15
 @onready var animation_player: AnimationPlayer = $Sprite/Body/AnimationPlayer
@@ -22,6 +22,7 @@ var last_fram_pos = Vector2()
 
 func _ready() -> void:
 	current_health = max_health
+	
 	
 func _process(delta: float) -> void:
 	var castle = get_node("../../Castle")
