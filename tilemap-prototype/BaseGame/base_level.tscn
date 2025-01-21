@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=31 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
 [ext_resource type="PackedScene" uid="uid://cqid37pyhc03a" path="res://Enemy/VampireEnemy.tscn" id="7_mqby1"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
+[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
 [ext_resource type="Script" path="res://Singletons/game_data.gd" id="11_fplxj"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
@@ -1900,6 +1901,10 @@ max_value = 2.0
 _data = [Vector2(0, 2), 0.0, -1.25, 0, 1, Vector2(1, 0.75), -1.25, 0.0, 1, 0]
 point_count = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tncl"]
+atlas = ExtResource("10_0lj0n")
+region = Rect2(0, 0, 64, 64)
+
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_btitk")
 
@@ -1949,14 +1954,22 @@ spawn_time_curve = SubResource("Curve_lduum")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="GridContainer" type="GridContainer" parent="HUD"]
-custom_minimum_size = Vector2(100, 100)
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="HUD/GridContainer"]
-custom_minimum_size = Vector2(100, 50)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-text = "eye"
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GridContainer/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_3tncl")
+
+[node name="MortFlesh" type="Label" parent="HUD/GridContainer"]
+layout_mode = 2
 
 [node name="GameData" type="Node2D" parent="."]
 script = ExtResource("11_fplxj")

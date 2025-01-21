@@ -6,12 +6,13 @@ extends Node2D
 #const tower = preload("res://Tower/eye_tower.tscn")
 #@export var preview_tower = false
 #@export var preview_tower_scene: Node2D
+@onready var mort_flesh = $HUD/GridContainer/MortFlesh
 
 @onready var castle = $Castle
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree  for the first time.
 func _ready():
-	var used_grass_cells = grass.get_used_cells()
+	var used_grass_cells =grass.get_used_cells()
 	var grass_rect = grass.get_used_rect()
 	var path_cells = []
 	
@@ -44,45 +45,11 @@ func _ready():
 		0,       # the "ground" terrain
 		 false
 	)
-	
-#func can_place_tower(pos) -> bool:
-	#var offset_cells = [
-		#Vector2i(0,0),
-		#Vector2i(1,0),
-		#Vector2i(-1, 0),
-		#Vector2i(0,1),
-		#Vector2i(0,-1)
-	#]
-	#for offset in offset_cells:
-		#var neighbor_cell = pos + offset
-		#
-		#if GameData.occupied_tiles.find(neighbor_cell) != -1:
-			#return false
-	#return true
-#	Produce coords above and below, right and left of pos
-# Check if any of those coords are in the occupied_tiles
-#if yes, return false, else return true
 
-#func _input(event):
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and preview_tower:
-		#var tower_scene = tower.instantiate()
-		#tower_scene.position = get_global_mouse_position()
-		#preview_tower_scene.get_node("RangeIndicator").visible = false
-		#add_child(tower_scene)
-		#preview_tower = false
-	#elif InputEventMouseMotion and preview_tower:
-		#var local_coords = ground.local_to_map(preview_tower_scene.position)
-		#preview_tower_scene.position = get_global_mouse_position()
-		#var can_place = can_place_tower(local_coords)
-		#if can_place:
-			#preview_tower_scene.get_node("RangeIndicator").modulate = Color(0.0, 1.0, 0.0, 0.2)
-		#else:
-			#preview_tower_scene.get_node("RangeIndicator").modulate = Color(1.0, 0.0, 0.0, 0.2)
-#
-			#
-##		enter key
-		
-	
+#TODO: Manage updates to HUD data in a better way
+func _process(delta):
+	mort_flesh.text = 'Mort Flesh:  ' + str(GameData.mort_flesh)
+
 
 func remove_consecutive_duplicates(path):
 	var cleaned_path = []
@@ -149,6 +116,3 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 				last_direction = 'r'
 				curr_point[1] += 3
 	return path_array
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

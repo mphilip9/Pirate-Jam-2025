@@ -30,6 +30,7 @@ func _input(event):
 		get_parent().add_child(tower_scene) 
 		preview_tower = false
 		can_place = false
+		GameData.mort_flesh -= tower_scene.tower_stats.cost
 #		TODO: Young I need some help in here getting this math right. I'm wingin it here
 #This is essentially marking a 2x2 area of tiles to represent the tower
 		var half_size = Vector2(16, 16)  
@@ -58,8 +59,11 @@ func _on_button_pressed():
 			preview_tower_scene.queue_free()
 			preview_tower = false
 	else:
-		preview_tower = true
 		preview_tower_scene = tower.instantiate()
+		if GameData.mort_flesh < preview_tower_scene.tower_stats.cost:
+			return
+#		TODO: Disable collision stuff on preview towers
+		preview_tower = true
 		preview_tower_scene.position = get_global_mouse_position()
 		preview_tower_scene.modulate.a = .9
 		preview_tower_scene.get_node("RangeIndicator").visible = true
