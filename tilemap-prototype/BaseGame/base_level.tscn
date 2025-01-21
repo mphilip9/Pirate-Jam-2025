@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=30 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
 [ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
-[ext_resource type="Script" path="res://Singletons/game_data.gd" id="11_fplxj"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
@@ -1970,9 +1969,6 @@ texture = SubResource("AtlasTexture_3tncl")
 
 [node name="MortFlesh" type="Label" parent="HUD/GridContainer"]
 layout_mode = 2
-
-[node name="GameData" type="Node2D" parent="."]
-script = ExtResource("11_fplxj")
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
