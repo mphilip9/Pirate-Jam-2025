@@ -19,5 +19,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-func take_damage() :
-	current_health -= 1
+func take_damage(damage) :
+	current_health -= damage

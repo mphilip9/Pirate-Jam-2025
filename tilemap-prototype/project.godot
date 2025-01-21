@@ -27,8 +27,12 @@ window/size/viewport_height=1000
 [file_customization]
 
 folder_colors={
+"res://Assets/": "purple",
+"res://Castle/": "green",
+"res://DifficultyManager/": "gray",
 "res://Enemy/": "red",
-"res://Resources/": "yellow"
+"res://Resources/": "yellow",
+"res://Tower/": "teal"
 }
 
 [rendering]
