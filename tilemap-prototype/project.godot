@@ -24,6 +24,13 @@ GameData="*res://Singletons/game_data.gd"
 window/size/viewport_width=1600
 window/size/viewport_height=1000
 
+[file_customization]
+
+folder_colors={
+"res://Enemy/": "red",
+"res://Resources/": "yellow"
+}
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
