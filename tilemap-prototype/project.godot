@@ -28,10 +28,12 @@ window/size/viewport_height=1000
 
 folder_colors={
 "res://Assets/": "purple",
+"res://BaseGame/": "blue",
 "res://Castle/": "green",
 "res://DifficultyManager/": "gray",
 "res://Enemy/": "red",
 "res://Resources/": "yellow",
+"res://Singletons/": "gray",
 "res://Tower/": "teal"
 }
 

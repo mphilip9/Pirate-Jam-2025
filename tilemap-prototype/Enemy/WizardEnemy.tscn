@@ -271,7 +271,7 @@ stats = ExtResource("2_n7j2o")
 [node name="Body" type="AnimatedSprite2D" parent="Sprite"]
 sprite_frames = SubResource("SpriteFrames_wj6fs")
 animation = &"right"
-frame_progress = 0.865488
+frame_progress = 0.389815
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/Body"]
 libraries = {
