@@ -26,6 +26,7 @@ func _process(delta):
 	else: 
 		current_target = null
 		find_best_target()
+	
 
 #TODO: Consider logic for how to choose which enemy to target
 func find_best_target() -> void:
@@ -54,3 +55,8 @@ func _on_range_body_exited(body):
 	if current_target == body:
 		current_target = null
 		
+		
+		#
+func draw_range():
+	var color = Color(0, 0, 0, 0)
+	draw_circle(Vector2(0,0), 100.0, color)

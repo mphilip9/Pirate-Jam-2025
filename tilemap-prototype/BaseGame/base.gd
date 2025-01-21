@@ -3,9 +3,9 @@ extends Node2D
 @onready var grass = $Maps/Grass
 @onready var ground = $Maps/Ground
 @onready var objects = $Maps/Objects
-const tower = preload("res://Tower/eye_tower.tscn")
-@export var preview_tower = false
-@export var preview_tower_scene: Node2D
+#const tower = preload("res://Tower/eye_tower.tscn")
+#@export var preview_tower = false
+#@export var preview_tower_scene: Node2D
 
 @onready var castle = $Castle
 
@@ -28,7 +28,16 @@ func _ready():
 	# set enenmy path according to the path_cells
 	for i in path_cells :
 		ene_path.curve.add_point(Vector2(i)*16)
-		GameData.occupied_tiles.append(i)
+		var offset_cells = [
+			Vector2i(0,0),
+			Vector2i(1,0),
+			Vector2i(-1, 0),
+			Vector2i(0,1),
+			Vector2i(0,-1)
+		]
+		for offset in offset_cells:
+			GameData.occupied_tiles.append(i + offset)
+
 	ground.set_cells_terrain_path(
 		path_cells, 
 		0,  # same terrain set
@@ -36,35 +45,42 @@ func _ready():
 		 false
 	)
 	
-func can_place_tower(pos) -> bool:
-	var offset_cells = [
-		Vector2i(0,0),
-		Vector2i(1,0),
-		Vector2i(-1, 0),
-		Vector2i(0,1),
-		Vector2i(0,-1)
-	]
-	for offset in offset_cells:
-		var neighbor_cell = pos + offset
-		
-		if GameData.occupied_tiles.find(neighbor_cell) != -1:
-			return false
-	return true
+#func can_place_tower(pos) -> bool:
+	#var offset_cells = [
+		#Vector2i(0,0),
+		#Vector2i(1,0),
+		#Vector2i(-1, 0),
+		#Vector2i(0,1),
+		#Vector2i(0,-1)
+	#]
+	#for offset in offset_cells:
+		#var neighbor_cell = pos + offset
+		#
+		#if GameData.occupied_tiles.find(neighbor_cell) != -1:
+			#return false
+	#return true
 #	Produce coords above and below, right and left of pos
 # Check if any of those coords are in the occupied_tiles
 #if yes, return false, else return true
 
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and preview_tower:
-		var tower_scene = tower.instantiate()
-		tower_scene.position = get_global_mouse_position()
-		var local_coords = ground.local_to_map(tower_scene.position)
-		print(can_place_tower(local_coords))
-		add_child(tower_scene)
-		preview_tower = false
-	elif InputEventMouseMotion and preview_tower:
-		preview_tower_scene.position = get_global_mouse_position()
-#		enter key
+#func _input(event):
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and preview_tower:
+		#var tower_scene = tower.instantiate()
+		#tower_scene.position = get_global_mouse_position()
+		#preview_tower_scene.get_node("RangeIndicator").visible = false
+		#add_child(tower_scene)
+		#preview_tower = false
+	#elif InputEventMouseMotion and preview_tower:
+		#var local_coords = ground.local_to_map(preview_tower_scene.position)
+		#preview_tower_scene.position = get_global_mouse_position()
+		#var can_place = can_place_tower(local_coords)
+		#if can_place:
+			#preview_tower_scene.get_node("RangeIndicator").modulate = Color(0.0, 1.0, 0.0, 0.2)
+		#else:
+			#preview_tower_scene.get_node("RangeIndicator").modulate = Color(1.0, 0.0, 0.0, 0.2)
+#
+			#
+##		enter key
 		
 	
 
@@ -136,14 +152,3 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_button_pressed():
-	if (preview_tower):
-			preview_tower_scene.queue_free()
-			preview_tower = false
-	else:
-		preview_tower = true
-		preview_tower_scene = tower.instantiate()
-		preview_tower_scene.position = get_global_mouse_position()
-		add_child(preview_tower_scene)

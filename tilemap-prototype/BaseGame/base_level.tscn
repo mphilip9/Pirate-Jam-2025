@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bynjxnmtcmkye" path="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn forest (clean).png" id="2_t5sja"]
 [ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="3_ytvyd"]
 [ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
-[ext_resource type="Script" path="res://BaseGame/turret_manger.gd" id="5_mctdo"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
 [ext_resource type="PackedScene" uid="uid://dljjg3m4q3e0u" path="res://Enemy/enemy.tscn" id="7_fvky2"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
+[ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
 [ext_resource type="Script" path="res://Singletons/game_data.gd" id="11_fplxj"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 
@@ -1923,9 +1923,6 @@ tile_set = SubResource("TileSet_507lf")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="TurretManger" type="Node2D" parent="."]
-script = ExtResource("5_mctdo")
-
 [node name="Path2D" type="Path2D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve2D_8bpkv")
 script = ExtResource("6_3vj5o")
@@ -1950,15 +1947,22 @@ spawn_time_curve = SubResource("Curve_lduum")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="HUD"]
-offset_right = 100.0
-offset_bottom = 50.0
-size_flags_horizontal = 4
+[node name="GridContainer" type="GridContainer" parent="HUD"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="HUD/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
 text = "eye"
 
 [node name="GameData" type="Node2D" parent="."]
 script = ExtResource("11_fplxj")
 
+[node name="TowerManager" type="Node2D" parent="."]
+script = ExtResource("11_8vmam")
+
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
-[connection signal="pressed" from="HUD/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HUD/GridContainer/Button" to="TowerManager" method="_on_button_pressed"]
