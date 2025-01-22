@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
 [ext_resource type="Script" path="res://BaseGame/turret_manger.gd" id="5_mctdo"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
-[ext_resource type="PackedScene" uid="uid://cqid37pyhc03a" path="res://Enemy/VampireEnemy.tscn" id="7_mqby1"]
+[ext_resource type="PackedScene" uid="uid://bym23iqvo518t" path="res://Enemy/WizardEnemy.tscn" id="7_asakl"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
 [ext_resource type="Script" path="res://Singletons/game_data.gd" id="11_fplxj"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
@@ -1930,7 +1930,7 @@ script = ExtResource("5_mctdo")
 [node name="Path2D" type="Path2D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve2D_8bpkv")
 script = ExtResource("6_3vj5o")
-enemy_scene = ExtResource("7_mqby1")
+enemy_scene = ExtResource("7_asakl")
 difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Timer" type="Timer" parent="Path2D"]

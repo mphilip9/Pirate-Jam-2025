@@ -2,7 +2,7 @@ class_name Enemy
 extends PathFollow2D
 
 @onready var animation_player: AnimationPlayer = $Sprite/Body/AnimationPlayer
-
+@onready var castle = get_tree().get_first_node_in_group("base")
 @export var stats: EnemyStats
 
 var current_health: int:
@@ -23,8 +23,6 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
-	# need to fix how we reference the castle node just put this for now to prevent crashing
-	var castle = get_node("../../Castle")
 	# progress is the metric the PathFollow3D node uses to track where it is along its parent Path
 	progress += delta * stats.speed
 
@@ -43,7 +41,7 @@ func _process(delta: float) -> void:
 	last_fram_pos = position
 	if progress_ratio == 1.0:
 		print('reached the end')
-		castle.take_damage(1)
+		castle.take_damage(stats.damage)
 		set_process(false)
 		queue_free()
 		
