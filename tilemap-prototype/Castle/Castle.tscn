@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlkb681j8x2vp"]
 
 [ext_resource type="Script" path="res://Castle/castle.gd" id="1_k1fg6"]
-[ext_resource type="Texture2D" uid="uid://dsxwrwqmn0in4" path="res://Assets/VampireProfileWalk/MushroomCastle_.png" id="2_opc00"]
+[ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/VampireProfileWalk/MushroomCastle3.png" id="2_oaqom"]
 
 [node name="Castle" type="Node2D" groups=["base"]]
 script = ExtResource("1_k1fg6")
@@ -15,4 +15,4 @@ text = "health"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_opc00")
+texture = ExtResource("2_oaqom")
