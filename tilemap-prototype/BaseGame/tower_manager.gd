@@ -1,7 +1,7 @@
 extends Node2D
 @onready var ground = $"../Maps/Ground"
 
-const tower = preload("res://Tower/eye_tower.tscn")
+const tower = preload("res://Tower/projectile_tower.tscn")
 @export var preview_tower = false
 @export var preview_tower_scene: Node2D
 var can_place: bool = false
