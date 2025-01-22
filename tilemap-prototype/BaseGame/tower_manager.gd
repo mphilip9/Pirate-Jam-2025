@@ -53,7 +53,8 @@ func _input(event):
 func _process(delta):
 	pass
 
-
+#TODO: Ideally this would be done in a script. We 
+# should generate each button and attach a signal for the different towers
 func _on_button_pressed():
 	if (preview_tower):
 			preview_tower_scene.queue_free()
