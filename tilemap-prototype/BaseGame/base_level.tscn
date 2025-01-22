@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="3_ytvyd"]
 [ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
-[ext_resource type="PackedScene" uid="uid://cqid37pyhc03a" path="res://Enemy/VampireEnemy.tscn" id="7_mqby1"]
+[ext_resource type="PackedScene" uid="uid://bym23iqvo518t" path="res://Enemy/WizardEnemy.tscn" id="7_asakl"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
 [ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
@@ -1931,7 +1931,7 @@ zoom = Vector2(2, 2)
 [node name="Path2D" type="Path2D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve2D_8bpkv")
 script = ExtResource("6_3vj5o")
-enemy_scene = ExtResource("7_mqby1")
+enemy_scene = ExtResource("7_asakl")
 difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Timer" type="Timer" parent="Path2D"]
@@ -1945,7 +1945,7 @@ texture = ExtResource("12_wsm7c")
 
 [node name="Castle" parent="." instance=ExtResource("2_3co8d")]
 z_index = 3
-position = Vector2(337, -16)
+position = Vector2(328, -63)
 
 [node name="DifficultyManager" parent="." instance=ExtResource("8_6sswj")]
 spawn_time_curve = SubResource("Curve_lduum")
