@@ -114,6 +114,8 @@ _data = {
 radius = 14.0
 
 [node name="VampireEnemy" type="PathFollow2D"]
+rotates = false
+loop = false
 script = ExtResource("1_ac685")
 stats = ExtResource("2_2c1ix")
 
