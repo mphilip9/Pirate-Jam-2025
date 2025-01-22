@@ -2,6 +2,7 @@ extends Node2D
 @onready var range_collision_shape = $Range/RangeCollisionShape
 @onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
+@onready var range = $Range
 
 #DO NOT NAME tower_stats, it will throw an error
 @export var tower_stats: TowerStats
@@ -17,6 +18,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Remove monitoring if it is a preview tower to disable collisions
+	# NOTE: We set the Resource in the Inspector to be 'Local to Scene'
+	# TO ensure each copy has a unique resource attached to it. So 
+	# if we edit one, we don't edit all of them
+	if tower_stats.preview:
+		range.monitoring = false
+		return
 	if current_target and is_instance_valid(current_target):
 #		TODO: We could add a check here to also ensure the target is actually still in range
 		projectile_cooldown -= delta
