@@ -60,6 +60,7 @@ func _on_button_pressed():
 			preview_tower = false
 	else:
 		preview_tower_scene = tower.instantiate()
+		preview_tower_scene.tower_stats.preview = true
 		if GameData.mort_flesh < preview_tower_scene.tower_stats.cost:
 			return
 #		TODO: Disable collision stuff on preview towers
