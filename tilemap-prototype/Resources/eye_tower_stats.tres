@@ -4,13 +4,14 @@
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_85be0"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_85be0")
 damage = 50
 speed = 500
 range = 100
 tier = 0
 max_tier = 0
-preview = true
+preview = false
 projectile_scene = ExtResource("1_wvujx")
 rate_of_fire = 0.5
 cost = 50
