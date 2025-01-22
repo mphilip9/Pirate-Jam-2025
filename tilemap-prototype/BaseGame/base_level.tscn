@@ -1944,7 +1944,7 @@ texture = ExtResource("12_wsm7c")
 
 [node name="Castle" parent="." instance=ExtResource("2_3co8d")]
 z_index = 3
-position = Vector2(337, -16)
+position = Vector2(328, -63)
 
 [node name="DifficultyManager" parent="." instance=ExtResource("8_6sswj")]
 spawn_time_curve = SubResource("Curve_lduum")

@@ -16,14 +16,13 @@ func _ready():
 	var path_cells = []
 	
 	# Start and end points
-	var start_x = grass_rect.position.x+2
-	var start_y = grass_rect.position.y + grass_rect.size.y-8
-	var end_x = grass_rect.position.x + grass_rect.size.x -10
-	var end_y = grass_rect.position.y+8
+	var start_x = grass_rect.position.x + 2
+	var start_y = grass_rect.position.y + grass_rect.size.y - 8
+	var end_x = grass_rect.position.x + grass_rect.size.x - 15
+	var end_y = grass_rect.position.y + 8
 	# use easy_mapout function for coordinates
-	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)
+	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)	
 	path_cells = remove_consecutive_duplicates(path_cells)
-	castle.position = Vector2(castle.position.x, (path_cells[-1].y-2.5)*16 )
 	ene_path.curve.clear_points()
 	# set enenmy path according to the path_cells
 	for i in path_cells :
@@ -55,6 +54,8 @@ func can_place_tower(pos) -> bool:
 #if yes, return false, else return true
 
 func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed :
+		print(event.position)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and preview_tower:
 		var tower_scene = tower.instantiate()
 		tower_scene.position = get_global_mouse_position()
@@ -132,6 +133,24 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 					path_array.append(Vector2i(start_x + i, start_y + curr_point[0]))
 				last_direction = 'r'
 				curr_point[1] += 3
+	# connect to the castle path
+	# go 3 to right so that there will be enough space between the road and the castle when vertical line is near
+	for i in range(1, 3) :
+		path_array.append(path_array[-1] + Vector2i(1,0))
+	# the castle entrance is at coord y 1 so check where the y axis is for the road 
+	# if y is bigger than 1 travel down till 1
+	if curr_point[0] + start_y > 1 :
+		for i in range(curr_point[0] + start_y, 0, -1) :
+			path_array.append(Vector2i(curr_point[1] + start_x + 2, i))
+	# if y is smaller than 1 travel up till 1
+	if curr_point[0] +start_y < 1 :
+		for i in range(curr_point[0] + start_y, 2) :
+			path_array.append(Vector2i(curr_point[1] + start_x + 2, i))
+	# move 7 right path to the castle
+	for i in range(1, 7) :
+		path_array.append(path_array[-1] + Vector2i(1,0))
+	# move 1 up to its castle gate
+	path_array.append(path_array[-1] + Vector2i(0,-1))
 	return path_array
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
