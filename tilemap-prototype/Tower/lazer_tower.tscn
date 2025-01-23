@@ -1,0 +1,165 @@
+[gd_scene load_steps=10 format=3 uid="uid://dybk1gq206u22"]
+
+[ext_resource type="Resource" uid="uid://bthvw8ccdd2vs" path="res://Resources/lazer_tower_stats.tres" id="2_1i614"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="2_jhrh3"]
+[ext_resource type="Script" path="res://Tower/range_indicator.gd" id="4_xu6et"]
+
+[sub_resource type="GDScript" id="GDScript_ctwmb"]
+script/source = "extends Node2D
+@onready var range_collision_shape = $Range/RangeCollisionShape
+@onready var timer = $Timer
+@onready var animation_player = $AnimationPlayer
+@onready var range = $Range
+
+#DO NOT NAME tower_stats, it will throw an error
+@export var tower_stats: TowerStats
+var enemy_path: Path2D
+var current_target: CharacterBody2D
+var enemies: Array[CharacterBody2D] = [] 
+var projectile_cooldown: float = 0
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# Remove monitoring if it is a preview tower to disable collisions
+		# NOTE: We set the Resource in the Inspector to be 'Local to Scene'
+		# TO ensure each copy has a unique resource attached to it. So 
+		# if we edit one, we don't edit all of them
+	if tower_stats.preview:
+		range.monitoring = false
+		range.monitorable = false
+		return
+	animation_player.play(\"idle_tower\")
+	range_collision_shape.shape.radius = tower_stats.range
+	projectile_cooldown = tower_stats.rate_of_fire
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if current_target and is_instance_valid(current_target):
+#		TODO: We could add a check here to also ensure the target is actually still in range
+		projectile_cooldown -= delta
+		if projectile_cooldown <= 0:
+			fire(current_target)
+			projectile_cooldown = tower_stats.rate_of_fire
+	else: 
+		current_target = null
+		find_best_target()
+	
+
+#TODO: Consider logic for how to choose which enemy to target
+func find_best_target() -> void:
+	if len(enemies) > 0:
+		current_target = enemies[0]
+#		Remove the enemy from the array so we don't try to add it later
+		enemies.pop_front()
+
+func fire(target: CharacterBody2D):
+	var directions = [
+	Vector2.LEFT,  
+	Vector2.RIGHT,
+	Vector2.UP,   
+	Vector2.DOWN, 
+	]
+	for dir in directions:
+		var projectile = tower_stats.projectile_scene.instantiate()
+		projectile.speed = tower_stats.speed
+		projectile.damage = tower_stats.damage
+		projectile.velocity = dir 
+		if dir == Vector2.UP or dir == Vector2.DOWN:
+			print('up or down')
+			projectile.rotation = PI/2
+		add_child(projectile)
+func _on_range_body_entered(body):
+	#print('body here', body, body.get_parent())
+	#fire(body)
+	if !current_target:
+		current_target = body
+	else:
+		enemies.append(body)
+
+
+func _on_range_body_exited(body):
+	enemies.erase(body)
+	if current_target == body:
+		current_target = null
+		
+		
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uxkh"]
+atlas = ExtResource("2_jhrh3")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="Animation" id="Animation_a3qfh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_axiuw"]
+resource_name = "idle_tower"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yrvb"]
+_data = {
+"RESET": SubResource("Animation_a3qfh"),
+"idle_tower": SubResource("Animation_axiuw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7u1t1"]
+
+[node name="LazerTower" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = SubResource("GDScript_ctwmb")
+tower_stats = ExtResource("2_1i614")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_8uxkh")
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1yrvb")
+}
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="RangeCollisionShape" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_7u1t1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RangeIndicator" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_xu6et")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

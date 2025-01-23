@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwe6poa6tqj87"]
+
+[ext_resource type="Script" path="res://Tower/TowerAttacks/lazer_projectile.gd" id="1_jhh3y"]
+[ext_resource type="Texture2D" uid="uid://bsyptpdsys0n6" path="res://Assets/VampireProfileWalk/lazer.png" id="2_7wuax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eflud"]
+atlas = ExtResource("2_7wuax")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plxnd"]
+atlas = ExtResource("2_7wuax")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shj0j"]
+atlas = ExtResource("2_7wuax")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xneq"]
+atlas = ExtResource("2_7wuax")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phrb0"]
+atlas = ExtResource("2_7wuax")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g5l0"]
+atlas = ExtResource("2_7wuax")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8rp5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eflud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plxnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shj0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xneq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phrb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g5l0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnehw"]
+
+[node name="LazerProjectile" type="CharacterBody2D"]
+modulate = Color(1, 0.164706, 0.12549, 1)
+script = ExtResource("1_jhh3y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8rp5n")
+frame_progress = 0.238338
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_bnehw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
