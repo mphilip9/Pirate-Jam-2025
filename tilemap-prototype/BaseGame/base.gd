@@ -6,7 +6,7 @@ extends Node2D
 #const tower = preload("res://Tower/eye_tower.tscn")
 #@export var preview_tower = false
 #@export var preview_tower_scene: Node2D
-@onready var mort_flesh = $HUD/GridContainer/MortFlesh
+@onready var mort_flesh = $HUD/Store/MortFlesh
 
 @onready var castle = $Castle
 
@@ -33,7 +33,8 @@ func _ready():
 			Vector2i(1,0),
 			Vector2i(-1, 0),
 			Vector2i(0,1),
-			Vector2i(0,-1)
+			Vector2i(0,-1),
+			Vector2i(0, -2)
 		]
 		for offset in offset_cells:
 			GameData.occupied_tiles.append(i + offset)

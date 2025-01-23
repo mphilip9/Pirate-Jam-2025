@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 @export var speed: float = 300.0
@@ -7,6 +8,9 @@ extends CharacterBody2D
 var target
 
 signal projectile_hit()
+
+func _ready():
+	animated_sprite_2d.play('default')
 
 func _physics_process(delta):
 	if not target or !is_instance_valid(target):
