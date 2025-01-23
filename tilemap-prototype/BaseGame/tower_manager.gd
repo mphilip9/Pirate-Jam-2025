@@ -15,7 +15,7 @@ func can_place_tower(pos) -> bool:
 	return true
 	
 # Called when the node enters the scene tree for the first time.
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and can_place:
 		var tower_scene: Node
 		if tower_name == 'projectile':
