@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
 [ext_resource type="PackedScene" uid="uid://bym23iqvo518t" path="res://Enemy/WizardEnemy.tscn" id="7_asakl"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
-[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
 [ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/VampireProfileWalk/MushroomMouthSheet.png" id="11_1pp8o"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
