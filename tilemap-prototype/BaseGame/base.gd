@@ -3,10 +3,6 @@ extends Node2D
 @onready var grass = $Maps/Grass
 @onready var ground = $Maps/Ground
 @onready var objects = $Maps/Objects
-#const tower = preload("res://Tower/eye_tower.tscn")
-#@export var preview_tower = false
-#@export var preview_tower_scene: Node2D
-@onready var mort_flesh = $HUD/PanelContainer/Store/MortFlesh
 
 @onready var castle = $Castle
 

@@ -53,7 +53,7 @@ func _input(event):
 		var local_coords = ground.local_to_map(preview_tower_scene.position)
 		can_place = can_place_tower(local_coords)
 		if can_place:
-			preview_tower_scene.get_node("RangeIndicator").modulate = Color(0.3, 0.3, 0.3, 0.2)
+			preview_tower_scene.get_node("RangeIndicator").modulate = Color(0.3, 0.3, 0.3, 0.4)
 		else:
 			preview_tower_scene.get_node("RangeIndicator").modulate = Color(1.0, 0.0, 0.0, 0.2)
 
