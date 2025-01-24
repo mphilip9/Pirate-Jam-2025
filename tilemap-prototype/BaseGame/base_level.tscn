@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=34 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]

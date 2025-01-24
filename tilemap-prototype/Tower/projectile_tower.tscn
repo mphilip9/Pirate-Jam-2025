@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Tower/projectile_tower.gd" id="1_y6wr5"]
 [ext_resource type="Resource" uid="uid://dqvllxd7wodtb" path="res://Resources/projectile_tower_stats.tres" id="2_8ly02"]
-[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="3_dnggt"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="3_dnggt"]
 [ext_resource type="Script" path="res://Tower/range_indicator.gd" id="4_5yya1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pv7c6"]
