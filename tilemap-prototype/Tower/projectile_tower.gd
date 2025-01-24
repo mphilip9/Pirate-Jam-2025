@@ -30,6 +30,8 @@ func _process(delta):
 #		TODO: We could add a check here to also ensure the target is actually still in range
 		projectile_cooldown -= delta
 		if projectile_cooldown <= 0:
+#			TODO: Would be cool to have the eye closed, and the
+#			play the open animation on fire
 			fire(current_target)
 			projectile_cooldown = tower_stats.rate_of_fire
 	else: 

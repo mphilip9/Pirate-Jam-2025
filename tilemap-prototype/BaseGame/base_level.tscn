@@ -2032,6 +2032,8 @@ button_stats = SubResource("Resource_uhg0h")
 
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer/Store/MortFleshContainer"]
 layout_mode = 2

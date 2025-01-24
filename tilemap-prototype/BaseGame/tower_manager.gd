@@ -1,8 +1,6 @@
 extends Node2D
 @onready var ground = $"../Maps/Ground"
 @onready var mort_flesh = $"../HUD/PanelContainer/Store/MortFleshContainer/MortFlesh"
-@onready var lazer_label = $"../HUD/PanelContainer/Store/TowerButtons/LazerButton/LazerLabel"
-@onready var projectile_label = $"../HUD/PanelContainer/Store/TowerButtons/ProjectileButton/ProjectileLabel"
 
 const projectile_tower = preload("res://Tower/projectile_tower.tscn")
 const lazer_tower = preload("res://Tower/lazer_tower.tscn")
@@ -10,10 +8,7 @@ const towers = {
 	'projectile': preload("res://Tower/projectile_tower.tscn"),
 	'lazer': preload("res://Tower/lazer_tower.tscn"),
 }
-#const tower_data {
-	#'projectile': preload(),
-	#'lazer': preload()
-#}
+
 @export var preview_tower = false
 @export var preview_tower_scene: Node2D
 var can_place: bool = false
@@ -21,7 +16,6 @@ var tower_to_place: String
 
 func _ready():
 	pass
-	#lazer_label.text = towers
 
 func _process(delta):
 	mort_flesh.text = str(GameData.mort_flesh)
