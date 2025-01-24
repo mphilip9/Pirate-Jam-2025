@@ -1,29 +1,27 @@
 extends Node2D
 @onready var ground = $"../Maps/Ground"
 
-const tower = preload("res://Tower/projectile_tower.tscn")
+const projectile_tower = preload("res://Tower/projectile_tower.tscn")
+const lazer_tower = preload("res://Tower/lazer_tower.tscn")
 @export var preview_tower = false
 @export var preview_tower_scene: Node2D
 var can_place: bool = false
+var tower_name: String
 
 func can_place_tower(pos) -> bool:
-	#var offset_cells = [
-		#Vector2i(0,0),
-		#Vector2i(1,0),
-		#Vector2i(-1, 0),
-		#Vector2i(0,1),
-		#Vector2i(0,-1)
-	#]
-	#for offset in offset_cells:
-		#var neighbor_cell = pos + offset
-		#
 	if GameData.occupied_tiles.find(pos) != -1:
 		return false
+		
 	return true
+	
 # Called when the node enters the scene tree for the first time.
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and can_place:
-		var tower_scene = tower.instantiate()
+		var tower_scene: Node
+		if tower_name == 'projectile':
+			tower_scene = projectile_tower.instantiate()
+		else:
+			tower_scene = lazer_tower.instantiate()
 		tower_scene.position = get_global_mouse_position()
 		#preview_tower_scene.get_node("RangeIndicator").visible = false
 		preview_tower_scene.queue_free()
@@ -60,7 +58,26 @@ func _on_button_pressed():
 			preview_tower_scene.queue_free()
 			preview_tower = false
 	else:
-		preview_tower_scene = tower.instantiate()
+		tower_name = 'projectile'
+		preview_tower_scene = projectile_tower.instantiate()
+		preview_tower_scene.tower_stats.preview = true
+		if GameData.mort_flesh < preview_tower_scene.tower_stats.cost:
+			return
+#		TODO: Disable collision stuff on preview towers
+		preview_tower = true
+		preview_tower_scene.position = get_global_mouse_position()
+		preview_tower_scene.modulate.a = .9
+		preview_tower_scene.get_node("RangeIndicator").visible = true
+		get_parent().add_child(preview_tower_scene)
+
+
+func _on_button_2_pressed():
+	if (preview_tower):
+		preview_tower_scene.queue_free()
+		preview_tower = false
+	else:
+		tower_name = 'lazer'
+		preview_tower_scene = lazer_tower.instantiate()
 		preview_tower_scene.tower_stats.preview = true
 		if GameData.mort_flesh < preview_tower_scene.tower_stats.cost:
 			return

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg5yy6xlxv1mo"
-path="res://.godot/imported/MushroomHandGrasp.png-afcecfed8f89518aaf7b9f4cf2a68ece.ctex"
+uid="uid://cw4qqfshdgfpi"
+path="res://.godot/imported/MushroomHeartSheet.png-c2e10e5e3341ca4420a7f3d998913269.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/VampireProfileWalk/MushroomHandGrasp.png"
-dest_files=["res://.godot/imported/MushroomHandGrasp.png-afcecfed8f89518aaf7b9f4cf2a68ece.ctex"]
+source_file="res://Assets/MushroomHeartSheet.png"
+dest_files=["res://.godot/imported/MushroomHeartSheet.png-c2e10e5e3341ca4420a7f3d998913269.ctex"]
 
 [params]
 
