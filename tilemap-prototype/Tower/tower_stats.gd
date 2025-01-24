@@ -10,4 +10,5 @@ extends Resource
 @export var projectile_scene: PackedScene
 @export var rate_of_fire: float
 @export var cost: int
+@export var preview_texture: AtlasTexture
 #@export var preview_sprite
