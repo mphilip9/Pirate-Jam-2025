@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxvc7sv3uiqxn"]
+
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="1_la2ms"]
+[ext_resource type="Script" path="res://BaseGame/tower_button.gd" id="1_vw0ky"]
+[ext_resource type="Resource" uid="uid://bthvw8ccdd2vs" path="res://Resources/lazer_tower_stats.tres" id="2_frs4a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt8as"]
+atlas = ExtResource("1_la2ms")
+region = Rect2(0, 0, 64, 64)
+
+[node name="TowerButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("AtlasTexture_wt8as")
+stretch_mode = 4
+script = ExtResource("1_vw0ky")
+button_stats = ExtResource("2_frs4a")
+
+[node name="TowerButtonLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "---"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+text = "SOme shit about the tower"
+fit_content = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

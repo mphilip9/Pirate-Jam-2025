@@ -41,7 +41,6 @@ func _process(delta: float) -> void:
 
 	last_fram_pos = position
 	if progress_ratio == 1.0:
-		print('reached the end')
 		castle.take_damage(stats.damage)
 		set_process(false)
 		queue_free()

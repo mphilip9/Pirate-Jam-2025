@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Tower/projectile_tower.gd" id="1_y6wr5"]
 [ext_resource type="Resource" uid="uid://dqvllxd7wodtb" path="res://Resources/projectile_tower_stats.tres" id="2_8ly02"]
-[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="3_dnggt"]
-[ext_resource type="Script" path="res://Tower/projectile_tower_control.gd" id="4_g51yj"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="3_dnggt"]
+[ext_resource type="Script" path="res://Tower/range_indicator.gd" id="4_5yya1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pv7c6"]
 atlas = ExtResource("3_dnggt")
@@ -26,7 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_axiuw"]
 resource_name = "idle_tower"
-length = 1.2
+length = 1.3
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -36,10 +36,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1yrvb"]
@@ -51,11 +51,15 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_vptis"]
 
 [node name="ProjectileTower" type="Node2D"]
-scale = Vector2(0.5, 0.5)
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_y6wr5")
 tower_stats = ExtResource("2_8ly02")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_pv7c6")
 hframes = 4
 vframes = 3
@@ -72,9 +76,13 @@ shape = SubResource("CircleShape2D_vptis")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="RangeIndicator" type="Node2D" parent="."]
+[node name="RangeIndicator" type="Control" parent="."]
 visible = false
-script = ExtResource("4_g51yj")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_5yya1")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
