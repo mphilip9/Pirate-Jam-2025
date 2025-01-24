@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://dqvllxd7wodtb"]
 
-[ext_resource type="Texture2D" uid="uid://cdve6gdsc3dg3" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="1_6orn4"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="1_6orn4"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="1_13ply"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_85be0"]
 
