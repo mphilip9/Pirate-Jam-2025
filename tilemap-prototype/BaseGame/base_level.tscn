@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
-[ext_resource type="Texture2D" uid="uid://chxet357k0gx1" path="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn forest (clean).png" id="2_t5sja"]
+[ext_resource type="Texture2D" uid="uid://bxr0cloxtxwow" path="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn forest (clean).png" id="2_t5sja"]
 [ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="3_ytvyd"]
 [ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
