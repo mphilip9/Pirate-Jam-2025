@@ -3,10 +3,6 @@ extends Node2D
 @onready var grass = $Maps/Grass
 @onready var ground = $Maps/Ground
 @onready var objects = $Maps/Objects
-#const tower = preload("res://Tower/eye_tower.tscn")
-#@export var preview_tower = false
-#@export var preview_tower_scene: Node2D
-@onready var mort_flesh = $HUD/Store/MortFlesh
 
 @onready var castle = $Castle
 
@@ -15,7 +11,8 @@ func _ready():
 	var used_grass_cells =grass.get_used_cells()
 	var grass_rect = grass.get_used_rect()
 	var path_cells = []
-	
+	# Clear old occupied tiles
+	GameData.occupied_tiles.clear()
 	# Start and end points
 	var start_x = grass_rect.position.x + 2
 	var start_y = grass_rect.position.y + grass_rect.size.y - 8
@@ -47,9 +44,6 @@ func _ready():
 	)
 
 #TODO: Manage updates to HUD data in a better way
-func _process(delta):
-	mort_flesh.text = 'Mort Flesh:  ' + str(GameData.mort_flesh)
-
 
 func remove_consecutive_duplicates(path):
 	var cleaned_path = []

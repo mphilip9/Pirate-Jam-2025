@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=41 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -9,9 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://bym23iqvo518t" path="res://Enemy/WizardEnemy.tscn" id="7_asakl"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
 [ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
-[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/VampireProfileWalk/MushroomMouthSheet.png" id="11_1pp8o"]
+[ext_resource type="Theme" uid="uid://b7fibqo6coi8w" path="res://Resources/shroom_theme.tres" id="10_adqrw"]
+[ext_resource type="Theme" uid="uid://didgdbq71avnl" path="res://Resources/tower_container_theme.tres" id="10_mv33c"]
+[ext_resource type="PackedScene" uid="uid://dxvc7sv3uiqxn" path="res://BaseGame/tower_button.tscn" id="11_6iy8u"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="12_13vy7"]
+[ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="12_eguuf"]
+[ext_resource type="Texture2D" uid="uid://dww4cbhvnxcp0" path="res://Assets/VampireProfileWalk/VampireProfileWalk - 0.png" id="12_ky2wd"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1901,13 +1908,41 @@ max_value = 2.0
 _data = [Vector2(0, 2), 0.0, -1.25, 0, 1, Vector2(1, 0.75), -1.25, 0.0, 1, 0]
 point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3tncl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
 atlas = ExtResource("10_0lj0n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8umj3"]
-atlas = ExtResource("11_1pp8o")
+[sub_resource type="Resource" id="Resource_cd364"]
+resource_local_to_scene = true
+script = ExtResource("13_qsws5")
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("15_0ya8m")
+rate_of_fire = 0.5
+cost = 50
+preview_texture = SubResource("AtlasTexture_57rqf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
+atlas = ExtResource("12_13vy7")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_uhg0h"]
+resource_local_to_scene = true
+script = ExtResource("13_qsws5")
+damage = 50
+speed = 200
+range = 200
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("12_eguuf")
+rate_of_fire = 1.0
+cost = 100
+preview_texture = SubResource("AtlasTexture_e32yj")
 
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
@@ -1958,39 +1993,62 @@ spawn_time_curve = SubResource("Curve_lduum")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Store" type="GridContainer" parent="HUD"]
-offset_right = 64.0
-offset_bottom = 200.0
+[node name="PanelContainer" type="PanelContainer" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -162.0
+offset_right = 113.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_mv33c")
 
-[node name="Button" type="Button" parent="HUD/Store"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Store" type="GridContainer" parent="HUD/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("10_adqrw")
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Store/Button"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_3tncl")
-
-[node name="Button2" type="Button" parent="HUD/Store"]
-custom_minimum_size = Vector2(64, 64)
+[node name="TowerButtons" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
-size_flags_horizontal = 0
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Store/Button2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_8umj3")
-
-[node name="MortFlesh" type="Label" parent="HUD/Store"]
+[node name="ProjectileContainer" type="PanelContainer" parent="HUD/PanelContainer/Store/TowerButtons"]
 layout_mode = 2
+
+[node name="ProjectileButton" parent="HUD/PanelContainer/Store/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
+layout_mode = 2
+button_stats = SubResource("Resource_cd364")
+
+[node name="LazerContainer" type="PanelContainer" parent="HUD/PanelContainer/Store/TowerButtons"]
+layout_mode = 2
+
+[node name="LazerButton" parent="HUD/PanelContainer/Store/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
+layout_mode = 2
+button_stats = SubResource("Resource_uhg0h")
+
+[node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer/Store/MortFleshContainer"]
+layout_mode = 2
+texture = ExtResource("12_ky2wd")
+expand_mode = 2
+
+[node name="MortFlesh" type="Label" parent="HUD/PanelContainer/Store/MortFleshContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "replace me"
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
-[connection signal="pressed" from="HUD/Store/Button" to="TowerManager" method="_on_button_pressed"]
-[connection signal="pressed" from="HUD/Store/Button2" to="TowerManager" method="_on_button_2_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]

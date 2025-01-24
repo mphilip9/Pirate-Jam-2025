@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="TowerStats" load_steps=3 format=3 uid="uid://dqvllxd7wodtb"]
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://dqvllxd7wodtb"]
 
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="1_6orn4"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="1_13ply"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_85be0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+atlas = ExtResource("1_6orn4")
+region = Rect2(0, 0, 64, 64)
 
 [resource]
 resource_local_to_scene = true
@@ -15,3 +20,4 @@ preview = false
 projectile_scene = ExtResource("1_13ply")
 rate_of_fire = 0.5
 cost = 50
+preview_texture = SubResource("AtlasTexture_57rqf")
