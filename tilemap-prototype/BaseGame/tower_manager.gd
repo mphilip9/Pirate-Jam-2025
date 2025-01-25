@@ -7,6 +7,7 @@ const lazer_tower = preload("res://Tower/lazer_tower.tscn")
 const towers = {
 	'projectile': preload("res://Tower/projectile_tower.tscn"),
 	'lazer': preload("res://Tower/lazer_tower.tscn"),
+	'poison': preload("res://Tower/poison_tower.tscn")
 }
 
 @export var preview_tower = false
@@ -88,3 +89,7 @@ func _on_projectile_button_pressed():
 
 func _on_lazer_button_pressed():
 	handle_tower_button('lazer')
+
+
+func _on_poison_button_pressed():
+	handle_tower_button('poison')

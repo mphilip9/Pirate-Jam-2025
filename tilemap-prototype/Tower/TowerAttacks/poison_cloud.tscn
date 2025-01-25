@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://dxv6u2kl0wno5"]
+
+[ext_resource type="Script" path="res://Tower/TowerAttacks/poison_cloud.gd" id="1_f35f1"]
+[ext_resource type="Texture2D" uid="uid://bkxjhaixdbtrc" path="res://Assets/PoisonCloud.webp" id="2_h31tj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfh51"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tldq"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kvve"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1b6p"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5mgs"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u1ou"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x58bt"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg4m"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy2ds"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p12i2"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_317v2"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwd6b"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk57l"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iedt"]
+atlas = ExtResource("2_h31tj")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uus3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tldq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kvve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1b6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5mgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u1ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x58bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy2ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p12i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_317v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwd6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk57l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iedt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="PoisonCloud" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_f35f1")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_pfh51")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3uus3")
+frame_progress = 0.0840549
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -48,3 +48,4 @@ func _process(delta: float) -> void:
 		
 func take_damage(damage) -> void:
 	current_health -= damage
+	

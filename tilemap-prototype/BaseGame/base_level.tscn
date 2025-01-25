@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=46 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
+[ext_resource type="Texture2D" uid="uid://b7dwyl1qxwa6l" path="res://Assets/MushroomLungs.webp" id="20_40svm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1946,6 +1947,24 @@ rate_of_fire = 1.0
 cost = 100
 preview_texture = SubResource("AtlasTexture_e32yj")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybtlh"]
+atlas = ExtResource("20_40svm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_id5d7"]
+resource_local_to_scene = true
+script = ExtResource("13_qsws5")
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("15_0ya8m")
+rate_of_fire = 0.5
+cost = 50
+preview_texture = SubResource("AtlasTexture_ybtlh")
+
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btitk")
@@ -2032,6 +2051,13 @@ layout_mode = 2
 layout_mode = 2
 button_stats = SubResource("Resource_uhg0h")
 
+[node name="PoisonContainer" type="PanelContainer" parent="HUD/PanelContainer/Store/TowerButtons"]
+layout_mode = 2
+
+[node name="PoisonButton" parent="HUD/PanelContainer/Store/TowerButtons/PoisonContainer" instance=ExtResource("11_6iy8u")]
+layout_mode = 2
+button_stats = SubResource("Resource_id5d7")
+
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2047,7 +2073,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "replace me"
 
-
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
@@ -2055,3 +2080,4 @@ script = ExtResource("11_8vmam")
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/PoisonContainer/PoisonButton" to="TowerManager" method="_on_poison_button_pressed"]

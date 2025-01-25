@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://c1k7vdms6ay5g"]
+
+[ext_resource type="Texture2D" uid="uid://b7dwyl1qxwa6l" path="res://Assets/MushroomLungs.webp" id="1_yg7ri"]
+[ext_resource type="PackedScene" uid="uid://dxv6u2kl0wno5" path="res://Tower/TowerAttacks/poison_cloud.tscn" id="2_81nx5"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_han0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybtlh"]
+atlas = ExtResource("1_yg7ri")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_han0c")
+damage = 50
+speed = 100
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("2_81nx5")
+rate_of_fire = 2.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_ybtlh")
