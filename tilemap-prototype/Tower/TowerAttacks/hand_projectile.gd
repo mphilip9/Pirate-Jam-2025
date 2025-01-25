@@ -27,6 +27,7 @@ func _on_hitbox_body_entered(body):
 	if first_target_hit == false :
 		body.get_parent().take_damage(damage)
 		body.get_parent().crowd_control_slow(200, 1)
+		# comment line 31 out if you wanna see how it is when the projectile is AoE
 		first_target_hit = true
 	else :
 		return
