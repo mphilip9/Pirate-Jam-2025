@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=50 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -20,11 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://dq7ch4bvufyn5" path="res://Enemy/Ogre.tscn" id="11_op0tf"]
 [ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="12_13vy7"]
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="12_eguuf"]
-[ext_resource type="Texture2D" uid="uid://dww4cbhvnxcp0" path="res://Assets/EnemyAssets/Vampire/VampireProfileWalk - 0.png" id="12_ky2wd"]
+[ext_resource type="Texture2D" uid="uid://e5ec8vl47bdw" path="res://Assets/EnemyAssets/Vampire/VampireFinal.png" id="12_ky2wd"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
-[ext_resource type="Texture2D" uid="uid://ckbs0uyr3qwo7" path="res://Assets/VampireProfileWalk/MushroomSpineSheet.png" id="20_wr4r2"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="20_wr4r2"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="21_jg40d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]

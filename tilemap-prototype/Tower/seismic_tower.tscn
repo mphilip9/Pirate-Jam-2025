@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Tower/seismic_tower.gd" id="1_cgyxy"]
 [ext_resource type="Resource" uid="uid://bdp55m4h2h72m" path="res://Resources/seismic_tower_stats.tres" id="2_s1iic"]
-[ext_resource type="Texture2D" uid="uid://ckbs0uyr3qwo7" path="res://Assets/VampireProfileWalk/MushroomSpineSheet.png" id="3_qily2"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="3_qily2"]
 [ext_resource type="Script" path="res://Tower/range_indicator.gd" id="4_we6w1"]
 
 [sub_resource type="Animation" id="Animation_a3qfh"]

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://bdp55m4h2h72m"]
 
-[ext_resource type="Texture2D" uid="uid://ckbs0uyr3qwo7" path="res://Assets/VampireProfileWalk/MushroomSpineSheet.png" id="1_igwfa"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="1_okow6"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="2_pcb0l"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_5nrio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
-atlas = ExtResource("1_igwfa")
+atlas = ExtResource("1_okow6")
 region = Rect2(0, 0, 64, 64)
 
 [resource]

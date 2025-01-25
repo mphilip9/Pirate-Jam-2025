@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b70wc88mt121k"]
 
 [ext_resource type="Script" path="res://Tower/TowerAttacks/seismic_projectile.gd" id="1_4obys"]
-[ext_resource type="Texture2D" uid="uid://yoxt2erf7d5g" path="res://Assets/VampireProfileWalk/Boom.png" id="2_omuec"]
+[ext_resource type="Texture2D" uid="uid://dpasgu4aotlq" path="res://Assets/TowerAssets/Boom.png" id="2_omuec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra2mp"]
 radius = 16.0312
