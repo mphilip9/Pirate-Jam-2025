@@ -25,6 +25,8 @@ func can_place_tower(pos) -> bool:
 		return false
 	return true
 	
+#	NOTE: TROUBLE PLACING TOWER? IF IT HAS A CONTROL NODE ATTACHED, SET THE MOUSE FILTER TO PASS TO ENSURE
+#	IT DOESN'T HANDLE THE EVENT.
 # Called when the node enters the scene tree for the first time.
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and can_place:
