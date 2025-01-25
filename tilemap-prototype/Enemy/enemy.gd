@@ -5,6 +5,9 @@ extends PathFollow2D
 @onready var castle = get_tree().get_first_node_in_group("base")
 @export var stats: EnemyStats
 
+var speed_modifier: float = 1.00
+var speed_cc_frame: int = 0
+
 var current_health: int:
 	set(health_in):
 		if health_in < current_health:
@@ -24,8 +27,14 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	# check cc frame duration deduction one every delta
+	if speed_cc_frame > 0 :
+		speed_cc_frame -= 1
+	# when speed cc frame duration is 0 set modifier to 1.00
+	else :
+		speed_modifier = 1.00
 	# progress is the metric the PathFollow3D node uses to track where it is along its parent Path
-	progress += delta * stats.speed
+	progress += delta * stats.speed * speed_modifier
 
 	# current_health -= 1
 	var diff_vector = position - last_fram_pos
@@ -48,3 +57,8 @@ func _process(delta: float) -> void:
 		
 func take_damage(damage) -> void:
 	current_health -= damage
+
+# when slow cced
+func crowd_control_slow(frame: int, rate: float) -> void:
+	speed_cc_frame = frame
+	speed_modifier = 1.00 - rate
