@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=47 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -21,7 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
-[ext_resource type="Resource" uid="uid://bdp55m4h2h72m" path="res://Resources/seismic_tower_stats.tres" id="21_ei4r4"]
+[ext_resource type="Texture2D" uid="uid://ckbs0uyr3qwo7" path="res://Assets/VampireProfileWalk/MushroomSpineSheet.png" id="20_wr4r2"]
+[ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="21_jg40d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1947,6 +1948,24 @@ rate_of_fire = 1.0
 cost = 100
 preview_texture = SubResource("AtlasTexture_e32yj")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg0no"]
+atlas = ExtResource("20_wr4r2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_ip5fk"]
+resource_local_to_scene = true
+script = ExtResource("13_qsws5")
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("21_jg40d")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_fg0no")
+
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btitk")
@@ -2038,7 +2057,7 @@ layout_mode = 2
 
 [node name="SeismicButton" parent="HUD/PanelContainer/Store/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = ExtResource("21_ei4r4")
+button_stats = SubResource("Resource_ip5fk")
 
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
