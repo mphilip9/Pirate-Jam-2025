@@ -6,3 +6,4 @@ extends Resource
 @export var speed: int
 @export var damage: int
 @export var gold_value: int
+@export var resistance: float
