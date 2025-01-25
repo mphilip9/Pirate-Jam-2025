@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://cxfo8lv2u4h1d"]
+
+[ext_resource type="Texture2D" uid="uid://b8v2kxn3hr4ns" path="res://Assets/VampireProfileWalk/MushroomLungs.png" id="1_rdos8"]
+[ext_resource type="PackedScene" uid="uid://bvf1clj3nwsbu" path="res://Tower/TowerAttacks/gas_projectile.tscn" id="2_48ahk"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_0cfyd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd6vt"]
+atlas = ExtResource("1_rdos8")
+region = Rect2(64, 64, 64, 64)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_0cfyd")
+damage = 100
+speed = 500
+range = 50
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("2_48ahk")
+rate_of_fire = 1.0
+cost = 75
+preview_texture = SubResource("AtlasTexture_rd6vt")

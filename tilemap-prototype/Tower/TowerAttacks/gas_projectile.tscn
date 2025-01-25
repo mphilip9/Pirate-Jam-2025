@@ -1,0 +1,123 @@
+[gd_scene load_steps=18 format=3 uid="uid://bvf1clj3nwsbu"]
+
+[ext_resource type="Script" path="res://Tower/TowerAttacks/gas_projectile.gd" id="1_7ct6k"]
+[ext_resource type="Texture2D" uid="uid://dwl03tskv1s11" path="res://Assets/VampireProfileWalk/PoisonCloud.png" id="2_00wql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra2mp"]
+radius = 16.0312
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw35l"]
+atlas = ExtResource("2_00wql")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_galtm"]
+atlas = ExtResource("2_00wql")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82jmy"]
+atlas = ExtResource("2_00wql")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0bsw"]
+atlas = ExtResource("2_00wql")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yisbe"]
+atlas = ExtResource("2_00wql")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf317"]
+atlas = ExtResource("2_00wql")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef8dx"]
+atlas = ExtResource("2_00wql")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5vm2"]
+atlas = ExtResource("2_00wql")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuw5l"]
+atlas = ExtResource("2_00wql")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndiij"]
+atlas = ExtResource("2_00wql")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ligy"]
+atlas = ExtResource("2_00wql")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg3mk"]
+atlas = ExtResource("2_00wql")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4d7a"]
+atlas = ExtResource("2_00wql")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbuhd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw35l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_galtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82jmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0bsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yisbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf317")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef8dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5vm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuw5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndiij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ligy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg3mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4d7a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="GasProjectile" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_7ct6k")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_ra2mp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dbuhd")
+frame = 12
+frame_progress = 1.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

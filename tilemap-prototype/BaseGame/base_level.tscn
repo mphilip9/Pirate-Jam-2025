@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=48 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
 [ext_resource type="Texture2D" uid="uid://ckbs0uyr3qwo7" path="res://Assets/VampireProfileWalk/MushroomSpineSheet.png" id="20_wr4r2"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="21_jg40d"]
+[ext_resource type="Resource" uid="uid://cxfo8lv2u4h1d" path="res://Resources/gas_tower_stats.tres" id="22_ho377"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2059,6 +2060,13 @@ layout_mode = 2
 layout_mode = 2
 button_stats = SubResource("Resource_ip5fk")
 
+[node name="GasContainer" type="PanelContainer" parent="HUD/PanelContainer/Store/TowerButtons"]
+layout_mode = 2
+
+[node name="GasButton" parent="HUD/PanelContainer/Store/TowerButtons/GasContainer" instance=ExtResource("11_6iy8u")]
+layout_mode = 2
+button_stats = ExtResource("22_ho377")
+
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2082,3 +2090,4 @@ script = ExtResource("11_8vmam")
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/GasContainer/GasButton" to="TowerManager" method="_on_gas_button_pressed"]

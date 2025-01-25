@@ -7,7 +7,7 @@ extends PathFollow2D
 
 var speed_modifier: float = 1.00
 var speed_cc_frame: int = 0
-
+var DoT: Array[int] = [0, 0] # frame duration, damage per frame
 var current_health: int:
 	set(health_in):
 		if health_in < current_health:
@@ -27,6 +27,13 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	#check if DoT
+	if DoT[0] > 0 :
+		current_health -= DoT[1]
+		DoT[0] -= 1
+	# reset DoT counter when all frame was done
+	else :
+		DoT = [0, 0]
 	# check cc frame duration deduction one every delta
 	if speed_cc_frame > 0 :
 		speed_cc_frame -= 1
@@ -57,6 +64,9 @@ func _process(delta: float) -> void:
 		
 func take_damage(damage) -> void:
 	current_health -= damage
+
+func take_damage_over_time(frame: int, damage: int) -> void:
+	DoT = [frame, round(damage/frame)]
 
 # when slow cced
 func crowd_control_slow(frame: int, rate: float) -> void:
