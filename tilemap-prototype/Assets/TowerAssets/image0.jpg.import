@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:tilemap-prototype/Assets/TowerAssets/Boom.png.import
+uid="uid://yoxt2erf7d5g"
+path="res://.godot/imported/Boom.png-1bcdb17cb6fb2372e21174c13f342d78.ctex"
+========
 uid="uid://mbch0s5tngyb"
 path="res://.godot/imported/image0.jpg-04b6f8ceb10b127ab3677f6e0784ddcc.ctex"
+>>>>>>>> main:tilemap-prototype/Assets/TowerAssets/image0.jpg.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:tilemap-prototype/Assets/TowerAssets/Boom.png.import
+source_file="res://Assets/VampireProfileWalk/Boom.png"
+dest_files=["res://.godot/imported/Boom.png-1bcdb17cb6fb2372e21174c13f342d78.ctex"]
+========
 source_file="res://Assets/TowerAssets/image0.jpg"
 dest_files=["res://.godot/imported/image0.jpg-04b6f8ceb10b127ab3677f6e0784ddcc.ctex"]
+>>>>>>>> main:tilemap-prototype/Assets/TowerAssets/image0.jpg.import
 
 [params]
 

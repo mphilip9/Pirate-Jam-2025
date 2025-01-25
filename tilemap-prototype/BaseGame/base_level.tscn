@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=50 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -20,10 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://dq7ch4bvufyn5" path="res://Enemy/Ogre.tscn" id="11_op0tf"]
 [ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="12_13vy7"]
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="12_eguuf"]
-[ext_resource type="Texture2D" uid="uid://dww4cbhvnxcp0" path="res://Assets/EnemyAssets/Vampire/VampireProfileWalk - 0.png" id="12_ky2wd"]
+[ext_resource type="Texture2D" uid="uid://e5ec8vl47bdw" path="res://Assets/EnemyAssets/Vampire/VampireFinal.png" id="12_ky2wd"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="20_wr4r2"]
+[ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="21_jg40d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1949,6 +1951,24 @@ rate_of_fire = 1.0
 cost = 100
 preview_texture = SubResource("AtlasTexture_e32yj")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg0no"]
+atlas = ExtResource("20_wr4r2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_ip5fk"]
+resource_local_to_scene = true
+script = ExtResource("13_qsws5")
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("21_jg40d")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_fg0no")
+
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btitk")
@@ -2035,6 +2055,13 @@ layout_mode = 2
 layout_mode = 2
 button_stats = SubResource("Resource_uhg0h")
 
+[node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/Store/TowerButtons"]
+layout_mode = 2
+
+[node name="SeismicButton" parent="HUD/PanelContainer/Store/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
+layout_mode = 2
+button_stats = SubResource("Resource_ip5fk")
+
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2057,3 +2084,4 @@ script = ExtResource("11_8vmam")
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]

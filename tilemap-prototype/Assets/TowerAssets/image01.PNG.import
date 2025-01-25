@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:tilemap-prototype/Assets/TowerAssets/MushroomSpineSheet.png.import
+uid="uid://ckbs0uyr3qwo7"
+path="res://.godot/imported/MushroomSpineSheet.png-beef65cd52be2be436defff313a05523.ctex"
+========
 uid="uid://cefyloxmk1hjq"
 path="res://.godot/imported/image01.PNG-5de559e86d2f21bd53c832ebad95d497.ctex"
+>>>>>>>> main:tilemap-prototype/Assets/TowerAssets/image01.PNG.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:tilemap-prototype/Assets/TowerAssets/MushroomSpineSheet.png.import
+source_file="res://Assets/VampireProfileWalk/MushroomSpineSheet.png"
+dest_files=["res://.godot/imported/MushroomSpineSheet.png-beef65cd52be2be436defff313a05523.ctex"]
+========
 source_file="res://Assets/TowerAssets/image01.PNG"
 dest_files=["res://.godot/imported/image01.PNG-5de559e86d2f21bd53c832ebad95d497.ctex"]
+>>>>>>>> main:tilemap-prototype/Assets/TowerAssets/image01.PNG.import
 
 [params]
 
