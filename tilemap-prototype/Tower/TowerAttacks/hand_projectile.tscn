@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3ia4hct4jigq"]
+
+[ext_resource type="Script" path="res://Tower/TowerAttacks/hand_projectile.gd" id="1_qc76f"]
+[ext_resource type="Texture2D" uid="uid://bql1bktkqkcpf" path="res://Assets/TowerAssets/FingerSpikes.png" id="2_xamst"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra2mp"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpo1l"]
+atlas = ExtResource("2_xamst")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3di6h"]
+atlas = ExtResource("2_xamst")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyfjn"]
+atlas = ExtResource("2_xamst")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vts5p"]
+atlas = ExtResource("2_xamst")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3117"]
+atlas = ExtResource("2_xamst")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbuhd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpo1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3di6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyfjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vts5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3117")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="handProjectile" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_qc76f")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_ra2mp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dbuhd")
+frame = 4
+frame_progress = 1.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

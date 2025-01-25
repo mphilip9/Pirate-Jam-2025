@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://qv8atrgur5n"]
+
+[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="1_n66rq"]
+[ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="2_b2du8"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_j8aaf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+atlas = ExtResource("1_n66rq")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_j8aaf")
+damage = 2
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("2_b2du8")
+rate_of_fire = 2.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_57rqf")
