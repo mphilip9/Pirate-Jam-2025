@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=44 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
+[ext_resource type="Resource" uid="uid://bdp55m4h2h72m" path="res://Resources/seismic_tower_stats.tres" id="21_ei4r4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2032,6 +2033,13 @@ layout_mode = 2
 layout_mode = 2
 button_stats = SubResource("Resource_uhg0h")
 
+[node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/Store/TowerButtons"]
+layout_mode = 2
+
+[node name="SeismicButton" parent="HUD/PanelContainer/Store/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
+layout_mode = 2
+button_stats = ExtResource("21_ei4r4")
+
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2047,7 +2055,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "replace me"
 
-
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
@@ -2055,3 +2062,4 @@ script = ExtResource("11_8vmam")
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]

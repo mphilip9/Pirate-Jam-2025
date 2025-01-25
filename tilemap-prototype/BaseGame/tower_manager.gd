@@ -4,9 +4,11 @@ extends Node2D
 
 const projectile_tower = preload("res://Tower/projectile_tower.tscn")
 const lazer_tower = preload("res://Tower/lazer_tower.tscn")
+
 const towers = {
 	'projectile': preload("res://Tower/projectile_tower.tscn"),
 	'lazer': preload("res://Tower/lazer_tower.tscn"),
+	'seismic': preload("res://Tower/seismic_tower.tscn")
 }
 
 @export var preview_tower = false
@@ -86,3 +88,7 @@ func _on_projectile_button_pressed():
 
 func _on_lazer_button_pressed():
 	handle_tower_button('lazer')
+
+
+func _on_seismic_button_pressed() -> void:
+	handle_tower_button('seismic')
