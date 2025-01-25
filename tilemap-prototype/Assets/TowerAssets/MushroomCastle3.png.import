@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mbch0s5tngyb"
-path="res://.godot/imported/image0.jpg-1b3c1e320cc169629e1c19f99b8b5c66.ctex"
+uid="uid://bxvsl27mvmawk"
+path="res://.godot/imported/MushroomCastle3.png-8f5e98228e282963aaff7a462684ba09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/VampireProfileWalk/image0.jpg"
-dest_files=["res://.godot/imported/image0.jpg-1b3c1e320cc169629e1c19f99b8b5c66.ctex"]
+source_file="res://Assets/TowerAssets/MushroomCastle3.png"
+dest_files=["res://.godot/imported/MushroomCastle3.png-8f5e98228e282963aaff7a462684ba09.ctex"]
 
 [params]
 

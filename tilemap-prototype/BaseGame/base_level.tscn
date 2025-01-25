@@ -1,23 +1,26 @@
-[gd_scene load_steps=41 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=46 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
 [ext_resource type="Texture2D" uid="uid://bxr0cloxtxwow" path="res://Assets/20.06a - Autumn Forest 4.1/autumn sheets/autumn forest (clean).png" id="2_t5sja"]
 [ext_resource type="Texture2D" uid="uid://dch6fg6fvfc8d" path="res://Assets/FREE Mana Seed Character Base Demo/char_a_p1/char_a_p1_0bas_humn_v01.png" id="3_ytvyd"]
 [ext_resource type="Texture2D" uid="uid://dylqhal666ag6" path="res://Assets/20.04c - Summer Forest 4.2/summer sheets/summer forest wang tiles.png" id="4_il2ei"]
-[ext_resource type="PackedScene" uid="uid://dljjg3m4q3e0u" path="res://Enemy/NakedEnemy.tscn" id="6_1dgm3"]
+[ext_resource type="PackedScene" uid="uid://dljjg3m4q3e0u" path="res://Enemy/Farmer.tscn" id="6_1dgm3"]
 [ext_resource type="Script" path="res://BaseGame/path_2d.gd" id="6_3vj5o"]
-[ext_resource type="PackedScene" uid="uid://bym23iqvo518t" path="res://Enemy/WizardEnemy.tscn" id="7_asakl"]
-[ext_resource type="PackedScene" uid="uid://cqid37pyhc03a" path="res://Enemy/VampireEnemy.tscn" id="7_yv2kq"]
+[ext_resource type="PackedScene" uid="uid://bym23iqvo518t" path="res://Enemy/Wizard.tscn" id="7_asakl"]
+[ext_resource type="PackedScene" uid="uid://cqid37pyhc03a" path="res://Enemy/Vampire.tscn" id="7_yv2kq"]
 [ext_resource type="PackedScene" uid="uid://b88c3286vg7wa" path="res://DifficultyManager/difficulty_manager.tscn" id="8_6sswj"]
-[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
+[ext_resource type="PackedScene" uid="uid://csoyt0mi02r12" path="res://Enemy/Devil.tscn" id="9_0ra5j"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="10_0lj0n"]
 [ext_resource type="Theme" uid="uid://b7fibqo6coi8w" path="res://Resources/shroom_theme.tres" id="10_adqrw"]
 [ext_resource type="Theme" uid="uid://didgdbq71avnl" path="res://Resources/tower_container_theme.tres" id="10_mv33c"]
+[ext_resource type="PackedScene" uid="uid://ctprdlybd0ny7" path="res://Enemy/Knight.tscn" id="10_rtp7h"]
 [ext_resource type="PackedScene" uid="uid://dxvc7sv3uiqxn" path="res://BaseGame/tower_button.tscn" id="11_6iy8u"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
+[ext_resource type="PackedScene" uid="uid://dq7ch4bvufyn5" path="res://Enemy/Ogre.tscn" id="11_op0tf"]
 [ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="12_13vy7"]
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="12_eguuf"]
-[ext_resource type="Texture2D" uid="uid://dww4cbhvnxcp0" path="res://Assets/VampireProfileWalk/VampireProfileWalk - 0.png" id="12_ky2wd"]
+[ext_resource type="Texture2D" uid="uid://dww4cbhvnxcp0" path="res://Assets/EnemyAssets/Vampire/VampireProfileWalk - 0.png" id="12_ky2wd"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
@@ -1975,7 +1978,7 @@ zoom = Vector2(2, 2)
 curve = SubResource("Curve2D_8bpkv")
 script = ExtResource("6_3vj5o")
 difficulty_manager = NodePath("../DifficultyManager")
-enemies_array = Array[PackedScene]([ExtResource("6_1dgm3"), ExtResource("7_yv2kq"), ExtResource("7_asakl")])
+enemies_array = Array[PackedScene]([ExtResource("6_1dgm3"), ExtResource("7_yv2kq"), ExtResource("7_asakl"), ExtResource("9_0ra5j"), ExtResource("10_rtp7h"), ExtResource("11_op0tf")])
 
 [node name="Timer" type="Timer" parent="Path2D"]
 wait_time = 2.0
@@ -2046,7 +2049,6 @@ expand_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "replace me"
-
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")

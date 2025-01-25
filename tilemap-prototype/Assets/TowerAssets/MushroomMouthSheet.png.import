@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4bcw3uo2k40o"
-path="res://.godot/imported/InventoryRect.png-e7257c8316794bb079e85350717950c2.ctex"
+uid="uid://cmk4op0ebe8v1"
+path="res://.godot/imported/MushroomMouthSheet.png-ad9b69906e270b63bbfe3b1107d6faf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/VampireProfileWalk/InventoryRect.png"
-dest_files=["res://.godot/imported/InventoryRect.png-e7257c8316794bb079e85350717950c2.ctex"]
+source_file="res://Assets/TowerAssets/MushroomMouthSheet.png"
+dest_files=["res://.godot/imported/MushroomMouthSheet.png-ad9b69906e270b63bbfe3b1107d6faf6.ctex"]
 
 [params]
 

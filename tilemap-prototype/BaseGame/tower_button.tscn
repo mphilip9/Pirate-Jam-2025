@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxvc7sv3uiqxn"]
 
-[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/VampireProfileWalk/MushroomEyeBlinkSheet.png" id="1_la2ms"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="1_la2ms"]
 [ext_resource type="Script" path="res://BaseGame/tower_button.gd" id="1_vw0ky"]
 [ext_resource type="Resource" uid="uid://bthvw8ccdd2vs" path="res://Resources/lazer_tower_stats.tres" id="2_frs4a"]
 

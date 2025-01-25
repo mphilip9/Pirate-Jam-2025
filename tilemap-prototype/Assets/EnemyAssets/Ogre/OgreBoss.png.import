@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsxwrwqmn0in4"
-path="res://.godot/imported/MushroomCastle_.png-b356dd8bf1c3f440d4ee155f0fc60985.ctex"
+uid="uid://cl0hwwuq5pu7g"
+path="res://.godot/imported/OgreBoss.png-fee4180f65345318c87c8ebbc6d9cb4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/VampireProfileWalk/MushroomCastle_.png"
-dest_files=["res://.godot/imported/MushroomCastle_.png-b356dd8bf1c3f440d4ee155f0fc60985.ctex"]
+source_file="res://Assets/EnemyAssets/Ogre/OgreBoss.png"
+dest_files=["res://.godot/imported/OgreBoss.png-fee4180f65345318c87c8ebbc6d9cb4f.ctex"]
 
 [params]
 

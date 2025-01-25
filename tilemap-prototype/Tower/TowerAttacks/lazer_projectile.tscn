@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cwe6poa6tqj87"]
 
 [ext_resource type="Script" path="res://Tower/TowerAttacks/lazer_projectile.gd" id="1_jhh3y"]
-[ext_resource type="Texture2D" uid="uid://bsyptpdsys0n6" path="res://Assets/VampireProfileWalk/lazer.png" id="2_7wuax"]
+[ext_resource type="Texture2D" uid="uid://bsyptpdsys0n6" path="res://Assets/TowerAssets/lazer.png" id="2_7wuax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eflud"]
 atlas = ExtResource("2_7wuax")

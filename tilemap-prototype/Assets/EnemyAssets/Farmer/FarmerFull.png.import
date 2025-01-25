@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmk4op0ebe8v1"
-path="res://.godot/imported/MushroomMouthSheet.png-e89eb8f9c6dfa51ddb6454f1ac159cd2.ctex"
+uid="uid://cdxxby1q1y0nb"
+path="res://.godot/imported/FarmerFull.png-9d41258fdc1dc08086473a0aa0036879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/VampireProfileWalk/MushroomMouthSheet.png"
-dest_files=["res://.godot/imported/MushroomMouthSheet.png-e89eb8f9c6dfa51ddb6454f1ac159cd2.ctex"]
+source_file="res://Assets/EnemyAssets/Farmer/FarmerFull.png"
+dest_files=["res://.godot/imported/FarmerFull.png-9d41258fdc1dc08086473a0aa0036879.ctex"]
 
 [params]
 

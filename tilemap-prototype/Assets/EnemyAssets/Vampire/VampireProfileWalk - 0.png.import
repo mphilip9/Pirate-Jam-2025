@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buidda5fi3r4t"
-path="res://.godot/imported/VampireProfileWalk - 4.png-244cd22b1f4b686035094c1fe7e3fa46.ctex"
+uid="uid://dww4cbhvnxcp0"
+path="res://.godot/imported/VampireProfileWalk - 0.png-efcf3c0a7a0c64229af4ef7ca956be44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/VampireProfileWalk/VampireProfileWalk - 4.png"
-dest_files=["res://.godot/imported/VampireProfileWalk - 4.png-244cd22b1f4b686035094c1fe7e3fa46.ctex"]
+source_file="res://Assets/EnemyAssets/Vampire/VampireProfileWalk - 0.png"
+dest_files=["res://.godot/imported/VampireProfileWalk - 0.png-efcf3c0a7a0c64229af4ef7ca956be44.ctex"]
 
 [params]
 
