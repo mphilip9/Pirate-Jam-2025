@@ -61,7 +61,8 @@ script = ExtResource("1_jhh3y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8rp5n")
-frame_progress = 0.238338
+frame = 1
+frame_progress = 0.960881
 
 [node name="Hitbox" type="Area2D" parent="."]
 

@@ -5,6 +5,10 @@ extends Node2D
 @onready var objects = $Maps/Objects
 
 @onready var castle = $Castle
+#Passing in container to toggle visibility depending on unlocked or not
+@onready var lazer_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer
+@onready var seismic_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer
+@onready var hand_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer
 
 # Called when the node enters the scene tree  for the first time.
 func _ready():
@@ -43,6 +47,11 @@ func _ready():
 		0,       # the "ground" terrain
 		 false
 	)
+#	Toggle tower visibility for locked towers
+	lazer_container.visible = toggle_tower_btn_visibility('lazer')
+	seismic_container.visible = toggle_tower_btn_visibility('seismic')
+	hand_container.visible = toggle_tower_btn_visibility('hand')
+	
 
 #TODO: Manage updates to HUD data in a better way
 
@@ -129,6 +138,11 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 	# move 1 up to its castle gate
 	path_array.append(path_array[-1] + Vector2i(0,-1))
 	return path_array
+
+func toggle_tower_btn_visibility(type):
+	if !GameData.tower_store[type].unlocked:
+		return false
+	return true
 
 
 func _on_play_pause_button_toggled(toggled_on: bool) -> void:
