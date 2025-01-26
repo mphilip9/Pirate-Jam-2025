@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://drgmi3dr4dx7n"]
+
+[ext_resource type="Texture2D" uid="uid://b2skwblqmmrhg" path="res://Assets/UIassets/PlayPauseButton.png" id="1_8ovsv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrxyf"]
+atlas = ExtResource("1_8ovsv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h2ar"]
+atlas = ExtResource("1_8ovsv")
+region = Rect2(0, 64, 64, 64)
+
+[node name="PlayPauseButton" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_yrxyf")
+texture_pressed = SubResource("AtlasTexture_2h2ar")
