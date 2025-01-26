@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://wadp6y2kiyts"]
+
+[ext_resource type="Script" path="res://Tower/TowerAttacks/lung_projectile.gd" id="1_wbavt"]
+[ext_resource type="Texture2D" uid="uid://d32f5kjyudy54" path="res://Assets/TowerAssets/Smokewave.png" id="2_j14go"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra2mp"]
+radius = 16.0312
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl167"]
+atlas = ExtResource("2_j14go")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iq4x"]
+atlas = ExtResource("2_j14go")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41tnh"]
+atlas = ExtResource("2_j14go")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkfq4"]
+atlas = ExtResource("2_j14go")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esvvq"]
+atlas = ExtResource("2_j14go")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up808"]
+atlas = ExtResource("2_j14go")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvcko"]
+atlas = ExtResource("2_j14go")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxryy"]
+atlas = ExtResource("2_j14go")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdn8v"]
+atlas = ExtResource("2_j14go")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1ucl"]
+atlas = ExtResource("2_j14go")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fvtc"]
+atlas = ExtResource("2_j14go")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tojw7"]
+atlas = ExtResource("2_j14go")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcmov"]
+atlas = ExtResource("2_j14go")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbbwu"]
+atlas = ExtResource("2_j14go")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f73yg"]
+atlas = ExtResource("2_j14go")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t01tg"]
+atlas = ExtResource("2_j14go")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbuhd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl167")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iq4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41tnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkfq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esvvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up808")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvcko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxryy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdn8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1ucl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fvtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tojw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcmov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbbwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f73yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t01tg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LungProjectile" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_wbavt")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_ra2mp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.8125, 1.8125)
+sprite_frames = SubResource("SpriteFrames_dbuhd")
+frame = 15
+frame_progress = 1.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

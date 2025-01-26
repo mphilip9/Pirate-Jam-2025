@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://b2252vlho0bhn"]
+
+[ext_resource type="Texture2D" uid="uid://bts8xonc18k4a" path="res://Assets/TowerAssets/MushroomLungs.png" id="1_yt8mh"]
+[ext_resource type="PackedScene" uid="uid://wadp6y2kiyts" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="2_61ya4"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_1pd4e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdsc2"]
+atlas = ExtResource("1_yt8mh")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_1pd4e")
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("2_61ya4")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_fdsc2")
