@@ -25,7 +25,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 2.5, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/1/type = "bezier"
@@ -36,7 +36,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 2.5, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/2/type = "bezier"
@@ -47,7 +47,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 2.25, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/3/type = "bezier"
@@ -58,7 +58,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 2.25, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.21875, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/4/type = "bezier"
@@ -470,61 +470,63 @@ text = "Quit
 position = Vector2(1696, 266)
 scale = Vector2(1.21875, 1.21875)
 color = Color(1, 0.717647, 0.223529, 1)
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(1572, 307)
 scale = Vector2(1.21875, 1.21875)
 color = Color(1, 0.717647, 0.223529, 1)
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(1511, 235)
 scale = Vector2(0.834376, 0.834376)
 color = Color(1, 0.717647, 0.223529, 1)
-energy = 1.25
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D4" type="PointLight2D" parent="."]
 position = Vector2(1546, 235)
 scale = Vector2(0.834376, 0.834376)
 color = Color(1, 0.717647, 0.223529, 1)
-energy = 1.25
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D5" type="PointLight2D" parent="."]
 position = Vector2(1578, 235)
 scale = Vector2(0.834376, 0.834376)
 color = Color(1, 0.717647, 0.223529, 1)
-energy = 1.25
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D6" type="PointLight2D" parent="."]
 position = Vector2(1613, 235)
 scale = Vector2(0.834376, 0.834376)
 color = Color(1, 0.717647, 0.223529, 1)
-energy = 1.25
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D7" type="PointLight2D" parent="."]
 position = Vector2(1646, 235)
 scale = Vector2(0.834376, 0.834376)
 color = Color(1, 0.717647, 0.223529, 1)
-energy = 1.25
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D8" type="PointLight2D" parent="."]
 position = Vector2(1521, 152)
 scale = Vector2(0.834376, 0.834376)
 color = Color(1, 0.717647, 0.223529, 1)
-energy = 1.25
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="PointLight2D9" type="PointLight2D" parent="."]
 position = Vector2(1556, 152)
 scale = Vector2(0.834376, 0.834376)
 color = Color(1, 0.717647, 0.223529, 1)
-energy = 1.25
+energy = 1.75
 texture = SubResource("GradientTexture2D_33btk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
