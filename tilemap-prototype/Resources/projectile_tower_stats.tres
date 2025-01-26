@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="1_uy76q"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_85be0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("1_uy76q")
 region = Rect2(0, 0, 64, 64)
 
@@ -12,6 +12,7 @@ region = Rect2(0, 0, 64, 64)
 resource_local_to_scene = true
 script = ExtResource("2_85be0")
 name = "projectile"
+info = "Shoots deadly mushroom spores."
 damage = 50
 speed = 500
 range = 100
@@ -21,4 +22,4 @@ preview = false
 projectile_scene = ExtResource("1_13ply")
 rate_of_fire = 0.5
 cost = 50
-preview_texture = SubResource("AtlasTexture_57rqf")
+preview_texture = SubResource("AtlasTexture_h7yar")

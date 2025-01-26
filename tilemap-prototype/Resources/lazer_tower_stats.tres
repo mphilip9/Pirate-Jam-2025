@@ -1,17 +1,18 @@
 [gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://bthvw8ccdd2vs"]
 
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="1_8h63l"]
-[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="1_wher3"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/TowerAssets/MushroomHeartSheet.png" id="1_h2aib"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="2_q1g1t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
-atlas = ExtResource("1_wher3")
+atlas = ExtResource("1_h2aib")
 region = Rect2(0, 0, 64, 64)
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_q1g1t")
 name = "lazer"
+info = "A heart that shoots lasers of blood."
 damage = 50
 speed = 200
 range = 200

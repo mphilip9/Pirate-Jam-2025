@@ -22,6 +22,7 @@ func _process(delta):
 		disabled = true
 		cost.text = ''
 	else:
+		disabled = false
 		modulate = Color(1,1,1,1)
 		cost.text = str(selected_tower.cost * multiplier)
 		# Set it to the non upgraded color or whatever

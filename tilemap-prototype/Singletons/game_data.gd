@@ -34,8 +34,16 @@ extends Node2D
 			"rate_of_fire": false,
 		},
 	},
+	'hand': {
+		"unlocked": false,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+	},
 }
-
+#Use this to calculate the price in the store
 @export var upgrade_cost_multiplier = {
 	"range": 2,
 	"damage": 2,

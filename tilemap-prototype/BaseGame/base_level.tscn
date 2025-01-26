@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dxvc7sv3uiqxn" path="res://BaseGame/tower_button.tscn" id="11_6iy8u"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
 [ext_resource type="PackedScene" uid="uid://dq7ch4bvufyn5" path="res://Enemy/Ogre.tscn" id="11_op0tf"]
-[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="12_13vy7"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/TowerAssets/MushroomHeartSheet.png" id="12_13vy7"]
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="12_eguuf"]
 [ext_resource type="Texture2D" uid="uid://cxllf6qigetqk" path="res://Assets/FREE Mana Seed Character Base Demo/guides/animations, page 1.png" id="12_wsm7c"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
@@ -1921,10 +1921,11 @@ point_count = 2
 atlas = ExtResource("10_0lj0n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_cd364"]
+[sub_resource type="Resource" id="Resource_t12fw"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
 name = ""
+info = ""
 damage = 50
 speed = 500
 range = 100
@@ -1940,10 +1941,11 @@ preview_texture = SubResource("AtlasTexture_57rqf")
 atlas = ExtResource("12_13vy7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_uhg0h"]
+[sub_resource type="Resource" id="Resource_ndmpw"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
 name = ""
+info = ""
 damage = 50
 speed = 200
 range = 200
@@ -1959,10 +1961,11 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("20_wr4r2")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_ip5fk"]
+[sub_resource type="Resource" id="Resource_eiupx"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
 name = ""
+info = ""
 damage = 50
 speed = 500
 range = 100
@@ -1978,10 +1981,11 @@ preview_texture = SubResource("AtlasTexture_fg0no")
 atlas = ExtResource("25_do2tc")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_u8sln"]
+[sub_resource type="Resource" id="Resource_a4t5u"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
 name = ""
+info = ""
 damage = 2
 speed = 500
 range = 100
@@ -2070,28 +2074,28 @@ layout_mode = 2
 
 [node name="ProjectileButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_cd364")
+button_stats = SubResource("Resource_t12fw")
 
 [node name="LazerContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="LazerButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_uhg0h")
+button_stats = SubResource("Resource_ndmpw")
 
 [node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="SeismicButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_ip5fk")
+button_stats = SubResource("Resource_eiupx")
 
 [node name="HandContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="HandButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_u8sln")
+button_stats = SubResource("Resource_a4t5u")
 
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/ManagerHUD"]
 layout_mode = 2

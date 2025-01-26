@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://g3ptffd3pae4"]
+[gd_scene load_steps=32 format=3 uid="uid://g3ptffd3pae4"]
 
 [ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
 [ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/TowerAssets/MushroomCastle3.png" id="1_u65ta"]
@@ -10,33 +10,119 @@
 [ext_resource type="Theme" uid="uid://bfvevb3dfhrfh" path="res://Themes/tower_button_theme.tres" id="5_nnblm"]
 [ext_resource type="Theme" uid="uid://klbhwu4a07n4" path="res://Themes/proceed_button_theme.tres" id="6_4imqe"]
 [ext_resource type="PackedScene" uid="uid://bxi83868aaha" path="res://UI/store_tower_button.tscn" id="8_1yq66"]
-[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="9_fr503"]
-[ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="10_dqir1"]
-[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="11_3nxdj"]
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="10_7lk31"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/TowerAssets/MushroomHeartSheet.png" id="10_boybp"]
+[ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="11_kqeew"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="12_yv8y7"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="13_5f0uv"]
 [ext_resource type="PackedScene" uid="uid://btnjdo05madx8" path="res://UI/upgrade_button.tscn" id="13_vmq8l"]
+[ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="14_t224k"]
+[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="15_eyhw4"]
+[ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="16_1dte5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjw14"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("3_nwie7")
 region = Rect2(0, 0, 64, 64)
 
+[sub_resource type="Resource" id="Resource_mqwgc"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "projectile"
+info = "Shotos deadly mushroom spores."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("10_7lk31")
+rate_of_fire = 0.5
+cost = 50
+preview_texture = SubResource("AtlasTexture_h7yar")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
-atlas = ExtResource("9_fr503")
+atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_mptyu"]
+[sub_resource type="Resource" id="Resource_w2onh"]
 resource_local_to_scene = true
-script = ExtResource("11_3nxdj")
+script = ExtResource("12_yv8y7")
 name = "lazer"
+info = "A heart that shoots lasers of blood."
 damage = 50
 speed = 200
 range = 200
 tier = 0
 max_tier = 0
 preview = false
-projectile_scene = ExtResource("10_dqir1")
+projectile_scene = ExtResource("11_kqeew")
 rate_of_fire = 1.0
 cost = 100
 preview_texture = SubResource("AtlasTexture_e32yj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+atlas = ExtResource("13_5f0uv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_6guov"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "seismic"
+info = "Produces earth quakes that slow and damage enemies."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("14_t224k")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_57rqf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
+atlas = ExtResource("15_eyhw4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_u74ww"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "hand"
+info = "Shoors claw-like spikes from underneath enemies to hold them in place. Low damage"
+damage = 2
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("16_1dte5")
+rate_of_fire = 2.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_1enov")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjw14"]
+atlas = ExtResource("3_nwie7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pco68"]
+atlas = ExtResource("10_boybp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_6crkc"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "lazer"
+info = ""
+damage = 50
+speed = 200
+range = 200
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("11_kqeew")
+rate_of_fire = 1.0
+cost = 100
+preview_texture = SubResource("AtlasTexture_pco68")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7or1g"]
 atlas = ExtResource("3_nwie7")
@@ -151,90 +237,65 @@ size_flags_vertical = 4
 theme = ExtResource("5_nnblm")
 columns = 3
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
+store_button_stats = SubResource("Resource_mqwgc")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_pjw14")
-
-[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
+store_button_stats = SubResource("Resource_w2onh")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_pjw14")
-
-[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
+store_button_stats = SubResource("Resource_6guov")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_pjw14")
-
-[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
+store_button_stats = SubResource("Resource_u74ww")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button4"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_pjw14")
-
-[node name="Button5" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button5"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_pjw14")
-
-[node name="Button6" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button6"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_pjw14")
-
-[node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
-layout_mode = 2
-store_button_stats = SubResource("Resource_mptyu")
-
-[node name="UpgradeButContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+[node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="RangeButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeButContainer" instance=ExtResource("13_vmq8l")]
+[node name="RangeButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer" instance=ExtResource("13_vmq8l")]
 layout_mode = 2
 
-[node name="DamageButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeButContainer" instance=ExtResource("13_vmq8l")]
+[node name="DamageButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer" instance=ExtResource("13_vmq8l")]
 layout_mode = 2
 text = "Damage"
 upgrade_btn_type = "damage"
 
-[node name="RofButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeButContainer" instance=ExtResource("13_vmq8l")]
+[node name="RofButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer" instance=ExtResource("13_vmq8l")]
 layout_mode = 2
 text = "ROF"
 upgrade_btn_type = "rate_of_fire"
 
+[node name="UnlockContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="UnlockCost" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Unlock"
+
+[node name="NothingSelected" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Select a tower to unlock or upgrade"
+
 [node name="TowerUnlock" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock"]
@@ -297,12 +358,18 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_pjw14")
 
+[node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = SubResource("Resource_6crkc")
+is_lock_btn = true
+
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Unlock"
 
 [node name="TowerDetails" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails"]
@@ -319,8 +386,10 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer"]
+[node name="TowerDetailsImage" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -331,23 +400,31 @@ stretch_mode = 4
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Eye Tower"
+uppercase = true
 
 [node name="TowerInfoBlurb" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "Blurb about the tower"
+size_flags_horizontal = 4
+text = "Blurb about the tower. But what happends whe n it get slong..."
+autowrap_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="ProceedOrQuit" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 100
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="ProceedButton" type="Button" parent="PanelContainer/VBoxContainer/ProceedOrQuit"]
 layout_mode = 2
 theme = ExtResource("6_4imqe")
 text = "Proceed
 "
 
-[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer/ProceedOrQuit"]
 layout_direction = 3
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton" to="." method="_on_unlock_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ProceedOrQuit/ProceedButton" to="." method="_on_proceed_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ProceedOrQuit/QuitButton" to="." method="_on_quit_button_pressed"]

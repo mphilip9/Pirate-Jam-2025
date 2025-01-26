@@ -1,19 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj7r8a7nhf5u"]
+[gd_scene load_steps=21 format=3 uid="uid://dj7r8a7nhf5u"]
 
 [ext_resource type="PackedScene" uid="uid://g3ptffd3pae4" path="res://UI/tower_store.tscn" id="1_l8a17"]
-[ext_resource type="Theme" uid="uid://b2ycmtth6b4ht" path="res://Themes/quit_button_theme.tres" id="2_bvwk2"]
-[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="2_g7dhj"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/TowerAssets/MushroomHeartSheet.png" id="2_g7dhj"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="2_vppus"]
+[ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="3_3s6hp"]
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="3_362r0"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="4_esekj"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="5_4tdko"]
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="6_t5okm"]
+[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="7_qw08x"]
+[ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="8_a64kr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
+atlas = ExtResource("5_4tdko")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_5tp8x"]
+resource_local_to_scene = true
+script = ExtResource("4_esekj")
+name = "projectile"
+info = "Shotos deadly mushroom spores."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("6_t5okm")
+rate_of_fire = 0.5
+cost = 50
+preview_texture = SubResource("AtlasTexture_h7yar")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
 atlas = ExtResource("2_g7dhj")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_sdr3l"]
+[sub_resource type="Resource" id="Resource_jcral"]
 resource_local_to_scene = true
 script = ExtResource("4_esekj")
-name = ""
+name = "lazer"
+info = "A heart that shoots lasers of blood."
 damage = 50
 speed = 200
 range = 200
@@ -24,6 +50,66 @@ projectile_scene = ExtResource("3_362r0")
 rate_of_fire = 1.0
 cost = 100
 preview_texture = SubResource("AtlasTexture_e32yj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+atlas = ExtResource("2_vppus")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_omief"]
+resource_local_to_scene = true
+script = ExtResource("4_esekj")
+name = "seismic"
+info = "Produces earth quakes that slow and damage enemies."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("3_3s6hp")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_57rqf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
+atlas = ExtResource("7_qw08x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_w4vqy"]
+resource_local_to_scene = true
+script = ExtResource("4_esekj")
+name = "hand"
+info = "Shoors claw-like spikes from underneath enemies to hold them in place. Low damage"
+damage = 2
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("8_a64kr")
+rate_of_fire = 2.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_1enov")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vopf0"]
+atlas = ExtResource("2_g7dhj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_y6th1"]
+resource_local_to_scene = true
+script = ExtResource("4_esekj")
+name = "lazer"
+info = ""
+damage = 50
+speed = 200
+range = 200
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("3_362r0")
+rate_of_fire = 1.0
+cost = 100
+preview_texture = SubResource("AtlasTexture_vopf0")
 
 [node name="StoreNode" type="Node2D"]
 
@@ -38,13 +124,19 @@ offset_bottom = 1089.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="StoreTowerButton" parent="TowerStore/PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" index="6"]
-store_button_stats = SubResource("Resource_sdr3l")
+[node name="ProjectileButton" parent="TowerStore/PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" index="0"]
+store_button_stats = SubResource("Resource_5tp8x")
 
-[node name="HBoxContainer2" parent="TowerStore/PanelContainer/VBoxContainer" index="2"]
-theme_override_constants/separation = 480
+[node name="LazerButton" parent="TowerStore/PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" index="1"]
+store_button_stats = SubResource("Resource_jcral")
 
-[node name="Button2" parent="TowerStore/PanelContainer/VBoxContainer/HBoxContainer2" index="1"]
-theme = ExtResource("2_bvwk2")
+[node name="SeismicButton" parent="TowerStore/PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" index="2"]
+store_button_stats = SubResource("Resource_omief")
+
+[node name="HandButton" parent="TowerStore/PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" index="3"]
+store_button_stats = SubResource("Resource_w4vqy")
+
+[node name="StoreTowerButton" parent="TowerStore/PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" index="4"]
+store_button_stats = SubResource("Resource_y6th1")
 
 [editable path="TowerStore"]

@@ -2,9 +2,16 @@ extends PanelContainer
 
 var selected_tower: TowerStats
 var is_lock_btn: bool
-@onready var unlock_button = $PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/UnlockButton
 @onready var money_label = $PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MoneyContainer/MoneyLabel
-@onready var upgrade_but_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeButContainer
+@onready var upgrade_btn_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer
+@onready var unlock_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer
+@onready var unlock_cost = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockCost
+@onready var nothing_selected = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/NothingSelected
+#Tower Details
+@onready var tower_details = $PanelContainer/VBoxContainer/SplitContainer/TowerDetails
+@onready var tower_details_image = $PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer/TowerDetailsImage
+@onready var tower_title = $PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer/TowerTitle
+@onready var tower_info_blurb = $PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer/TowerInfoBlurb
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +21,6 @@ func _ready():
 		if button.has_signal("store_button_pressed"):
 			button.store_button_pressed.connect(self._on_store_button_pressed)
 		if button.has_signal("upgrade_button_pressed"):
-			print('hitting the upgrade button signal')
 			button.upgrade_button_pressed.connect(self._on_upgrade_button_pressed)
 	
 
@@ -34,35 +40,49 @@ func toggle_update_buttons():
 		pass
 	
 	
-func toggle_unlock_button():
-	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#	Here we continuosly check for updates for what is unlocked and upgraded
 func _process(delta):
 	money_label.text = str(GameData.mort_flesh)
-#	Here we continuosly check for updates for what is unlocked and upgraded
-	pass
+	if !selected_tower:
+		return
+	#	Toggle unlock vs upgrade buttons
+	elif !GameData.tower_store[selected_tower.name].unlocked:
+		upgrade_btn_container.visible = false
+		unlock_container.visible = true
+	elif GameData.tower_store[selected_tower.name].unlocked:
+		upgrade_btn_container.visible = true
+		unlock_container.visible = false
+	tower_details.visible = true
+	tower_details_image.texture = selected_tower.preview_texture
+	tower_title.text = selected_tower.name
+	tower_info_blurb.text = selected_tower.info
+		
 
 func _on_store_button_pressed(data: TowerStats, is_lock_btn: bool):
 	GameData.selected_tower_stats = data
 	selected_tower = data
 	is_lock_btn = is_lock_btn
+	unlock_cost.text = str(data.cost)
+	nothing_selected.visible = false
 
 func _on_upgrade_button_pressed(upgrade_type: String, cost: int):
 	if selected_tower and !is_lock_btn:
 		GameData.tower_store[selected_tower.name].upgrades[upgrade_type] = true
 		GameData.mort_flesh -= cost
 		
-#
-#func _on_range_button_pressed():
-	#if selected_tower and !is_lock_btn:
-		#GameData.tower_store[GameData.selected_tower_type].upgrades.range = true
-#
-#
-#func _on_damage_button_pressed():
-	#if selected_tower and !is_lock_btn:
-		#GameData.tower_store[GameData.selected_tower_type].upgrades.damage = true
-#
-#
-#func _on_rof_button_pressed():
-	#if selected_tower and !is_lock_btn:
-		#GameData.tower_store[GameData.selected_tower_type].upgrades.rate_of_fire = true
+
+
+func _on_unlock_button_pressed():
+	if selected_tower:
+		GameData.mort_flesh -= int(unlock_cost.text)
+		GameData.tower_store[selected_tower.name].unlocked = true
+	else:
+		printerr('No tower selected, this button should not be visible')
+
+
+func _on_proceed_button_pressed():
+	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()

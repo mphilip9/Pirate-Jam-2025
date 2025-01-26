@@ -8,6 +8,7 @@ signal projectile_hit()
 
 func _ready():
 	animated_sprite_2d.play('default')
+	print('what the hell')
 
 
 
