@@ -1,69 +1,76 @@
-[gd_scene load_steps=13 format=3 uid="uid://b70wc88mt121k"]
+[gd_scene load_steps=14 format=3 uid="uid://b70wc88mt121k"]
 
 [ext_resource type="Script" path="res://Tower/TowerAttacks/seismic_projectile.gd" id="1_4obys"]
-[ext_resource type="Texture2D" uid="uid://dpasgu4aotlq" path="res://Assets/TowerAssets/Boom.png" id="2_omuec"]
+[ext_resource type="Texture2D" uid="uid://bft1fyn4wj0x8" path="res://Assets/TowerAssets/ShatterCrack.png" id="2_lrc7n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ra2mp"]
 radius = 16.0312
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_je35u"]
-atlas = ExtResource("2_omuec")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mpc5"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_51u12"]
-atlas = ExtResource("2_omuec")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksfhd"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j53uo"]
-atlas = ExtResource("2_omuec")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7lgt"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u77wg"]
-atlas = ExtResource("2_omuec")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1bl1"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4tx72"]
-atlas = ExtResource("2_omuec")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1hap"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvofr"]
-atlas = ExtResource("2_omuec")
-region = Rect2(64, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tber"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jo76f"]
-atlas = ExtResource("2_omuec")
-region = Rect2(0, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k3mu"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgad7"]
-atlas = ExtResource("2_omuec")
-region = Rect2(32, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_oejqv"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jssua"]
+atlas = ExtResource("2_lrc7n")
+region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dbuhd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_je35u")
+"texture": SubResource("AtlasTexture_5mpc5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_51u12")
+"texture": SubResource("AtlasTexture_ksfhd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j53uo")
+"texture": SubResource("AtlasTexture_f7lgt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u77wg")
+"texture": SubResource("AtlasTexture_k1bl1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4tx72")
+"texture": SubResource("AtlasTexture_t1hap")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vvofr")
+"texture": SubResource("AtlasTexture_0tber")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jo76f")
+"texture": SubResource("AtlasTexture_1k3mu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sgad7")
+"texture": SubResource("AtlasTexture_oejqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jssua")
 }],
 "loop": false,
 "name": &"default",
@@ -80,7 +87,9 @@ script = ExtResource("1_4obys")
 shape = SubResource("CircleShape2D_ra2mp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.8125, 1.8125)
 sprite_frames = SubResource("SpriteFrames_dbuhd")
-frame_progress = 0.529423
+frame = 8
+frame_progress = 1.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
