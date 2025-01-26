@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=57 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="26_7o23g"]
 [ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
+[ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2118,6 +2119,49 @@ script = ExtResource("28_lg64e")
 [node name="PlayPauseButton" parent="HUD/PlayPauseContainer" instance=ExtResource("28_0kwfa")]
 layout_mode = 2
 
+[node name="PauseMenu" type="PanelContainer" parent="HUD"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -300.0
+offset_right = 600.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_3kv07")
+
+[node name="MenuOptions" type="GridContainer" parent="HUD/PauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MenuButtons" type="VBoxContainer" parent="HUD/PauseMenu/MenuOptions"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="QuitToMenuContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="QuitToMenuButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer"]
+layout_mode = 2
+text = "QUIT TO MENU
+"
+
+[node name="QuitGameContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
+layout_mode = 2
+
+[node name="QuitGameButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer"]
+layout_mode = 2
+text = "QUIT GAME"
+
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
@@ -2128,3 +2172,6 @@ script = ExtResource("11_8vmam")
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/Store/TowerButtons/HandContainer/HandButton" to="TowerManager" method="_on_hand_button_pressed"]
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="." method="_on_play_pause_button_toggled"]
+[connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="HUD/PauseMenu" method="_on_play_pause_button_toggled"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

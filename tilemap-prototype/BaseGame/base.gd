@@ -133,3 +133,13 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 
 func _on_play_pause_button_toggled(toggled_on: bool) -> void:
 	get_tree().paused = toggled_on
+	
+
+
+func _on_quit_to_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://StartScreen/StartScreen.tscn")
+
+
+func _on_quit_game_button_pressed() -> void:
+	get_tree().quit()
