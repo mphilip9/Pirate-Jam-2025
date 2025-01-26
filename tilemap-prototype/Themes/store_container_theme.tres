@@ -4,10 +4,10 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f52jk"]
 texture = ExtResource("1_xsdst")
-texture_margin_left = 30.0
-texture_margin_top = 30.0
-texture_margin_right = 30.0
-texture_margin_bottom = 30.0
+expand_margin_left = 54.0
+expand_margin_top = 245.0
+expand_margin_right = 70.0
+expand_margin_bottom = 218.0
 
 [resource]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_f52jk")

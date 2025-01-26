@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bfvevb3dfhrfh"]
+
+[ext_resource type="StyleBox" uid="uid://bw0kaivql1gp1" path="res://Themes/button_pressed_theme.tres" id="1_kuci1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaw43"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxFlat_vaw43")
+Button/styles/pressed = ExtResource("1_kuci1")

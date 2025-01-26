@@ -36,6 +36,7 @@ folder_colors={
 "res://Enemy/": "red",
 "res://Resources/": "yellow",
 "res://Singletons/": "gray",
+"res://Themes/": "pink",
 "res://Tower/": "teal"
 }
 

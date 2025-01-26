@@ -1,87 +1,271 @@
-[gd_scene load_steps=2 format=3 uid="uid://g3ptffd3pae4"]
+[gd_scene load_steps=9 format=3 uid="uid://g3ptffd3pae4"]
 
+[ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
 [ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/TowerAssets/MushroomCastle3.png" id="1_u65ta"]
+[ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="2_hwlt7"]
+[ext_resource type="Theme" uid="uid://dpheqmg73kkso" path="res://Themes/store_inner_theme.tres" id="2_ns8s2"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="3_nwie7"]
+[ext_resource type="Theme" uid="uid://bfvevb3dfhrfh" path="res://Themes/tower_button_theme.tres" id="5_nnblm"]
+[ext_resource type="Theme" uid="uid://klbhwu4a07n4" path="res://Themes/proceed_button_theme.tres" id="6_4imqe"]
 
-[node name="TowerStore" type="MarginContainer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjw14"]
+atlas = ExtResource("3_nwie7")
+region = Rect2(0, 0, 64, 64)
+
+[node name="TowerStore" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_64hk4")
+
+[node name="PanelContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_ns8s2")
 theme_override_constants/margin_left = 120
-theme_override_constants/margin_top = 80
+theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 120
-theme_override_constants/margin_bottom = 80
+theme_override_constants/margin_bottom = 120
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.321569, 0.176471, 0.388235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.858824, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Dr. Shroomenstein's Laboratory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_u65ta")
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="RichTextLabel" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Each victory is fleeting, but their flesh lingers. With it, I can summon new terrors or strengthen my defenses. 
+
+Yet I must ration it carefully, for without towers, I am nothing."
+fit_content = true
+
+[node name="SplitContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer"]
 layout_mode = 2
-text = "Tower Store"
+size_flags_horizontal = 4
+text = "Tower Upgrades"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Blurb about how to use the store"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="PanelContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("2_hwlt7")
+theme_override_constants/separation = 50
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_nnblm")
 columns = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
-layout_mode = 2
-text = "Upgrade"
-
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
-layout_mode = 2
-text = "Upgrade"
-
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
-layout_mode = 2
-text = "Upgrade"
-
-[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
-layout_mode = 2
-text = "Upgrade"
-
-[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
-layout_mode = 2
-text = "Upgrade"
-
-[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/GridContainer"]
-layout_mode = 2
-text = "Upgrade"
-
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/PanelContainer2"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer2/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-text = "Unlock
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button5" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button6" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer/Button6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "RNG"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "ROF"
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "DMG"
+
+[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+text = "?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tower Unlocks"
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("5_nnblm")
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer/Button3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer/Button4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 530
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("6_4imqe")
+text = "Proceed
 "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_direction = 3
 layout_mode = 2
+text = "Quit"
