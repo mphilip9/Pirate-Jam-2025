@@ -1,15 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtpvxl2gv3m48"]
+[gd_scene load_steps=3 format=3 uid="uid://dtpvxl2gv3m48"]
 
 [ext_resource type="Script" path="res://StartScreen/start_screen.gd" id="1_xxel6"]
+[ext_resource type="Texture2D" uid="uid://bmvg4vv4i713f" path="res://Assets/UIassets/TitleScreenClouds.png" id="2_xubx7"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xxel6")
+metadata/_edit_vertical_guides_ = [139.0]
+
+[node name="TitleScreenClouds" type="Sprite2D" parent="."]
+position = Vector2(960, 539)
+texture = ExtResource("2_xubx7")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -23,18 +31,18 @@ vertical_alignment = 1
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 693.0
-offset_top = 478.0
-offset_right = 959.0
-offset_bottom = 572.0
+offset_left = 140.0
+offset_top = 674.0
+offset_right = 406.0
+offset_bottom = 768.0
 text = "start"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 693.0
-offset_top = 633.0
-offset_right = 959.0
-offset_bottom = 727.0
+offset_left = 139.0
+offset_top = 798.0
+offset_right = 405.0
+offset_bottom = 892.0
 text = "Quit
 "
 
