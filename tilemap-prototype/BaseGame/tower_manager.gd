@@ -8,7 +8,8 @@ const lazer_tower = preload("res://Tower/lazer_tower.tscn")
 const towers = {
 	'projectile': preload("res://Tower/projectile_tower.tscn"),
 	'lazer': preload("res://Tower/lazer_tower.tscn"),
-	'seismic': preload("res://Tower/seismic_tower.tscn")
+	'seismic': preload("res://Tower/seismic_tower.tscn"),
+	'hand': preload("res://Tower/hand_tower.tscn")
 }
 
 @export var preview_tower = false
@@ -94,3 +95,7 @@ func _on_lazer_button_pressed():
 
 func _on_seismic_button_pressed() -> void:
 	handle_tower_button('seismic')
+
+
+func _on_hand_button_pressed() -> void:
+	handle_tower_button('hand')
