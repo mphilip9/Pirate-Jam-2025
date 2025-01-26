@@ -43,6 +43,7 @@ folder_colors={
 [global_group]
 
 towers=""
+tower_store_buttons="To connect to all the store buttons easily"
 
 [rendering]
 

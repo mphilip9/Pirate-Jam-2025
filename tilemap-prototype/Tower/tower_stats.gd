@@ -1,6 +1,7 @@
 class_name TowerStats
 extends Resource
 
+@export var name: String
 @export var damage: int
 @export var speed: int
 @export var range: int

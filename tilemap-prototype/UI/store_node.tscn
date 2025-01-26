@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj7r8a7nhf5u"]
+
+[ext_resource type="PackedScene" uid="uid://g3ptffd3pae4" path="res://UI/tower_store.tscn" id="1_l8a17"]
+[ext_resource type="Theme" uid="uid://b2ycmtth6b4ht" path="res://Themes/quit_button_theme.tres" id="2_bvwk2"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/MushroomHeartSheet.png" id="2_g7dhj"]
+[ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="3_362r0"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="4_esekj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
+atlas = ExtResource("2_g7dhj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_hsuue"]
+resource_local_to_scene = true
+script = ExtResource("4_esekj")
+damage = 50
+speed = 200
+range = 200
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("3_362r0")
+rate_of_fire = 1.0
+cost = 100
+preview_texture = SubResource("AtlasTexture_e32yj")
+
+[node name="StoreNode" type="Node2D"]
+
+[node name="TowerStore" parent="." instance=ExtResource("1_l8a17")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -58.0
+offset_top = -61.0
+offset_right = 1660.0
+offset_bottom = 1089.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="StoreTowerButton" parent="TowerStore/PanelContainer/VBoxContainer/SplitContainer/UpgradesContainer/PanelContainer3/MarginContainer/PanelContainer/GridContainer" index="6"]
+store_button_stats = SubResource("Resource_hsuue")
+
+[node name="HBoxContainer2" parent="TowerStore/PanelContainer/VBoxContainer" index="2"]
+theme_override_constants/separation = 480
+
+[node name="Button2" parent="TowerStore/PanelContainer/VBoxContainer/HBoxContainer2" index="1"]
+theme = ExtResource("2_bvwk2")
+
+[editable path="TowerStore"]
