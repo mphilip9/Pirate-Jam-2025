@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bfvevb3dfhrfh"]
+
+[ext_resource type="StyleBox" uid="uid://bw0kaivql1gp1" path="res://Themes/button_pressed_theme.tres" id="1_kuci1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fditk"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.964538, 0.250209, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaw43"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_fditk")
+Button/styles/normal = SubResource("StyleBoxFlat_vaw43")
+Button/styles/pressed = ExtResource("1_kuci1")

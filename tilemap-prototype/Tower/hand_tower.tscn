@@ -78,6 +78,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 script = ExtResource("4_efwbg")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtpvxl2gv3m48"]
 
-[ext_resource type="Script" path="res://StartScreen/start_screen.gd" id="1_xxel6"]
+[ext_resource type="Script" path="res://UI/start_screen.gd" id="1_xxel6"]
 [ext_resource type="Texture2D" uid="uid://bmvg4vv4i713f" path="res://Assets/UIassets/TitleScreenClouds.png" id="2_xubx7"]
 
 [sub_resource type="Gradient" id="Gradient_4vy3c"]
