@@ -11,6 +11,7 @@ region = Rect2(0, 0, 64, 64)
 [resource]
 resource_local_to_scene = true
 script = ExtResource("3_j8aaf")
+name = ""
 damage = 2
 speed = 500
 range = 100

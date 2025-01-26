@@ -4,9 +4,9 @@ extends Button
 # TODO : We really only need the name and the texture from the tower stats, if we hit performance issues
 # maayyyybe just using the string and texture directly would help? For now it makes my life easier though
 @export var store_button_stats: TowerStats
-@export var lock_button: bool = false
+@export var is_lock_btn: bool = false
 
-signal store_button_pressed(data)
+signal store_button_pressed(data: TowerStats, is_lock_btn: bool)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,4 +20,4 @@ func _process(delta):
 	pass
 
 func _store_button_pressed():
-	emit_signal("store_button_pressed", store_button_stats)
+	emit_signal("store_button_pressed", store_button_stats, is_lock_btn)

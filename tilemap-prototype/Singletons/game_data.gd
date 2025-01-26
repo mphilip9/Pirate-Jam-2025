@@ -5,6 +5,9 @@ extends Node2D
 # yall got a better name?
 @export var mort_flesh: int = 200
 
+
+#Tower store related global variables
+@export var selected_tower_stats: TowerStats
 # Data for tower unlocks and upgrades
 @export var tower_store: Dictionary = {
 	'projectile': {
@@ -31,4 +34,10 @@ extends Node2D
 			"rate_of_fire": false,
 		},
 	},
+}
+
+@export var upgrade_cost_multiplier = {
+	"range": 2,
+	"damage": 2,
+	"rate_of_fire": 2
 }
