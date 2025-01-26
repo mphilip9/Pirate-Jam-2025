@@ -26,8 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="20_wr4r2"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="21_jg40d"]
 [ext_resource type="Texture2D" uid="uid://oukj25v8508p" path="res://Assets/UIassets/CoinYellow.png" id="25_0c3ix"]
-[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="25_bu12j"]
-[ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="26_mq3vw"]
+[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="25_ih58r"]
+[ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="26_5f1mi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1971,11 +1971,11 @@ rate_of_fire = 1.0
 cost = 50
 preview_texture = SubResource("AtlasTexture_fg0no")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lf1be"]
-atlas = ExtResource("25_bu12j")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2f1t"]
+atlas = ExtResource("25_ih58r")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_t0yin"]
+[sub_resource type="Resource" id="Resource_7pu2s"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
 damage = 2
@@ -1984,10 +1984,10 @@ range = 100
 tier = 0
 max_tier = 0
 preview = false
-projectile_scene = ExtResource("26_mq3vw")
+projectile_scene = ExtResource("26_5f1mi")
 rate_of_fire = 2.0
 cost = 50
-preview_texture = SubResource("AtlasTexture_lf1be")
+preview_texture = SubResource("AtlasTexture_h2f1t")
 
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
@@ -2087,7 +2087,7 @@ layout_mode = 2
 
 [node name="HandButton" parent="HUD/PanelContainer/Store/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_t0yin")
+button_stats = SubResource("Resource_7pu2s")
 
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
