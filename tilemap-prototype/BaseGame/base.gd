@@ -8,6 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree  for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	var used_grass_cells =grass.get_used_cells()
 	var grass_rect = grass.get_used_rect()
 	var path_cells = []
@@ -128,3 +129,7 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 	# move 1 up to its castle gate
 	path_array.append(path_array[-1] + Vector2i(0,-1))
 	return path_array
+
+
+func _on_play_pause_button_toggled(toggled_on: bool) -> void:
+	get_tree().paused = toggled_on
