@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 # load base_level.tscn when start button pressed
 func _on_start_pressed() :
 	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
+	GameData.mort_flesh = 200
 
 # exit out game when pressed
 func _on_quit_pressed() -> void:

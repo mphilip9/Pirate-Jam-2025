@@ -12,6 +12,7 @@ extends Node2D
 
 # Called when the node enters the scene tree  for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	var used_grass_cells =grass.get_used_cells()
 	var grass_rect = grass.get_used_rect()
 	var path_cells = []
@@ -142,3 +143,17 @@ func toggle_tower_btn_visibility(type):
 	if !GameData.tower_store[type].unlocked:
 		return false
 	return true
+
+
+func _on_play_pause_button_toggled(toggled_on: bool) -> void:
+	get_tree().paused = toggled_on
+	
+
+
+func _on_quit_to_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://StartScreen/StartScreen.tscn")
+
+
+func _on_quit_game_button_pressed() -> void:
+	get_tree().quit()
