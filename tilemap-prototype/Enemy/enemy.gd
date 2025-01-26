@@ -7,6 +7,9 @@ extends PathFollow2D
 
 var speed_modifier: float = 1.00
 var speed_cc_frame: int = 0
+# TODO: need to think about how DoT mechanism works when multiple were applied
+# for now its refresh DoT when applied
+var dot_modifier: Array[int] = [0, 0] # duration, damage/ tick
 
 var current_health: int:
 	set(health_in):
@@ -27,12 +30,19 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	# check dot_modifier if DoT is present
+	if dot_modifier[0] > 0:
+		print(dot_modifier, current_health)
+		take_damage(dot_modifier[1])
+		dot_modifier[0] -= 1
+		if dot_modifier[0] < 1:
+			dot_modifier = [0, 0]
 	# check cc frame duration deduction one every delta
 	if speed_cc_frame > 0 :
 		speed_cc_frame -= 1
 	# when speed cc frame duration is 0 set modifier to 1.00
-	else :
-		speed_modifier = 1.00
+		if speed_cc_frame < 1:
+			speed_modifier = 1.00
 	# progress is the metric the PathFollow3D node uses to track where it is along its parent Path
 	progress += delta * stats.speed * speed_modifier
 
@@ -57,6 +67,10 @@ func _process(delta: float) -> void:
 		
 func take_damage(damage) -> void:
 	current_health -= damage
+
+# Damage over Time
+func damage_over_time(frame: int, damage: int) -> void:
+	dot_modifier = [frame, roundi(damage/frame)]
 
 # when slow cced
 func crowd_control_slow(frame: int, rate: float) -> void:

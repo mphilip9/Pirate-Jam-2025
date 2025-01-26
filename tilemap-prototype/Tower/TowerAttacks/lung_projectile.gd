@@ -10,6 +10,7 @@ var curr_position: Vector2
 signal projectile_hit()
 
 func _ready():
+	animated_sprite_2d.self_modulate.a = 0.7
 	animated_sprite_2d.play('default')
 
 func _physics_process(delta):
@@ -17,12 +18,7 @@ func _physics_process(delta):
 	if animated_sprite_2d.frame_progress == 1 :
 		queue_free()
 		return	
-	# set position to the target and stay in that position
-	if curr_position == Vector2() :
-		curr_position = target.global_position
-	global_position = curr_position
+	# set position to the target and stay in that position 
 	
 func _on_hitbox_body_entered(body):
-	body.get_parent().take_damage(damage)
-	body.get_parent().crowd_control_slow(100, 0.60)
-	
+	body.get_parent().damage_over_time(100, damage)

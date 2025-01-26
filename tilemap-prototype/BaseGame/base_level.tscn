@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=58 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -28,7 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://oukj25v8508p" path="res://Assets/UIassets/CoinYellow.png" id="25_0c3ix"]
 [ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="25_4umk7"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="26_wl4hy"]
-[ext_resource type="Resource" uid="uid://b2252vlho0bhn" path="res://Resources/lung_tower_stats.tres" id="27_667r7"]
+[ext_resource type="Texture2D" uid="uid://bts8xonc18k4a" path="res://Assets/TowerAssets/MushroomLungs.png" id="27_j8sf8"]
+[ext_resource type="PackedScene" uid="uid://wadp6y2kiyts" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="28_1gd6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1990,6 +1991,24 @@ rate_of_fire = 2.0
 cost = 50
 preview_texture = SubResource("AtlasTexture_covxt")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdsc2"]
+atlas = ExtResource("27_j8sf8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_cypxk"]
+resource_local_to_scene = true
+script = ExtResource("13_qsws5")
+damage = 100
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("28_1gd6b")
+rate_of_fire = 2.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_fdsc2")
+
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btitk")
@@ -2095,7 +2114,7 @@ layout_mode = 2
 
 [node name="LungButton" parent="HUD/PanelContainer/Store/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = ExtResource("27_667r7")
+button_stats = SubResource("Resource_cypxk")
 
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/Store"]
 layout_mode = 2
