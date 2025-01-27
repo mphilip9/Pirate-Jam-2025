@@ -470,7 +470,9 @@ offset_left = 140.0
 offset_top = 674.0
 offset_right = 406.0
 offset_bottom = 768.0
-text = "start"
+theme_override_fonts/font = ExtResource("3_1t0o2")
+theme_override_font_sizes/font_size = 45
+text = "Start"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
@@ -478,6 +480,8 @@ offset_left = 139.0
 offset_top = 798.0
 offset_right = 405.0
 offset_bottom = 892.0
+theme_override_fonts/font = ExtResource("3_1t0o2")
+theme_override_font_sizes/font_size = 45
 text = "Quit
 "
 
