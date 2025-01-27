@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c22kl2v8r7xl7"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c22kl2v8r7xl7"]
 
+[ext_resource type="FontFile" uid="uid://gai1kalbtujs" path="res://Assets/Fonts/8bitlim.ttf" id="1_6bs25"]
 [ext_resource type="Texture2D" uid="uid://lg21j3wugton" path="res://Assets/simple_container.png" id="1_xsdst"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f52jk"]
@@ -10,5 +11,7 @@ expand_margin_right = 70.0
 expand_margin_bottom = 218.0
 
 [resource]
+Label/fonts/font = ExtResource("1_6bs25")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_f52jk")
 RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/normal_font = ExtResource("1_6bs25")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://g3ptffd3pae4"]
+[gd_scene load_steps=37 format=3 uid="uid://g3ptffd3pae4"]
 
 [ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
 [ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/TowerAssets/MushroomCastle3.png" id="1_u65ta"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dpheqmg73kkso" path="res://Themes/store_inner_theme.tres" id="2_ns8s2"]
 [ext_resource type="Script" path="res://UI/tower_store.gd" id="2_yo3hp"]
 [ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="3_nwie7"]
+[ext_resource type="FontFile" uid="uid://gai1kalbtujs" path="res://Assets/Fonts/8bitlim.ttf" id="4_msd3s"]
 [ext_resource type="Texture2D" uid="uid://oukj25v8508p" path="res://Assets/UIassets/CoinYellow.png" id="5_cj63v"]
 [ext_resource type="Theme" uid="uid://bfvevb3dfhrfh" path="res://Themes/tower_button_theme.tres" id="5_nnblm"]
 [ext_resource type="Theme" uid="uid://klbhwu4a07n4" path="res://Themes/proceed_button_theme.tres" id="6_4imqe"]
@@ -20,13 +21,13 @@
 [ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="15_eyhw4"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="16_1dte5"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="18_h1ga7"]
-[ext_resource type="PackedScene" uid="uid://cwth1pwtjveo6" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="19_apxs0"]
+[ext_resource type="PackedScene" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="19_apxs0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("3_nwie7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_rx7gf"]
+[sub_resource type="Resource" id="Resource_3d6pa"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "projectile"
@@ -46,7 +47,7 @@ preview_texture = SubResource("AtlasTexture_h7yar")
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_jj8n2"]
+[sub_resource type="Resource" id="Resource_qkr68"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -66,7 +67,7 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("13_5f0uv")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_rbp7e"]
+[sub_resource type="Resource" id="Resource_8ir0l"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "seismic"
@@ -86,7 +87,7 @@ preview_texture = SubResource("AtlasTexture_57rqf")
 atlas = ExtResource("15_eyhw4")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_n04d6"]
+[sub_resource type="Resource" id="Resource_2qfjw"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "hand"
@@ -106,7 +107,7 @@ preview_texture = SubResource("AtlasTexture_1enov")
 atlas = ExtResource("18_h1ga7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_i2p3h"]
+[sub_resource type="Resource" id="Resource_bqs5c"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lung"
@@ -130,7 +131,7 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_vxouh"]
+[sub_resource type="Resource" id="Resource_34ghx"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -187,9 +188,14 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.321569, 0.176471, 0.388235, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.858824, 0, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.0941176, 0.294118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.560784)
+theme_override_colors/font_outline_color = Color(1, 1, 0.176471, 1)
+theme_override_constants/shadow_offset_x = -20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_msd3s")
+theme_override_font_sizes/font_size = 46
 text = "Dr. Shroomenstein's Laboratory"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
@@ -204,6 +210,7 @@ stretch_mode = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="Label2" type="RichTextLabel" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -261,23 +268,23 @@ columns = 3
 
 [node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_rx7gf")
+store_button_stats = SubResource("Resource_3d6pa")
 
 [node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_jj8n2")
+store_button_stats = SubResource("Resource_qkr68")
 
 [node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_rbp7e")
+store_button_stats = SubResource("Resource_8ir0l")
 
 [node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_n04d6")
+store_button_stats = SubResource("Resource_2qfjw")
 
 [node name="LungButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_i2p3h")
+store_button_stats = SubResource("Resource_bqs5c")
 
 [node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
 visible = false
@@ -386,7 +393,7 @@ texture = SubResource("AtlasTexture_pjw14")
 
 [node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_vxouh")
+store_button_stats = SubResource("Resource_34ghx")
 is_lock_btn = true
 
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]

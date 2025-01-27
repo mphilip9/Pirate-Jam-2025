@@ -45,6 +45,10 @@ folder_colors={
 towers=""
 tower_store_buttons="To connect to all the store buttons easily"
 
+[gui]
+
+theme/custom_font="res://Assets/Fonts/8bitlim.ttf"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
