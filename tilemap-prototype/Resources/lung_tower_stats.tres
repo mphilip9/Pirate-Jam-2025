@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://csbtpxl2rr6rm"]
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://ccfy8bkglpyya"]
 
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="1_ilj7m"]
 [ext_resource type="PackedScene" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="2_12pri"]
