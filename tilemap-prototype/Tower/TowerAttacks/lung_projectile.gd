@@ -21,4 +21,4 @@ func _physics_process(delta):
 	# set position to the target and stay in that position 
 	
 func _on_hitbox_body_entered(body):
-	body.get_parent().damage_over_time(100, damage)
+	body.get_parent().damage_over_time(200, damage)

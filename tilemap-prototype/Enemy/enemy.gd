@@ -32,7 +32,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# check dot_modifier if DoT is present
 	if dot_modifier[0] > 0:
-		print(dot_modifier, current_health)
 		take_damage(dot_modifier[1])
 		dot_modifier[0] -= 1
 		if dot_modifier[0] < 1:
