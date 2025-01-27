@@ -4,6 +4,10 @@ extends PathFollow2D
 @onready var animation_player: AnimationPlayer = $Sprite/Body/AnimationPlayer
 @onready var castle = get_tree().get_first_node_in_group("base")
 @export var stats: EnemyStats
+@onready var death_sound: AudioStreamPlayer = $AudioStreamPlayer
+@onready var body: AnimatedSprite2D = $Sprite/Body
+
+
 
 var speed_modifier: float = 1.00
 var speed_cc_frame: int = 0
@@ -14,17 +18,16 @@ var current_health: int:
 			animation_player.play("take_damage")
 		current_health = health_in
 		if current_health < 1:
+			death_sound.play()
+			await (death_sound.finished)
 			GameData.mort_flesh += 2
 			queue_free()
-
-
-@onready var body: AnimatedSprite2D = $Sprite/Body
 
 var last_fram_pos = Vector2()
 
 func _ready() -> void:
 	current_health = stats.max_health
-	
+
 	
 func _process(delta: float) -> void:
 	# check cc frame duration deduction one every delta
