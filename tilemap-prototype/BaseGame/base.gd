@@ -6,10 +6,10 @@ extends Node2D
 
 @onready var castle = $Castle
 #Passing in container to toggle visibility depending on unlocked or not
-@onready var lazer_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer
-@onready var seismic_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer
-@onready var hand_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer
-@onready var lung_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/LungContainer
+@onready var lazer_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer
+@onready var seismic_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer
+@onready var hand_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer
+@onready var lung_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer
 # Called when the node enters the scene tree  for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
