@@ -22,7 +22,6 @@ func _ready():
 		return
 	animation_player.play("idle_tower")
 	range_collision_shape.shape.radius = tower_stats.calculated_range
-	projectile_cooldown = tower_stats.calculated_rate_of_fire
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
