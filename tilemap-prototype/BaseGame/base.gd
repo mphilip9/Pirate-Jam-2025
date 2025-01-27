@@ -48,10 +48,10 @@ func _ready():
 		 false
 	)
 #	Toggle tower visibility for locked towers
-	lazer_container.visible = toggle_tower_btn_visibility('lazer')
-	seismic_container.visible = toggle_tower_btn_visibility('seismic')
-	hand_container.visible = toggle_tower_btn_visibility('hand')
-	lung_container.visible = toggle_tower_btn_visibility('lung')
+	#lazer_container.visible = toggle_tower_btn_visibility('lazer')
+	#seismic_container.visible = toggle_tower_btn_visibility('seismic')
+	#hand_container.visible = toggle_tower_btn_visibility('hand')
+	#lung_container.visible = toggle_tower_btn_visibility('lung')
 
 #TODO: Manage updates to HUD data in a better way
 
