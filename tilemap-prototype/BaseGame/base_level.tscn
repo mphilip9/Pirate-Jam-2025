@@ -2076,69 +2076,78 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -134.0
+offset_left = -200.0
 offset_top = -162.0
-offset_right = 134.0
+offset_right = 200.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("10_mv33c")
 
-[node name="ManagerHUD" type="GridContainer" parent="HUD/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ManagerHUD" type="GridContainer" parent="HUD/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("10_adqrw")
+theme_override_constants/v_separation = 10
 
-[node name="TowerButtons" type="HBoxContainer" parent="HUD/PanelContainer/ManagerHUD"]
+[node name="TowerButtons" type="HBoxContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD"]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 10
 
-[node name="ProjectileContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+[node name="ProjectileContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
-[node name="ProjectileButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
+[node name="ProjectileButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_t12fw")
 
-[node name="LazerContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+[node name="LazerContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
-[node name="LazerButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
+[node name="LazerButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_ndmpw")
 
-[node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+[node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
-[node name="SeismicButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
+[node name="SeismicButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_eiupx")
 
-[node name="HandContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+[node name="HandContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
-[node name="HandButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
+[node name="HandButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_u5g32")
 
-[node name="LungContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+[node name="LungContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
-[node name="LungButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
+[node name="LungButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_1qitv")
 
-[node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/ManagerHUD"]
+[node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer/ManagerHUD/MortFleshContainer"]
+[node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/MortFleshContainer"]
 layout_mode = 2
 texture = ExtResource("25_0c3ix")
 expand_mode = 2
 
-[node name="MortFlesh" type="Label" parent="HUD/PanelContainer/ManagerHUD/MortFleshContainer"]
+[node name="MortFlesh" type="Label" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/MortFleshContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "replace me"
@@ -2204,11 +2213,11 @@ script = ExtResource("11_8vmam")
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
-[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer/HandButton" to="TowerManager" method="_on_hand_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/LungContainer/LungButton" to="TowerManager" method="_on_lung_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer/HandButton" to="TowerManager" method="_on_hand_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer/LungButton" to="TowerManager" method="_on_lung_button_pressed"]
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="." method="_on_play_pause_button_toggled"]
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="HUD/PauseMenu" method="_on_play_pause_button_toggled"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
