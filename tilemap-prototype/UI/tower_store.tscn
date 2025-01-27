@@ -1,0 +1,456 @@
+[gd_scene load_steps=36 format=3 uid="uid://g3ptffd3pae4"]
+
+[ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
+[ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/TowerAssets/MushroomCastle3.png" id="1_u65ta"]
+[ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="2_hwlt7"]
+[ext_resource type="Theme" uid="uid://dpheqmg73kkso" path="res://Themes/store_inner_theme.tres" id="2_ns8s2"]
+[ext_resource type="Script" path="res://UI/tower_store.gd" id="2_yo3hp"]
+[ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="3_nwie7"]
+[ext_resource type="Texture2D" uid="uid://oukj25v8508p" path="res://Assets/UIassets/CoinYellow.png" id="5_cj63v"]
+[ext_resource type="Theme" uid="uid://bfvevb3dfhrfh" path="res://Themes/tower_button_theme.tres" id="5_nnblm"]
+[ext_resource type="Theme" uid="uid://klbhwu4a07n4" path="res://Themes/proceed_button_theme.tres" id="6_4imqe"]
+[ext_resource type="PackedScene" uid="uid://bxi83868aaha" path="res://UI/store_tower_button.tscn" id="8_1yq66"]
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="10_7lk31"]
+[ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/TowerAssets/MushroomHeartSheet.png" id="10_boybp"]
+[ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="11_kqeew"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="12_yv8y7"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="13_5f0uv"]
+[ext_resource type="PackedScene" uid="uid://btnjdo05madx8" path="res://UI/upgrade_button.tscn" id="13_vmq8l"]
+[ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="14_t224k"]
+[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="15_eyhw4"]
+[ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="16_1dte5"]
+[ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="18_h1ga7"]
+[ext_resource type="PackedScene" uid="uid://cwth1pwtjveo6" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="19_apxs0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
+atlas = ExtResource("3_nwie7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_rx7gf"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "projectile"
+info = "Shotos deadly mushroom spores."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("10_7lk31")
+rate_of_fire = 0.5
+cost = 50
+preview_texture = SubResource("AtlasTexture_h7yar")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
+atlas = ExtResource("10_boybp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_jj8n2"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "lazer"
+info = "A heart that shoots lasers of blood."
+damage = 50
+speed = 200
+range = 200
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("11_kqeew")
+rate_of_fire = 1.0
+cost = 100
+preview_texture = SubResource("AtlasTexture_e32yj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+atlas = ExtResource("13_5f0uv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_rbp7e"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "seismic"
+info = "Produces earth quakes that slow and damage enemies."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("14_t224k")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_57rqf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
+atlas = ExtResource("15_eyhw4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_n04d6"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "hand"
+info = "Shoors claw-like spikes from underneath enemies to hold them in place. Low damage"
+damage = 2
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("16_1dte5")
+rate_of_fire = 2.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_1enov")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01r4s"]
+atlas = ExtResource("18_h1ga7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_i2p3h"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "lung"
+info = "Emits poisionous gas around enemies and deals damage over time."
+damage = 200
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("19_apxs0")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_01r4s")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjw14"]
+atlas = ExtResource("3_nwie7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pco68"]
+atlas = ExtResource("10_boybp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_vxouh"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "lazer"
+info = ""
+damage = 50
+speed = 200
+range = 200
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("11_kqeew")
+rate_of_fire = 1.0
+cost = 100
+preview_texture = SubResource("AtlasTexture_pco68")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7or1g"]
+atlas = ExtResource("3_nwie7")
+region = Rect2(0, 0, 64, 64)
+
+[node name="TowerStore" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_64hk4")
+script = ExtResource("2_yo3hp")
+
+[node name="PanelContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_ns8s2")
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.321569, 0.176471, 0.388235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.858824, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Dr. Shroomenstein's Laboratory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_u65ta")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="RichTextLabel" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Each victory is fleeting, but their flesh lingers. With it, I can summon new terrors or strengthen my defenses. 
+
+Yet I must ration it carefully, for without towers, I am nothing."
+fit_content = true
+
+[node name="MoneyContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MoneyContainer"]
+layout_mode = 2
+texture = ExtResource("5_cj63v")
+stretch_mode = 4
+
+[node name="MoneyLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/MoneyContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="SplitContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="TowerUpgrades" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tower Upgrades"
+
+[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3"]
+layout_mode = 2
+
+[node name="PanelContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_hwlt7")
+theme_override_constants/separation = 50
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_nnblm")
+columns = 3
+
+[node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = SubResource("Resource_rx7gf")
+
+[node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = SubResource("Resource_jj8n2")
+
+[node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = SubResource("Resource_rbp7e")
+
+[node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = SubResource("Resource_n04d6")
+
+[node name="LungButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = SubResource("Resource_i2p3h")
+
+[node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="RangeButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer" instance=ExtResource("13_vmq8l")]
+layout_mode = 2
+
+[node name="DamageButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer" instance=ExtResource("13_vmq8l")]
+layout_mode = 2
+text = "Damage"
+upgrade_btn_type = "damage"
+
+[node name="RofButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer" instance=ExtResource("13_vmq8l")]
+layout_mode = 2
+text = "ROF"
+upgrade_btn_type = "rate_of_fire"
+
+[node name="UnlockContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="UnlockCost" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Unlock"
+
+[node name="NothingSelected" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Select a tower to unlock or upgrade"
+
+[node name="TowerUnlock" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tower Unlocks"
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("5_nnblm")
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer/Button3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="Button4" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer/Button4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pjw14")
+
+[node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = SubResource("Resource_vxouh")
+is_lock_btn = true
+
+[node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Unlock"
+
+[node name="TowerDetails" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tower Details"
+
+[node name="TowerInfo" type="PanelContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="TowerDetailsImage" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_7or1g")
+stretch_mode = 4
+
+[node name="TowerTitle" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Eye Tower"
+uppercase = true
+
+[node name="TowerInfoBlurb" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Blurb about the tower. But what happends whe n it get slong..."
+autowrap_mode = 2
+
+[node name="ProceedOrQuit" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="ProceedButton" type="Button" parent="PanelContainer/VBoxContainer/ProceedOrQuit"]
+layout_mode = 2
+theme = ExtResource("6_4imqe")
+text = "Proceed
+"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer/ProceedOrQuit"]
+layout_direction = 3
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton" to="." method="_on_unlock_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ProceedOrQuit/ProceedButton" to="." method="_on_proceed_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ProceedOrQuit/QuitButton" to="." method="_on_quit_button_pressed"]

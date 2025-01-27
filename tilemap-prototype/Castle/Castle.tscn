@@ -1,18 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlkb681j8x2vp"]
+[gd_scene load_steps=5 format=3 uid="uid://dlkb681j8x2vp"]
 
 [ext_resource type="Script" path="res://Castle/castle.gd" id="1_k1fg6"]
 [ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/TowerAssets/MushroomCastle3.png" id="2_oaqom"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga560"]
+bg_color = Color(0.791804, 0.540965, 0.217549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.665612, 0.591998, 0.173526, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcopq"]
+bg_color = Color(0.453028, 0.715454, 0.339415, 1)
+
 [node name="Castle" type="Node2D" groups=["base"]]
 script = ExtResource("1_k1fg6")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -36.0
-offset_top = -88.0
-offset_right = 37.0
-offset_bottom = -65.0
-text = "health"
-horizontal_alignment = 1
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_oaqom")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -64.0
+offset_top = -90.0
+offset_right = 64.0
+offset_bottom = -72.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ga560")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kcopq")
+max_value = 50.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -3.0
+offset_right = 86.0
+offset_bottom = 20.0
+text = "50/50
+"

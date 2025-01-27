@@ -21,8 +21,7 @@ func _ready():
 		range.monitorable = false
 		return
 	animation_player.play("idle_tower")
-	range_collision_shape.shape.radius = tower_stats.range
-	projectile_cooldown = tower_stats.rate_of_fire
+	range_collision_shape.shape.radius = tower_stats.calculated_range
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,7 +32,7 @@ func _process(delta):
 #			TODO: Would be cool to have the eye closed, and the
 #			play the open animation on fire
 			fire(current_target)
-			projectile_cooldown = tower_stats.rate_of_fire
+			projectile_cooldown = tower_stats.calculated_rate_of_fire
 	else: 
 		current_target = null
 		find_best_target()
@@ -49,7 +48,7 @@ func find_best_target() -> void:
 func fire(target: CharacterBody2D):
 	var projectile = tower_stats.projectile_scene.instantiate()
 	projectile.target = target
-	projectile.damage = tower_stats.damage
+	projectile.damage = tower_stats.calculated_damage
 	projectile.speed = tower_stats.speed
 	add_child(projectile)
 func _on_range_body_entered(body):

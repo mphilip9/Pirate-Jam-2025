@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxqcxtdhe1fj5"]
+[gd_scene load_steps=9 format=3 uid="uid://xx6vd3g34kf"]
 
-[ext_resource type="Script" path="res://Tower/hand_tower.gd" id="1_ygn01"]
-[ext_resource type="Resource" uid="uid://qv8atrgur5n" path="res://Resources/hand_tower_stats.tres" id="2_k4ekj"]
-[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="2_sovym"]
-[ext_resource type="Script" path="res://Tower/range_indicator.gd" id="4_efwbg"]
+[ext_resource type="Script" path="res://Tower/lung_tower.gd" id="1_64wih"]
+[ext_resource type="Resource" uid="uid://ccfy8bkglpyya" path="res://Resources/lung_tower_stats.tres" id="2_s3pmm"]
+[ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="3_2mc5s"]
+[ext_resource type="Script" path="res://Tower/range_indicator.gd" id="4_l1ql0"]
 
 [sub_resource type="Animation" id="Animation_a3qfh"]
 length = 0.001
@@ -22,7 +22,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_axiuw"]
 resource_name = "idle_tower"
-length = 0.8
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -32,10 +31,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1yrvb"]
@@ -46,17 +45,17 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vptis"]
 
-[node name="HandTower" type="Node2D"]
+[node name="LungTower" type="Node2D"]
 z_index = 1
 y_sort_enabled = true
-script = ExtResource("1_ygn01")
-tower_stats = ExtResource("2_k4ekj")
+script = ExtResource("1_64wih")
+tower_stats = ExtResource("2_s3pmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_sovym")
+texture = ExtResource("3_2mc5s")
 hframes = 3
 vframes = 3
 
@@ -79,7 +78,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 1
-script = ExtResource("4_efwbg")
+script = ExtResource("4_l1ql0")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

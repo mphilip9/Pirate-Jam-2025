@@ -1,6 +1,6 @@
 extends Node2D
 @onready var ground = $"../Maps/Ground"
-@onready var mort_flesh = $"../HUD/PanelContainer/Store/MortFleshContainer/MortFlesh"
+@onready var mort_flesh = $"../HUD/PanelContainer/ManagerHUD/MortFleshContainer/MortFlesh"
 
 const projectile_tower = preload("res://Tower/projectile_tower.tscn")
 const lazer_tower = preload("res://Tower/lazer_tower.tscn")
@@ -9,7 +9,8 @@ const towers = {
 	'projectile': preload("res://Tower/projectile_tower.tscn"),
 	'lazer': preload("res://Tower/lazer_tower.tscn"),
 	'seismic': preload("res://Tower/seismic_tower.tscn"),
-	'hand': preload("res://Tower/hand_tower.tscn")
+	'hand': preload("res://Tower/hand_tower.tscn"),
+	'lung': preload("res://Tower/lung_tower.tscn")
 }
 
 @export var preview_tower = false
@@ -99,3 +100,7 @@ func _on_seismic_button_pressed() -> void:
 
 func _on_hand_button_pressed() -> void:
 	handle_tower_button('hand')
+
+
+func _on_lung_button_pressed() -> void:
+	handle_tower_button('lung')

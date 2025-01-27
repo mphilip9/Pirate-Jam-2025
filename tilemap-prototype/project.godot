@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TileMap-Prototype"
-run/main_scene="res://StartScreen/StartScreen.tscn"
+run/main_scene="res://UI/StartScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,8 @@ GameData="*res://Singletons/game_data.gd"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=1000
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
@@ -36,12 +36,14 @@ folder_colors={
 "res://Enemy/": "red",
 "res://Resources/": "yellow",
 "res://Singletons/": "gray",
+"res://Themes/": "pink",
 "res://Tower/": "teal"
 }
 
 [global_group]
 
 towers=""
+tower_store_buttons="To connect to all the store buttons easily"
 
 [rendering]
 

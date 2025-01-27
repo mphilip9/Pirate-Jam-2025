@@ -5,18 +5,23 @@ extends Node2D
 @onready var objects = $Maps/Objects
 
 @onready var castle = $Castle
-
+#Passing in container to toggle visibility depending on unlocked or not
+@onready var lazer_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer
+@onready var seismic_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer
+@onready var hand_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer
+@onready var lung_container = $HUD/PanelContainer/ManagerHUD/TowerButtons/LungContainer
 # Called when the node enters the scene tree  for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	var used_grass_cells =grass.get_used_cells()
 	var grass_rect = grass.get_used_rect()
 	var path_cells = []
 	# Clear old occupied tiles
 	GameData.occupied_tiles.clear()
 	# Start and end points
-	var start_x = grass_rect.position.x + 2
+	var start_x = grass_rect.position.x + 1
 	var start_y = grass_rect.position.y + grass_rect.size.y - 8
-	var end_x = grass_rect.position.x + grass_rect.size.x - 15
+	var end_x = grass_rect.position.x + grass_rect.size.x - 13
 	var end_y = grass_rect.position.y + 8
 	# use easy_mapout function for coordinates
 	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)	
@@ -42,6 +47,11 @@ func _ready():
 		0,       # the "ground" terrain
 		 false
 	)
+#	Toggle tower visibility for locked towers
+	lazer_container.visible = toggle_tower_btn_visibility('lazer')
+	seismic_container.visible = toggle_tower_btn_visibility('seismic')
+	hand_container.visible = toggle_tower_btn_visibility('hand')
+	lung_container.visible = toggle_tower_btn_visibility('lung')
 
 #TODO: Manage updates to HUD data in a better way
 
@@ -128,3 +138,22 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 	# move 1 up to its castle gate
 	path_array.append(path_array[-1] + Vector2i(0,-1))
 	return path_array
+
+func toggle_tower_btn_visibility(type):
+	if !GameData.tower_store[type].unlocked:
+		return false
+	return true
+
+
+func _on_play_pause_button_toggled(toggled_on: bool) -> void:
+	get_tree().paused = toggled_on
+	
+
+
+func _on_quit_to_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://UI/StartScreen.tscn")
+
+
+func _on_quit_game_button_pressed() -> void:
+	get_tree().quit()

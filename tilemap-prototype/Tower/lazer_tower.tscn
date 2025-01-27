@@ -28,8 +28,7 @@ func _ready():
 		range.monitorable = false
 		return
 	animation_player.play(\"idle_tower\")
-	range_collision_shape.shape.radius = tower_stats.range
-	projectile_cooldown = tower_stats.rate_of_fire
+	range_collision_shape.shape.radius = tower_stats.calculated_range
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,7 +37,7 @@ func _process(delta):
 		projectile_cooldown -= delta
 		if projectile_cooldown <= 0:
 			fire(current_target)
-			projectile_cooldown = tower_stats.rate_of_fire
+			projectile_cooldown = tower_stats.calculated_rate_of_fire
 	else: 
 		current_target = null
 		find_best_target()
@@ -61,15 +60,13 @@ func fire(target: CharacterBody2D):
 	for dir in directions:
 		var projectile = tower_stats.projectile_scene.instantiate()
 		projectile.speed = tower_stats.speed
-		projectile.damage = tower_stats.damage
+		projectile.damage = tower_stats.calculated_damage
 		projectile.velocity = dir 
 		if dir == Vector2.UP or dir == Vector2.DOWN:
 			print('up or down')
 			projectile.rotation = PI/2
 		add_child(projectile)
 func _on_range_body_entered(body):
-	#print('body here', body, body.get_parent())
-	#fire(body)
 	if !current_target:
 		current_target = body
 	else:
