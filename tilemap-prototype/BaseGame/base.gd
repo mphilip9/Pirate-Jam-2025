@@ -19,9 +19,9 @@ func _ready():
 	# Clear old occupied tiles
 	GameData.occupied_tiles.clear()
 	# Start and end points
-	var start_x = grass_rect.position.x + 2
+	var start_x = grass_rect.position.x + 1
 	var start_y = grass_rect.position.y + grass_rect.size.y - 8
-	var end_x = grass_rect.position.x + grass_rect.size.x - 15
+	var end_x = grass_rect.position.x + grass_rect.size.x - 13
 	var end_y = grass_rect.position.y + 8
 	# use easy_mapout function for coordinates
 	path_cells += easy_mapout(start_x,end_x,end_y,start_y,0)	
