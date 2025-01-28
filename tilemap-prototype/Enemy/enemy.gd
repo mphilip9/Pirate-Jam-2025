@@ -21,7 +21,8 @@ var current_health: int:
 			animation_player.play("take_damage")
 		current_health = health_in
 		if current_health < 1:
-			death_sound.play()
+			if death_sound.playing == false:
+				death_sound.play()
 			await (death_sound.finished)
 			GameData.mort_flesh += 2
 			queue_free()
