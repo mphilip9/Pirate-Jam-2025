@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_ayub5")
-max_health = 100
-speed = 100
+max_health = 200
+speed = 150
 damage = 15
 gold_value = 20
+resistance = 0.0
