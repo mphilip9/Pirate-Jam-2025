@@ -22,7 +22,7 @@ var current_health: int:
 		current_health = health_in
 		if current_health < 1:
 			AudioManager.play(stats.death_sound)
-			GameData.mort_flesh += 2
+			GameData.mort_flesh += stats.gold_value
 			queue_free()
 
 var last_fram_pos = Vector2()

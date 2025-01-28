@@ -21,5 +21,5 @@ max_tier = 0
 preview = false
 projectile_scene = ExtResource("2_pcb0l")
 rate_of_fire = 1.0
-cost = 50
+cost = 75
 preview_texture = SubResource("AtlasTexture_57rqf")

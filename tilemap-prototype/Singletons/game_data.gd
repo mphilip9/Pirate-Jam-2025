@@ -2,10 +2,15 @@ extends Node2D
 
 
 @export var occupied_tiles: Array
-# yall got a better name?
+# yall got a better name?: nah this is the currency name now
 @export var mort_flesh: int = 200
 
+# wave & stage variable
+@export var wave: int = 1
+@export var stage: int = 1
 
+# placed tower tracker
+@export var placed_turrets = {"projectile": 0, "lazer": 0, "seismic": 0, "hand": 0, "lung": 0}
 #Tower store related global variables
 @export var selected_tower_stats: TowerStats
 # Data for tower unlocks and upgrades
@@ -17,6 +22,7 @@ extends Node2D
 			"damage": false,
 			"rate_of_fire": false,
 		},
+		
 	},
 	'lazer': {
 		"unlocked": false,
