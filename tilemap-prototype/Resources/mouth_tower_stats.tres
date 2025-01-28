@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://dwemfewg0dpu5"]
+
+[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="1_syxp3"]
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="2_4h4mi"]
+[ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_cu24m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
+atlas = ExtResource("1_syxp3")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_cu24m")
+name = "mouth"
+info = "Shoots deadly mushroom spores."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("2_4h4mi")
+rate_of_fire = 0.5
+cost = 50
+preview_texture = SubResource("AtlasTexture_h7yar")
