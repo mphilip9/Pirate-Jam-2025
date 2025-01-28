@@ -19,7 +19,10 @@ func _physics_process(delta):
 		return	
 	# set position to the target and stay in that position
 	if curr_position == Vector2() :
-		curr_position = target.global_position
+		if target != null :
+			curr_position = target.global_position
+		else :
+			queue_free()
 	global_position = curr_position
 	
 func _on_hitbox_body_entered(body):

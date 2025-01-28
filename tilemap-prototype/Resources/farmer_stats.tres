@@ -7,4 +7,5 @@ script = ExtResource("1_kxi8c")
 max_health = 100
 speed = 200
 damage = 5
-gold_value = 10
+gold_value = 5
+resistance = 0.0
