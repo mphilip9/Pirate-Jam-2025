@@ -4,7 +4,7 @@ extends PathFollow2D
 @onready var animation_player: AnimationPlayer = $Sprite/Body/AnimationPlayer
 @onready var castle = get_tree().get_first_node_in_group("base")
 @export var stats: EnemyStats
-@onready var death_sound: AudioStreamPlayer = $AudioStreamPlayer
+
 @onready var body: AnimatedSprite2D = $Sprite/Body
 
 
@@ -21,9 +21,7 @@ var current_health: int:
 			animation_player.play("take_damage")
 		current_health = health_in
 		if current_health < 1:
-			if death_sound.playing == false:
-				death_sound.play()
-			await (death_sound.finished)
+			AudioManager.play(stats.death_sound)
 			GameData.mort_flesh += 2
 			queue_free()
 

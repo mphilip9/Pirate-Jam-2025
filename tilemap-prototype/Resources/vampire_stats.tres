@@ -8,3 +8,5 @@ max_health = 50
 speed = 100
 damage = 5
 gold_value = 10
+resistance = null
+death_sound = "res://Assets/SFX/195 grunt d.wav"

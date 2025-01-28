@@ -1,9 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://csoyt0mi02r12"]
+[gd_scene load_steps=38 format=3 uid="uid://csoyt0mi02r12"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_m4pvl"]
 [ext_resource type="Resource" uid="uid://bkae02h4hordw" path="res://Resources/devil_stats.tres" id="2_yfmbb"]
 [ext_resource type="Texture2D" uid="uid://chy8tphrrh57t" path="res://Assets/EnemyAssets/Devil/DevilSheet.png" id="3_h4sp8"]
-[ext_resource type="AudioStream" uid="uid://bj42kasg8kaov" path="res://Assets/SFX/197 grunt f.wav" id="4_ffd6c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3f74b"]
 atlas = ExtResource("3_h4sp8")
@@ -287,7 +286,3 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
 shape = SubResource("CircleShape2D_57dqi")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ffd6c")
-volume_db = -19.125
