@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=62 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -33,6 +33,7 @@
 [ext_resource type="Resource" uid="uid://dwemfewg0dpu5" path="res://Resources/mouth_tower_stats.tres" id="28_5p07k"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
+[ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2022,6 +2023,10 @@ rate_of_fire = 0.5
 cost = 50
 preview_texture = SubResource("AtlasTexture_01r4s")
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
+stream_count = 1
+stream_0 = ExtResource("33_8lhf1")
+
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btitk")
@@ -2218,6 +2223,10 @@ text = "QUIT GAME"
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
+
+[node name="GameMusicPlaylist" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamPlaylist_flc8f")
+autoplay = true
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
