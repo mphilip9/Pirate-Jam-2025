@@ -14,7 +14,6 @@ func _ready():
 
 func _physics_process(delta):
 	if not target or !is_instance_valid(target):
-		queue_free()
 		return
 	var direction = (target.global_position - global_position).normalized()
 	

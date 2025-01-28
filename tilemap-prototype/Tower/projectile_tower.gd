@@ -4,7 +4,6 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var range = $Range
 
-#DO NOT NAME tower_stats, it will throw an error
 @export var tower_stats: TowerStats
 var enemy_path: Path2D
 var current_target: CharacterBody2D
