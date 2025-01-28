@@ -44,6 +44,7 @@ folder_colors={
 
 towers=""
 tower_store_buttons="To connect to all the store buttons easily"
+enemy=""
 
 [gui]
 

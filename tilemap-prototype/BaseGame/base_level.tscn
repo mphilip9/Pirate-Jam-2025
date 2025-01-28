@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=66 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -30,8 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="26_7o23g"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="27_m34e8"]
 [ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
-[ext_resource type="Resource" uid="uid://dwemfewg0dpu5" path="res://Resources/mouth_tower_stats.tres" id="28_5p07k"]
+[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="28_3fkkl"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
+[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="29_jetpk"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
 [ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 
@@ -2023,6 +2024,26 @@ rate_of_fire = 0.5
 cost = 50
 preview_texture = SubResource("AtlasTexture_01r4s")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
+atlas = ExtResource("28_3fkkl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_2anq0"]
+resource_local_to_scene = true
+script = ExtResource("13_qsws5")
+name = "mouth"
+info = "Shoots deadly mushroom spores."
+damage = 75
+speed = 400
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("29_jetpk")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_h7yar")
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
 stream_count = 1
 stream_0 = ExtResource("33_8lhf1")
@@ -2147,7 +2168,7 @@ layout_mode = 2
 
 [node name="MouthButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = ExtResource("28_5p07k")
+button_stats = SubResource("Resource_2anq0")
 
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD"]
 layout_mode = 2

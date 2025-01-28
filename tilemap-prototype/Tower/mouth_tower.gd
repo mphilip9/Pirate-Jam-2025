@@ -53,8 +53,6 @@ func fire(target: CharacterBody2D):
 	projectile.speed = tower_stats.speed
 	add_child(projectile)
 func _on_range_body_entered(body):
-	#print('body here', body, body.get_parent())
-	#fire(body)
 	if !current_target:
 		current_target = body
 	else:

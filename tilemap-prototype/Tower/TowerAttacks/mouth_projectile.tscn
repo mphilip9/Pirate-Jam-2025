@@ -1,66 +1,39 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxlpf2sbhtbt"]
+[gd_scene load_steps=10 format=3 uid="uid://cxlpf2sbhtbt"]
 
 [ext_resource type="Script" path="res://Tower/TowerAttacks/mouth_projectile.gd" id="1_43jsx"]
-[ext_resource type="Texture2D" uid="uid://dw0mqje44j1vv" path="res://Assets/TowerAssets/SoundAttack.webp" id="2_71c8e"]
+[ext_resource type="PackedScene" uid="uid://bqv3ave46hlay" path="res://Tower/TowerAttacks/explosion.tscn" id="2_n6bdx"]
+[ext_resource type="Texture2D" uid="uid://ba8ho1duqel0r" path="res://Assets/TowerAssets/BlueSporeSheet.png" id="3_a8xyu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3jyy"]
-atlas = ExtResource("2_71c8e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlckl"]
+atlas = ExtResource("3_a8xyu")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4fks"]
-atlas = ExtResource("2_71c8e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7crst"]
+atlas = ExtResource("3_a8xyu")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fwuph"]
-atlas = ExtResource("2_71c8e")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a44i7"]
-atlas = ExtResource("2_71c8e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0qr6"]
+atlas = ExtResource("3_a8xyu")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fsqwo"]
-atlas = ExtResource("2_71c8e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8jkd"]
+atlas = ExtResource("3_a8xyu")
 region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxcpe"]
-atlas = ExtResource("2_71c8e")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkuyy"]
-atlas = ExtResource("2_71c8e")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_to0ro"]
-atlas = ExtResource("2_71c8e")
-region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_80513"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l3jyy")
+"texture": SubResource("AtlasTexture_dlckl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x4fks")
+"texture": SubResource("AtlasTexture_7crst")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fwuph")
+"texture": SubResource("AtlasTexture_u0qr6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a44i7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fsqwo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxcpe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jkuyy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_to0ro")
+"texture": SubResource("AtlasTexture_o8jkd")
 }],
 "loop": true,
 "name": &"default",
@@ -68,21 +41,21 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1juvf"]
-radius = 13.0
+radius = 10.0499
 
 [node name="MouthProjectile" type="CharacterBody2D"]
-modulate = Color(0.176471, 1, 0, 1)
-scale = Vector2(2, 2)
+modulate = Color(0.677091, 0.9936, 0.323789, 1)
 collision_mask = 2
 script = ExtResource("1_43jsx")
+explosion_scene = ExtResource("2_n6bdx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_80513")
-frame_progress = 0.910486
+frame_progress = 0.18818
 
 [node name="Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="ProjectileShape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_1juvf")
 
 [node name="Timer" type="Timer" parent="."]
