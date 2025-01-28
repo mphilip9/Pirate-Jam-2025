@@ -1,14 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwykf8eg2nlor"]
+[gd_scene load_steps=11 format=3 uid="uid://cwykf8eg2nlor"]
 
 [ext_resource type="Script" path="res://Tower/mouth_tower.gd" id="1_alae5"]
 [ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="2_c078o"]
+[ext_resource type="Resource" uid="uid://dwemfewg0dpu5" path="res://Resources/mouth_tower_stats.tres" id="2_m8ysu"]
 [ext_resource type="Script" path="res://Tower/range_indicator.gd" id="3_27qjo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxssq"]
 atlas = ExtResource("2_c078o")
 
-[sub_resource type="Animation" id="Animation_0wntr"]
-resource_name = "idle_tower"
+[sub_resource type="Animation" id="Animation_jvfl0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_amki2"]
 resource_name = "bite"
@@ -27,20 +40,8 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_jvfl0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[sub_resource type="Animation" id="Animation_0wntr"]
+resource_name = "idle_tower"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ic27"]
 _data = {
@@ -52,9 +53,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_eppto"]
 
 [node name="MouthTower" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_alae5")
+tower_stats = ExtResource("2_m8ysu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_fxssq")
 hframes = 3
 vframes = 3

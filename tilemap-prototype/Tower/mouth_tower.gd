@@ -31,6 +31,7 @@ func _process(delta):
 		if projectile_cooldown <= 0:
 #			TODO: Would be cool to have the eye closed, and the
 #			play the open animation on fire
+			animation_player.play("bite")
 			fire(current_target)
 			projectile_cooldown = tower_stats.calculated_rate_of_fire
 	else: 

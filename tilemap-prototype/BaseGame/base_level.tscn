@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=61 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="26_7o23g"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="27_m34e8"]
 [ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
+[ext_resource type="Resource" uid="uid://dwemfewg0dpu5" path="res://Resources/mouth_tower_stats.tres" id="28_5p07k"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
 
@@ -2136,6 +2137,13 @@ layout_mode = 2
 layout_mode = 2
 button_stats = SubResource("Resource_1qitv")
 
+[node name="MouthContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
+layout_mode = 2
+
+[node name="MouthButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer" instance=ExtResource("11_6iy8u")]
+layout_mode = 2
+button_stats = ExtResource("28_5p07k")
+
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -2218,6 +2226,7 @@ script = ExtResource("11_8vmam")
 [connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer/HandButton" to="TowerManager" method="_on_hand_button_pressed"]
 [connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer/LungButton" to="TowerManager" method="_on_lung_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer/MouthButton" to="TowerManager" method="_on_mouth_button_pressed"]
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="." method="_on_play_pause_button_toggled"]
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="HUD/PauseMenu" method="_on_play_pause_button_toggled"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]

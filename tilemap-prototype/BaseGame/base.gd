@@ -10,6 +10,9 @@ extends Node2D
 @onready var seismic_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer
 @onready var hand_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer
 @onready var lung_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer
+@onready var mouth_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer
+
+
 # Called when the node enters the scene tree  for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -52,7 +55,7 @@ func _ready():
 	seismic_container.visible = toggle_tower_btn_visibility('seismic')
 	hand_container.visible = toggle_tower_btn_visibility('hand')
 	lung_container.visible = toggle_tower_btn_visibility('lung')
-
+	mouth_container.visible = toggle_tower_btn_visibility('mouth')
 #TODO: Manage updates to HUD data in a better way
 
 func remove_consecutive_duplicates(path):

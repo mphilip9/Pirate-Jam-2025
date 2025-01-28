@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://g3ptffd3pae4"]
+[gd_scene load_steps=38 format=3 uid="uid://g3ptffd3pae4"]
 
 [ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
 [ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/TowerAssets/MushroomCastle3.png" id="1_u65ta"]
@@ -22,12 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="16_1dte5"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="18_h1ga7"]
 [ext_resource type="PackedScene" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="19_apxs0"]
+[ext_resource type="Resource" uid="uid://dwemfewg0dpu5" path="res://Resources/mouth_tower_stats.tres" id="21_l0o7d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("3_nwie7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_u51to"]
+[sub_resource type="Resource" id="Resource_hgwoa"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "projectile"
@@ -47,7 +48,7 @@ preview_texture = SubResource("AtlasTexture_h7yar")
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_gw1jg"]
+[sub_resource type="Resource" id="Resource_svgdl"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -67,7 +68,7 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("13_5f0uv")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_mk38h"]
+[sub_resource type="Resource" id="Resource_drc0m"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "seismic"
@@ -87,7 +88,7 @@ preview_texture = SubResource("AtlasTexture_57rqf")
 atlas = ExtResource("15_eyhw4")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_5q6qr"]
+[sub_resource type="Resource" id="Resource_gxab5"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "hand"
@@ -107,7 +108,7 @@ preview_texture = SubResource("AtlasTexture_1enov")
 atlas = ExtResource("18_h1ga7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_5fvrr"]
+[sub_resource type="Resource" id="Resource_vwglx"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lung"
@@ -131,7 +132,7 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_bv6is"]
+[sub_resource type="Resource" id="Resource_shce8"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -268,23 +269,27 @@ columns = 3
 
 [node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_u51to")
+store_button_stats = SubResource("Resource_hgwoa")
 
 [node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_gw1jg")
+store_button_stats = SubResource("Resource_svgdl")
 
 [node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_mk38h")
+store_button_stats = SubResource("Resource_drc0m")
 
 [node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_5q6qr")
+store_button_stats = SubResource("Resource_gxab5")
 
 [node name="LungButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_5fvrr")
+store_button_stats = SubResource("Resource_vwglx")
+
+[node name="MouthButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
+layout_mode = 2
+store_button_stats = ExtResource("21_l0o7d")
 
 [node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
 visible = false
@@ -393,7 +398,7 @@ texture = SubResource("AtlasTexture_pjw14")
 
 [node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_bv6is")
+store_button_stats = SubResource("Resource_shce8")
 is_lock_btn = true
 
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]
