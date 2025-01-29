@@ -4,6 +4,8 @@ extends Node2D
 @onready var progress_bar = $ProgressBar
 @export var max_health: int = 50
 
+signal game_over()
+
 var current_health: int:
 	set(health_in):
 		current_health = health_in
@@ -23,9 +25,10 @@ var current_health: int:
 		# change bg_color from yellow to red to indicate how low the health is
 		progress_bar_style.bg_color = red.lerp(yellow,float(current_health) / float(max_health))
 		if current_health < 1:
+			game_over.emit()
 			# TODO: gotta make them retry or make a defeat menu load on castle death
 			# just reload
-			get_tree().reload_current_scene()
+			#get_tree().reload_current_scene()
 			# go back to start screen
 			#get_tree().change_scene_to_file("res://StartScreen/StartScreen.tscn")
 			

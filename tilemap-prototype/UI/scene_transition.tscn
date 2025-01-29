@@ -57,12 +57,15 @@ _data = {
 }
 
 [node name="SceneTransition" type="Control"]
+process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_8484k")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -3495.0
 offset_top = -3317.0
 offset_right = 5885.0

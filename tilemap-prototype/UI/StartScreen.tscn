@@ -564,7 +564,10 @@ parameters/looping = true
 [node name="SceneTransition" parent="." instance=ExtResource("5_7yubl")]
 
 [node name="ColorRect" parent="SceneTransition" index="0"]
-color = Color(0, 0, 0, 1)
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 9380.0
+offset_bottom = 7970.0
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

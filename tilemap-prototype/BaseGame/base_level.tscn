@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=75 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -38,6 +38,9 @@
 [ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="32_h5d0j"]
 [ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 [ext_resource type="Texture2D" uid="uid://nvh0b2musqvj" path="res://Assets/UIassets/TowerContainer.webp" id="34_0uskv"]
+[ext_resource type="Script" path="res://BaseGame/game_over.gd" id="37_x3bv2"]
+[ext_resource type="Texture2D" uid="uid://cwjc24l4eg1dj" path="res://Assets/UIassets/DeadOrc.png" id="38_4c3hv"]
+[ext_resource type="AudioStream" uid="uid://0phaudn7xui3" path="res://Assets/Music/Shattered-Reality.mp3" id="39_3iew2"]
 [ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="39_005f6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
@@ -2042,6 +2045,68 @@ rate_of_fire = 1.5
 cost = 50
 preview_texture = SubResource("AtlasTexture_mdc65")
 
+[sub_resource type="Animation" id="Animation_7wfiv"]
+resource_name = "game_over_fade"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.027451), Color(1, 1, 1, 0.705882)]
+}
+
+[sub_resource type="Animation" id="Animation_k4yxp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mur07"]
+_data = {
+"RESET": SubResource("Animation_k4yxp"),
+"game_over_fade": SubResource("Animation_7wfiv")
+}
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
 stream_count = 1
 stream_0 = ExtResource("33_8lhf1")
@@ -2254,6 +2319,51 @@ layout_mode = 2
 layout_mode = 2
 text = "QUIT GAME"
 
+[node name="GameOver" type="PanelContainer" parent="HUD"]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("37_x3bv2")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/GameOver"]
+layout_mode = 2
+texture = ExtResource("38_4c3hv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameOver"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameOverText" type="Label" parent="HUD/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+uppercase = true
+
+[node name="NewGameButton" type="Button" parent="HUD/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "New Game"
+
+[node name="QuitToMenuButton" type="Button" parent="HUD/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Quit To Menu"
+
+[node name="GameOverAnimation" type="AnimationPlayer" parent="HUD/GameOver"]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_mur07")
+}
+
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="HUD/GameOver"]
+stream = ExtResource("39_3iew2")
+parameters/looping = true
+
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
@@ -2264,6 +2374,7 @@ autoplay = true
 [node name="SceneTransition" parent="." instance=ExtResource("39_005f6")]
 
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
+[connection signal="game_over" from="Castle" to="HUD/GameOver" method="_on_castle_game_over"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
@@ -2276,3 +2387,5 @@ autoplay = true
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="HUD/PauseMenu" method="_on_play_pause_button_toggled"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
+[connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
