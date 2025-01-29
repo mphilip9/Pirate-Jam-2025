@@ -5,6 +5,10 @@ extends PathFollow2D
 @onready var castle = get_tree().get_first_node_in_group("base")
 @export var stats: EnemyStats
 
+@onready var body: AnimatedSprite2D = $Sprite/Body
+
+
+
 var speed_modifier: float = 1.00
 var speed_cc_frame: int = 0
 # TODO: need to think about how DoT mechanism works when multiple were applied
@@ -17,17 +21,15 @@ var current_health: int:
 			animation_player.play("take_damage")
 		current_health = health_in
 		if current_health < 1:
+			AudioManager.play(stats.death_sound)
 			GameData.mort_flesh += stats.gold_value
 			queue_free()
-
-
-@onready var body: AnimatedSprite2D = $Sprite/Body
 
 var last_fram_pos = Vector2()
 
 func _ready() -> void:
 	current_health = stats.max_health
-	
+
 	
 func _process(delta: float) -> void:
 	# check dot_modifier if DoT is present

@@ -7,3 +7,4 @@ extends Resource
 @export var damage: int
 @export var gold_value: int
 @export var resistance: float
+@export var death_sound: String
