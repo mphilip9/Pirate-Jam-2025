@@ -10,7 +10,7 @@ extends PathFollow2D
 var speed_modifier: float = 1.00
 var speed_cc_frame: int = 0
 # TODO: need to think about how DoT mechanism works when multiple were applied
-# for now its refresh DoT when applied
+# for now it refreshes DoT when applied
 var dot_modifier: Array[int] = [0, 0] # duration, damage/tick 
 
 var current_health: int:
@@ -78,6 +78,7 @@ func damage_over_time(frame: int, damage: int) -> void:
 # when slow cced
 func crowd_control_slow(frame: int, rate: float) -> void:
 	speed_cc_frame = frame
+	# bosses will have resistance of 1 so it wont get CCed
 	speed_modifier = 1.00 - rate * (1 - stats.resistance)
 	
 
