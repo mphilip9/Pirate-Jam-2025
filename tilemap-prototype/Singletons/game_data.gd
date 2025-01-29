@@ -10,7 +10,7 @@ extends Node2D
 @export var stage: int = 1
 
 # placed tower tracker
-@export var placed_turrets = {"projectile": 0, "lazer": 0, "seismic": 0, "hand": 0, "lung": 0}
+@export var placed_turrets = {"projectile": 0, "lazer": 0, "seismic": 0, "hand": 0, "lung": 0, "mouth": 0}
 #Tower store related global variables
 @export var selected_tower_stats: TowerStats
 # Data for tower unlocks and upgrades
@@ -50,6 +50,14 @@ extends Node2D
 	},
 	'lung': {
 		"unlocked": false,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+	},
+	'mouth': {
+		"unlocked": true,
 		"upgrades": {
 			"range": false,
 			"damage": false,

@@ -7,7 +7,6 @@
 [sub_resource type="GDScript" id="GDScript_ctwmb"]
 script/source = "extends Node2D
 @onready var range_collision_shape = $Range/RangeCollisionShape
-@onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
 @onready var range = $Range
 
@@ -147,8 +146,6 @@ libraries = {
 
 [node name="RangeCollisionShape" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_7u1t1")
-
-[node name="Timer" type="Timer" parent="."]
 
 [node name="RangeIndicator" type="Control" parent="."]
 visible = false

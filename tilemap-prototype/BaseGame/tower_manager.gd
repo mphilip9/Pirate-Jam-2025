@@ -10,7 +10,8 @@ const towers = {
 	'lazer': preload("res://Tower/lazer_tower.tscn"),
 	'seismic': preload("res://Tower/seismic_tower.tscn"),
 	'hand': preload("res://Tower/hand_tower.tscn"),
-	'lung': preload("res://Tower/lung_tower.tscn")
+	'lung': preload("res://Tower/lung_tower.tscn"),
+	'mouth': preload("res://Tower/mouth_tower.tscn")
 }
 
 @export var preview_tower = false
@@ -90,7 +91,7 @@ func handle_tower_button(tower_type: String) -> void:
 
 		
 	
-func _on_projectile_button_pressed():
+func _on_projectile_button_pressed() -> void:
 	handle_tower_button('projectile')
 
 func _on_lazer_button_pressed():
@@ -107,3 +108,7 @@ func _on_hand_button_pressed() -> void:
 
 func _on_lung_button_pressed() -> void:
 	handle_tower_button('lung')
+
+
+func _on_mouth_button_pressed() -> void:
+	handle_tower_button('mouth')
