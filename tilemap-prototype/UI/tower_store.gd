@@ -74,6 +74,7 @@ func _on_upgrade_button_pressed(upgrade_type: String, cost: int):
 
 func _on_unlock_button_pressed():
 	if selected_tower:
+		AudioManager.play("res://Assets/SFX/021 tambo b.wav")
 		GameData.mort_flesh -= int(unlock_cost.text)
 		GameData.tower_store[selected_tower.name].unlocked = true
 	else:

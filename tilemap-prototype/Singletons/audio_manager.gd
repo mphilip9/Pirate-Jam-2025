@@ -12,7 +12,6 @@ func _ready():
 	for i in num_players:
 		var player = AudioStreamPlayer.new()
 		var pitch_scale = randf_range(0.8, 1.2)
-		player.set_volume_db(-12.0)
 		player.set_pitch_scale(pitch_scale)
 		add_child(player)
 		available.append(player)
@@ -28,7 +27,9 @@ func _on_stream_finished(stream):
 func play(sound_path):
 	queue.append(sound_path)
 
-
+func adjust_volume(volume: float):
+	available[0].set_volume_db(volume)
+	
 func _process(delta):
 	# Play a queued sound if any players are available.
 	if not queue.is_empty() and not available.is_empty():
