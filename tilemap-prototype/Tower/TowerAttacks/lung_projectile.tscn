@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cwth1pwtjveo6"]
+[gd_scene load_steps=21 format=3 uid="uid://cu6haqfn23lap"]
 
 [ext_resource type="Script" path="res://Tower/TowerAttacks/lung_projectile.gd" id="1_vbkxp"]
 [ext_resource type="Texture2D" uid="uid://51n31pqymwpj" path="res://Assets/TowerAssets/Smokewave.png" id="2_udk0q"]

@@ -65,6 +65,7 @@ func _process(delta: float) -> void:
 		
 		
 func take_damage(damage) -> void:
+	print('damaged!', damage)
 	current_health -= damage
 
 # Damage over Time
@@ -75,3 +76,12 @@ func damage_over_time(frame: int, damage: int) -> void:
 func crowd_control_slow(frame: int, rate: float) -> void:
 	speed_cc_frame = frame
 	speed_modifier = 1.00 - rate
+	
+	
+#TODO: This is janky right now. Needs some work
+#If we keep it, big enemies should be unaffected
+func push_backwards(distance: float) -> void:
+	progress -= distance
+	# Ensure progress doesn't go below 0
+	if progress < 0:
+		progress = 0

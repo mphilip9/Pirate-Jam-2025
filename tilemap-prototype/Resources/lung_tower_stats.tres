@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TowerStats" load_steps=5 format=3 uid="uid://ccfy8bkglpyya"]
 
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="1_ilj7m"]
-[ext_resource type="PackedScene" uid="uid://cwth1pwtjveo6" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="2_12pri"]
+[ext_resource type="PackedScene" uid="uid://cu6haqfn23lap" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="2_12pri"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_d1dj4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_01r4s"]
