@@ -50,9 +50,7 @@ func find_best_target() -> void:
 
 func fire(target: CharacterBody2D):
 	var projectile = tower_stats.projectile_scene.instantiate()
-	var pitch_scale = randf_range(0.6, 0.8)
 	AudioManager.adjust_volume(-5.0)
-	AudioManager.adjust_pitch(pitch_scale)
 	AudioManager.play("res://Assets/SFX/acid_spell_cast_squish_ball_02.wav")
 	projectile.target = target
 	projectile.damage = tower_stats.calculated_damage
