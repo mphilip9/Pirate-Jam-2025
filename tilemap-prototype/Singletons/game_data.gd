@@ -77,3 +77,6 @@ extends Node2D
 	"damage": 2,
 	"rate_of_fire": 2
 }
+
+func restore_game_data() -> void:
+	occupied_tiles = []

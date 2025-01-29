@@ -4,6 +4,7 @@ extends Node2D
 @onready var ground = $Maps/Ground
 @onready var objects = $Maps/Objects
 @onready var castle = $Castle
+@onready var scene_transition = $SceneTransition
 #Passing in container to toggle visibility depending on unlocked or not
 @onready var lazer_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer
 @onready var seismic_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer
@@ -195,4 +196,4 @@ func _on_button_pressed() -> void:
 		if name == 'lung':
 			GameData.mort_flesh += GameData.placed_turrets[name] * 100
 		GameData.placed_turrets[name] = 0
-	get_tree().change_scene_to_file("res://UI/tower_store.tscn")
+	scene_transition.change_scene("res://UI/tower_store.tscn")
