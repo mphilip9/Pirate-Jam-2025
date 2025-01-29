@@ -22,6 +22,7 @@ extends Node2D
 			"damage": false,
 			"rate_of_fire": false,
 		},
+		"n_upgrades": 0
 		
 	},
 	'lazer': {
@@ -31,6 +32,7 @@ extends Node2D
 			"damage": false,
 			"rate_of_fire": false,
 		},
+		"n_upgrades": 0
 	},
 	'seismic': {
 		"unlocked": false,
@@ -39,6 +41,7 @@ extends Node2D
 			"damage": false,
 			"rate_of_fire": false,
 		},
+		"n_upgrades": 0
 	},
 	'hand': {
 		"unlocked": false,
@@ -47,6 +50,7 @@ extends Node2D
 			"damage": false,
 			"rate_of_fire": false,
 		},
+		"n_upgrades": 0
 	},
 	'lung': {
 		"unlocked": false,
@@ -55,6 +59,7 @@ extends Node2D
 			"damage": false,
 			"rate_of_fire": false,
 		},
+		"n_upgrades": 0
 	},
 	'mouth': {
 		"unlocked": false,
@@ -63,6 +68,7 @@ extends Node2D
 			"damage": false,
 			"rate_of_fire": false,
 		},
+		"n_upgrades": 0
 	},
 }
 #Use this to calculate the price in the store

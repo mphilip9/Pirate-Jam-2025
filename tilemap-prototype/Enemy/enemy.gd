@@ -19,6 +19,7 @@ var current_health: int:
 			animation_player.play("take_damage")
 		current_health = health_in
 		if current_health < 1:
+			AudioManager.adjust_volume(-10.0)
 			AudioManager.play(stats.death_sound)
 			GameData.mort_flesh += stats.gold_value
 			queue_free()

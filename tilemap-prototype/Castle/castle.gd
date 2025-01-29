@@ -34,4 +34,5 @@ func _ready() -> void:
 	current_health = max_health
 
 func take_damage(damage: int) :
+	AudioManager.play("res://Assets/SFX/Rock Impact 11.wav")
 	current_health -= damage
