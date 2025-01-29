@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://g3ptffd3pae4"]
+[gd_scene load_steps=42 format=3 uid="uid://g3ptffd3pae4"]
 
 [ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
-[ext_resource type="Texture2D" uid="uid://bxvsl27mvmawk" path="res://Assets/TowerAssets/MushroomCastle3.png" id="1_u65ta"]
 [ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="2_hwlt7"]
 [ext_resource type="Theme" uid="uid://dpheqmg73kkso" path="res://Themes/store_inner_theme.tres" id="2_ns8s2"]
 [ext_resource type="Script" path="res://UI/tower_store.gd" id="2_yo3hp"]
+[ext_resource type="Texture2D" uid="uid://cwjc24l4eg1dj" path="res://Assets/UIassets/DeadOrc.png" id="3_0dujk"]
 [ext_resource type="Texture2D" uid="uid://bxxh6a14m3yg1" path="res://Assets/TowerAssets/MushroomEyeBlinkSheet.png" id="3_nwie7"]
 [ext_resource type="FontFile" uid="uid://gai1kalbtujs" path="res://Assets/Fonts/8bitlim.ttf" id="4_msd3s"]
 [ext_resource type="Texture2D" uid="uid://oukj25v8508p" path="res://Assets/UIassets/CoinYellow.png" id="5_cj63v"]
@@ -12,16 +12,139 @@
 [ext_resource type="Theme" uid="uid://klbhwu4a07n4" path="res://Themes/proceed_button_theme.tres" id="6_4imqe"]
 [ext_resource type="PackedScene" uid="uid://bxi83868aaha" path="res://UI/store_tower_button.tscn" id="8_1yq66"]
 [ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/TowerAssets/MushroomHeartSheet.png" id="10_boybp"]
-[ext_resource type="Resource" uid="uid://dqvllxd7wodtb" path="res://Resources/projectile_tower_stats.tres" id="10_dqevn"]
+[ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="11_cnfna"]
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="11_kqeew"]
-[ext_resource type="Resource" uid="uid://bthvw8ccdd2vs" path="res://Resources/lazer_tower_stats.tres" id="11_vwfjn"]
-[ext_resource type="Resource" uid="uid://bdp55m4h2h72m" path="res://Resources/seismic_tower_stats.tres" id="12_y14cd"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="12_yv8y7"]
-[ext_resource type="Resource" uid="uid://qv8atrgur5n" path="res://Resources/hand_tower_stats.tres" id="13_5y4i0"]
 [ext_resource type="PackedScene" uid="uid://btnjdo05madx8" path="res://UI/upgrade_button.tscn" id="13_vmq8l"]
-[ext_resource type="Resource" uid="uid://ccfy8bkglpyya" path="res://Resources/lung_tower_stats.tres" id="14_eayk0"]
-[ext_resource type="Resource" uid="uid://dwemfewg0dpu5" path="res://Resources/mouth_tower_stats.tres" id="21_vgdq4"]
+[ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="15_hap3n"]
+[ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="16_yrwjo"]
+[ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="17_n1hlf"]
+[ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="18_wxlja"]
+[ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="19_m5h4i"]
+[ext_resource type="PackedScene" uid="uid://cu6haqfn23lap" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="20_f7uww"]
+[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="21_qpdar"]
+[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="22_8mt84"]
 [ext_resource type="AudioStream" uid="uid://c2v6shdef1kvu" path="res://Assets/Music/A-Trail-of-Jewels.mp3" id="23_5h8np"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
+atlas = ExtResource("3_nwie7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_75myp"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "projectile"
+info = "Shoots deadly mushroom spores."
+damage = 100
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("11_cnfna")
+rate_of_fire = 1.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_h7yar")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
+atlas = ExtResource("10_boybp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_nceq6"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "lazer"
+info = "A heart that shoots lasers of blood."
+damage = 50
+speed = 200
+range = 200
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("11_kqeew")
+rate_of_fire = 1.0
+cost = 100
+preview_texture = SubResource("AtlasTexture_e32yj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+atlas = ExtResource("15_hap3n")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_1e1t1"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "seismic"
+info = "Produces earth quakes that slow and damage enemies."
+damage = 50
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("16_yrwjo")
+rate_of_fire = 1.0
+cost = 75
+preview_texture = SubResource("AtlasTexture_57rqf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
+atlas = ExtResource("17_n1hlf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_5vxwm"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "hand"
+info = "Shoots claw-like spikes from underneath enemies to hold them in place. Low damage"
+damage = 20
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("18_wxlja")
+rate_of_fire = 2.0
+cost = 50
+preview_texture = SubResource("AtlasTexture_1enov")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01r4s"]
+atlas = ExtResource("19_m5h4i")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_hv1ml"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "lung"
+info = "Emits poisonous gas around enemies and deals damage over time."
+damage = 200
+speed = 500
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("20_f7uww")
+rate_of_fire = 1.0
+cost = 125
+preview_texture = SubResource("AtlasTexture_01r4s")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68s16"]
+atlas = ExtResource("21_qpdar")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_clxms"]
+resource_local_to_scene = true
+script = ExtResource("12_yv8y7")
+name = "mouth"
+info = "Shoots deadly mushroom spores."
+damage = 100
+speed = 300
+range = 100
+tier = 0
+max_tier = 0
+preview = false
+projectile_scene = ExtResource("22_8mt84")
+rate_of_fire = 1.5
+cost = 50
+preview_texture = SubResource("AtlasTexture_68s16")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjw14"]
 atlas = ExtResource("3_nwie7")
@@ -31,7 +154,7 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_ryllk"]
+[sub_resource type="Resource" id="Resource_wp76e"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -55,12 +178,14 @@ region = Rect2(0, 0, 64, 64)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 3.0
-offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_64hk4")
 script = ExtResource("2_yo3hp")
+
+[node name="DeadOrc" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_0dujk")
 
 [node name="PanelContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -101,11 +226,6 @@ text = "Dr. Shroomenstein's Laboratory"
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_u65ta")
-stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -168,27 +288,27 @@ columns = 3
 
 [node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = ExtResource("10_dqevn")
+store_button_stats = SubResource("Resource_75myp")
 
 [node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = ExtResource("11_vwfjn")
+store_button_stats = SubResource("Resource_nceq6")
 
 [node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = ExtResource("12_y14cd")
+store_button_stats = SubResource("Resource_1e1t1")
 
 [node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = ExtResource("13_5y4i0")
+store_button_stats = SubResource("Resource_5vxwm")
 
 [node name="LungButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = ExtResource("14_eayk0")
+store_button_stats = SubResource("Resource_hv1ml")
 
 [node name="MouthButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = ExtResource("21_vgdq4")
+store_button_stats = SubResource("Resource_clxms")
 
 [node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
 visible = false
@@ -297,7 +417,7 @@ texture = SubResource("AtlasTexture_pjw14")
 
 [node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_ryllk")
+store_button_stats = SubResource("Resource_wp76e")
 is_lock_btn = true
 
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]
