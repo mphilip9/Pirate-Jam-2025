@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckdwh8pt0jnii"
+path="res://.godot/imported/019 BIG CLAP.wav-1cdd035dba292afefdb3ecf37a84adb5.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/019 BIG CLAP.wav"
+dest_files=["res://.godot/imported/019 BIG CLAP.wav-1cdd035dba292afefdb3ecf37a84adb5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

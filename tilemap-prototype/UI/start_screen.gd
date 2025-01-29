@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 # load base_level.tscn when start button pressed
 func _on_start_pressed() :
 	AudioManager.adjust_pitch(1.0)
+	AudioManager.adjust_volume(-8.0)
 	AudioManager.play("res://Assets/SFX/208 witchlaughter.wav")
 	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
 	GameData.mort_flesh = 200
