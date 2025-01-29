@@ -10,6 +10,8 @@ extends Node2D
 @onready var hand_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer
 @onready var lung_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer
 @onready var mouth_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer
+@onready var play_pause_button: TextureButton = $HUD/PlayPauseContainer/PlayPauseButton
+@onready var pause_menu: PanelContainer = $HUD/PauseMenu
 
 
 # Called when the node enters the scene tree  for the first time.
@@ -141,17 +143,28 @@ func easy_mapout(start_x, end_x, start_y, end_y, start_coord):
 	path_array.append(path_array[-1] + Vector2i(0,-1))
 	return path_array
 
+
 func toggle_tower_btn_visibility(type):
 	if !GameData.tower_store[type].unlocked:
 		return false
 	return true
+	
+
 
 
 func _on_play_pause_button_toggled(toggled_on: bool) -> void:
 	get_tree().paused = toggled_on
+
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape") and not play_pause_button.button_pressed:
+		play_pause_button.button_pressed = true
+
+		
+func _on_resume_button_pressed() -> void:
+	get_tree().paused = false
 	
-
-
 func _on_quit_to_menu_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://UI/StartScreen.tscn")
