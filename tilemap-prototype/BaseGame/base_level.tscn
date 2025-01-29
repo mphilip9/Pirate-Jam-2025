@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="25_p75wh"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="26_7tnkt"]
 [ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="27_07g6n"]
-[ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
+[ext_resource type="PackedScene" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="28_v3yrd"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_duo47"]
@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://cwjc24l4eg1dj" path="res://Assets/UIassets/DeadOrc.png" id="38_4c3hv"]
 [ext_resource type="AudioStream" uid="uid://0phaudn7xui3" path="res://Assets/Music/Shattered-Reality.mp3" id="39_3iew2"]
 [ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="39_005f6"]
+[ext_resource type="Texture2D" uid="uid://coyvjedbcqvm0" path="res://Assets/UIassets/Play.png" id="36_ckx2u"]
+[ext_resource type="Texture2D" uid="uid://dmxx4l42ilju0" path="res://Assets/UIassets/Pause.png" id="37_p0mhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2263,17 +2265,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "replace me"
 
-[node name="PlayPauseContainer" type="PanelContainer" parent="HUD"]
+[node name="PlayPauseContainer" type="MarginContainer" parent="HUD"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -64.0
-offset_bottom = 64.0
+offset_left = -89.0
+offset_bottom = 89.0
 grow_horizontal = 0
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
 script = ExtResource("28_lg64e")
 
 [node name="PlayPauseButton" parent="HUD/PlayPauseContainer" instance=ExtResource("28_0kwfa")]
 layout_mode = 2
+texture_normal = ExtResource("36_ckx2u")
+texture_pressed = ExtResource("37_p0mhu")
 
 [node name="PauseMenu" type="PanelContainer" parent="HUD"]
 visible = false
@@ -2282,10 +2288,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -600.0
-offset_top = -300.0
-offset_right = 600.0
-offset_bottom = 300.0
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("30_3kv07")
@@ -2305,10 +2311,12 @@ alignment = 1
 [node name="QuitToMenuContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 
 [node name="QuitToMenuButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "QUIT TO MENU
 "
 
@@ -2317,6 +2325,7 @@ layout_mode = 2
 
 [node name="QuitGameButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "QUIT GAME"
 
 [node name="GameOver" type="PanelContainer" parent="HUD"]
@@ -2364,6 +2373,15 @@ libraries = {
 stream = ExtResource("39_3iew2")
 parameters/looping = true
 
+[node name="ResumeContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ResumeButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RESUME GAME"
+
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
@@ -2389,3 +2407,5 @@ autoplay = true
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="HUD/PauseMenu" method="_on_resume_button_pressed"]
