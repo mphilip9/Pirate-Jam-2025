@@ -5,11 +5,11 @@ extends Node2D
 @onready var objects = $Maps/Objects
 @onready var castle = $Castle
 #Passing in container to toggle visibility depending on unlocked or not
-@onready var lazer_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer
-@onready var seismic_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer
-@onready var hand_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer
-@onready var lung_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer
-@onready var mouth_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer
+@onready var lazer_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer
+@onready var seismic_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer
+@onready var hand_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer
+@onready var lung_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer
+@onready var mouth_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer
 
 
 # Called when the node enters the scene tree  for the first time.
@@ -163,7 +163,6 @@ func _on_quit_game_button_pressed() -> void:
 # TODO: this is just a temp button for testing need to change
 
 func _on_button_pressed() -> void:
-	print('hello??')
 	if GameData.wave > 4 :
 		GameData.wave = 0
 		GameData.stage += 1

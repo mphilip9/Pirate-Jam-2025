@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="2_mh3i7"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="3_cu24m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdc65"]
 atlas = ExtResource("1_syxp3")
 region = Rect2(0, 0, 64, 64)
 
@@ -12,7 +12,7 @@ region = Rect2(0, 0, 64, 64)
 resource_local_to_scene = true
 script = ExtResource("3_cu24m")
 name = "mouth"
-info = "Shoots deadly mushroom spores."
+info = "Spits out a volatile spore that explodes on contact"
 damage = 100
 speed = 300
 range = 100
@@ -22,4 +22,4 @@ preview = false
 projectile_scene = ExtResource("2_mh3i7")
 rate_of_fire = 1.5
 cost = 50
-preview_texture = SubResource("AtlasTexture_h7yar")
+preview_texture = SubResource("AtlasTexture_mdc65")
