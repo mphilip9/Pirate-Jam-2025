@@ -11,7 +11,6 @@ extends Node2D
 @onready var lung_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer
 @onready var mouth_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer
 
-
 # Called when the node enters the scene tree  for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE

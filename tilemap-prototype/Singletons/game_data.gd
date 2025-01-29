@@ -57,7 +57,7 @@ extends Node2D
 		},
 	},
 	'mouth': {
-		"unlocked": true,
+		"unlocked": false,
 		"upgrades": {
 			"range": false,
 			"damage": false,

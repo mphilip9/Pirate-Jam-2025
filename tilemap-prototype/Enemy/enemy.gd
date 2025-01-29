@@ -4,16 +4,14 @@ extends PathFollow2D
 @onready var animation_player: AnimationPlayer = $Sprite/Body/AnimationPlayer
 @onready var castle = get_tree().get_first_node_in_group("base")
 @export var stats: EnemyStats
-
 @onready var body: AnimatedSprite2D = $Sprite/Body
 
-
-
+# enemy modifier
 var speed_modifier: float = 1.00
 var speed_cc_frame: int = 0
 # TODO: need to think about how DoT mechanism works when multiple were applied
 # for now its refresh DoT when applied
-var dot_modifier: Array[int] = [0, 0] # duration, damage/ tick
+var dot_modifier: Array[int] = [0, 0] # duration, damage/tick 
 
 var current_health: int:
 	set(health_in):
@@ -28,13 +26,16 @@ var current_health: int:
 var last_fram_pos = Vector2()
 
 func _ready() -> void:
-	current_health = stats.max_health
+	# now health scale with stage number increase by 10%(additive not geometric)
+	current_health = stats.max_health * (1 + (GameData.stage - 1) *0.1)
 
 	
 func _process(delta: float) -> void:
 	# check dot_modifier if DoT is present
-	if dot_modifier[0] > 0:
-		take_damage(dot_modifier[1])
+	if dot_modifier[0] > 0 :
+	# DoT is applied when duration is of even #
+		if dot_modifier[0] % 2 == 0 :
+			take_damage(dot_modifier[1])
 		dot_modifier[0] -= 1
 		if dot_modifier[0] < 1:
 			dot_modifier = [0, 0]
@@ -72,14 +73,14 @@ func take_damage(damage) -> void:
 
 # Damage over Time
 func damage_over_time(frame: int, damage: int) -> void:
-	dot_modifier = [frame, roundi(damage/frame)]
+	dot_modifier = [frame * 2 , roundi(damage/frame)]
 
 # when slow cced
 func crowd_control_slow(frame: int, rate: float) -> void:
 	speed_cc_frame = frame
-	speed_modifier = 1.00 - rate
+	speed_modifier = 1.00 - rate * (1 - stats.resistance)
 	
-	
+
 #TODO: This is janky right now. Needs some work
 #If we keep it, big enemies should be unaffected
 func push_backwards(distance: float) -> void:
