@@ -9,4 +9,4 @@ speed = 100
 damage = 10
 gold_value = 15
 resistance = 0.0
-death_sound = "res://Assets/SFX/195 grunt d.wav"
+death_sound = "res://Assets/SFX/193 grunt b.wav"

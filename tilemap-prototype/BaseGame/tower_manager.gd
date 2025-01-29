@@ -40,6 +40,7 @@ func _unhandled_input(event):
 		tower_scene.position = get_global_mouse_position()
 		#preview_tower_scene.get_node("RangeIndicator").visible = false
 		preview_tower_scene.queue_free()
+		AudioManager.play("res://Assets/SFX/009 stomp d.wav")
 		get_parent().add_child(tower_scene) 
 		preview_tower = false
 		can_place = false

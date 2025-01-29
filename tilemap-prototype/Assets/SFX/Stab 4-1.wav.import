@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://k5s8ar8fdnu5"
-path="res://.godot/imported/174 chain.wav-f1ec6fe0b5f97954f4ed70198d2e1fcf.sample"
+uid="uid://bw87pvdkbtmh0"
+path="res://.godot/imported/Stab 4-1.wav-a6a8be661cb358406b60ca9268caafdd.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/174 chain.wav"
-dest_files=["res://.godot/imported/174 chain.wav-f1ec6fe0b5f97954f4ed70198d2e1fcf.sample"]
+source_file="res://Assets/SFX/Stab 4-1.wav"
+dest_files=["res://.godot/imported/Stab 4-1.wav-a6a8be661cb358406b60ca9268caafdd.sample"]
 
 [params]
 

@@ -60,6 +60,8 @@ func _process(delta):
 		
 
 func _on_store_button_pressed(data: TowerStats, is_lock_btn: bool):
+	AudioManager.adjust_pitch(1)
+	AudioManager.play("res://Assets/SFX/028 TAMBO SHORT.wav")
 	GameData.selected_tower_stats = data
 	selected_tower = data
 	is_lock_btn = is_lock_btn
@@ -68,6 +70,7 @@ func _on_store_button_pressed(data: TowerStats, is_lock_btn: bool):
 
 func _on_upgrade_button_pressed(upgrade_type: String, cost: int):
 	if selected_tower and !is_lock_btn:
+		AudioManager.play("res://Assets/SFX/043 chain hit.wav")
 		GameData.tower_store[selected_tower.name].upgrades[upgrade_type] = true
 		GameData.mort_flesh -= cost
 		
@@ -75,6 +78,7 @@ func _on_upgrade_button_pressed(upgrade_type: String, cost: int):
 
 func _on_unlock_button_pressed():
 	if selected_tower:
+		AudioManager.play("res://Assets/SFX/021 tambo b.wav")
 		GameData.mort_flesh -= int(unlock_cost.text)
 		GameData.tower_store[selected_tower.name].unlocked = true
 	else:
@@ -82,6 +86,7 @@ func _on_unlock_button_pressed():
 
 
 func _on_proceed_button_pressed():
+	AudioManager.play("res://Assets/SFX/013 JESTER SNARE.wav")
 	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
 
 

@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pause_button_toggled(toggled_on: bool) -> void:
+	AudioManager.play("res://Assets/SFX/013 JESTER SNARE.wav")
 	visible = toggled_on
