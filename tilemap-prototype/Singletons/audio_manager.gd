@@ -32,6 +32,10 @@ func play(sound_path):
 func adjust_volume(volume: float):
 	available[0].set_volume_db(volume)
 
+func adjust_multiple_volume(volume: float, range: int):
+		pass
+		#TODO: find out how to adjust multiple volumes
+			
 func adjust_pitch(pitch: float):
 	available[0].set_pitch_scale(pitch)
 	has_been_pitched = true

@@ -56,6 +56,8 @@ func fire(target: CharacterBody2D):
 	Vector2.UP,   
 	Vector2.DOWN, 
 	]
+	AudioManager.adjust_volume(-5.0)
+	AudioManager.play(\"res://Assets/SFX/Sci-Fi Gun 1-1.wav\")
 	for dir in directions:
 		var projectile = tower_stats.projectile_scene.instantiate()
 		projectile.speed = tower_stats.speed

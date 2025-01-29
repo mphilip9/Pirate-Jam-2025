@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bdom0xijpu8u2"
+path="res://.godot/imported/Sci-Fi Gun 1-1.wav-5c810e079e3fba7b6bfb6b5383fbbad2.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Sci-Fi Gun 1-1.wav"
+dest_files=["res://.godot/imported/Sci-Fi Gun 1-1.wav-5c810e079e3fba7b6bfb6b5383fbbad2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
