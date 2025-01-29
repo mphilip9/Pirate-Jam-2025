@@ -24,14 +24,15 @@ func _process(delta):
 	else:
 		disabled = false
 		modulate = Color(1,1,1,1)
-		cost.text = str(selected_tower.cost * multiplier)
+#		This increases the cost based on whether you have other upgrades for this tower unlocked
+		var n_upgrades_multiplier = GameData.tower_store[selected_tower.name].n_upgrades + 1 
+		cost.text = str(selected_tower.cost * multiplier * n_upgrades_multiplier)
 		cost.set("theme_override_colors/font_color",Color.WHITE)
 
 		# Set it to the non upgraded color or whatever
 	if cost.text and int(cost.text) > GameData.mort_flesh:
 		disabled = true
 		cost.set("theme_override_colors/font_color",Color.RED)
-
 
 func _upgrade_button_pressed():
 	emit_signal("upgrade_button_pressed", upgrade_btn_type, int(cost.text))
