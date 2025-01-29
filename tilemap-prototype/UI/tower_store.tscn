@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://g3ptffd3pae4"]
+[gd_scene load_steps=43 format=3 uid="uid://g3ptffd3pae4"]
 
 [ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
 [ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="2_hwlt7"]
@@ -25,12 +25,13 @@
 [ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="21_qpdar"]
 [ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="22_8mt84"]
 [ext_resource type="AudioStream" uid="uid://c2v6shdef1kvu" path="res://Assets/Music/A-Trail-of-Jewels.mp3" id="23_5h8np"]
+[ext_resource type="Theme" uid="uid://b2ycmtth6b4ht" path="res://Themes/quit_button_theme.tres" id="25_ahlng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("3_nwie7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_vcb3u"]
+[sub_resource type="Resource" id="Resource_tlvbi"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "projectile"
@@ -50,7 +51,7 @@ preview_texture = SubResource("AtlasTexture_h7yar")
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_cnygk"]
+[sub_resource type="Resource" id="Resource_v2bjd"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -70,7 +71,7 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("15_hap3n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_84j4u"]
+[sub_resource type="Resource" id="Resource_vg0am"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "seismic"
@@ -90,7 +91,7 @@ preview_texture = SubResource("AtlasTexture_57rqf")
 atlas = ExtResource("17_n1hlf")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_tt6pr"]
+[sub_resource type="Resource" id="Resource_113dg"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "hand"
@@ -110,7 +111,7 @@ preview_texture = SubResource("AtlasTexture_1enov")
 atlas = ExtResource("19_m5h4i")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_50c6m"]
+[sub_resource type="Resource" id="Resource_8bn2c"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lung"
@@ -126,15 +127,15 @@ rate_of_fire = 1.0
 cost = 125
 preview_texture = SubResource("AtlasTexture_01r4s")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_68s16"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdc65"]
 atlas = ExtResource("21_qpdar")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_7dxpn"]
+[sub_resource type="Resource" id="Resource_pw8lw"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "mouth"
-info = "Shoots deadly mushroom spores."
+info = "Spits out a volatile spore that explodes on contact"
 damage = 100
 speed = 300
 range = 100
@@ -144,7 +145,7 @@ preview = false
 projectile_scene = ExtResource("22_8mt84")
 rate_of_fire = 1.5
 cost = 50
-preview_texture = SubResource("AtlasTexture_68s16")
+preview_texture = SubResource("AtlasTexture_mdc65")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjw14"]
 atlas = ExtResource("3_nwie7")
@@ -154,7 +155,7 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_2h4lj"]
+[sub_resource type="Resource" id="Resource_a7qi8"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -201,9 +202,10 @@ theme_override_constants/separation = 50
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
@@ -236,7 +238,9 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.0941176, 0.294118, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.0941176, 0.294118, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = -5
 theme_override_font_sizes/normal_font_size = 24
 text = "Each victory is fleeting, but their flesh lingers. With it, I can summon new terrors or strengthen my defenses.
 
@@ -246,25 +250,25 @@ fit_content = true
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="MoneyContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MoneyContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-texture = ExtResource("5_cj63v")
-
-[node name="MoneyLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MoneyContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "---"
-
 [node name="SplitContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 100
+
+[node name="MoneyContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/SplitContainer/MoneyContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_cj63v")
+
+[node name="MoneyLabel" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/MoneyContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "---"
 
 [node name="TowerUpgrades" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
 layout_mode = 2
@@ -272,6 +276,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
 text = "Tower Upgrades"
 
 [node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades"]
@@ -294,33 +299,33 @@ columns = 3
 
 [node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_vcb3u")
+store_button_stats = SubResource("Resource_tlvbi")
 
 [node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_cnygk")
+store_button_stats = SubResource("Resource_v2bjd")
 
 [node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_84j4u")
+store_button_stats = SubResource("Resource_vg0am")
 
 [node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_tt6pr")
+store_button_stats = SubResource("Resource_113dg")
 
 [node name="LungButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_50c6m")
+store_button_stats = SubResource("Resource_8bn2c")
 
 [node name="MouthButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_7dxpn")
+store_button_stats = SubResource("Resource_pw8lw")
 
 [node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_constants/separation = 10
 
 [node name="RangeButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer" instance=ExtResource("13_vmq8l")]
@@ -341,15 +346,23 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="UnlockCost" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer"]
-layout_mode = 2
-text = "---"
-
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Unlock"
+
+[node name="UnlockCost" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.5
+offset_top = -28.0
+offset_right = 17.5
+offset_bottom = -1.0
+grow_horizontal = 2
+text = "---"
 
 [node name="NothingSelected" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
 custom_minimum_size = Vector2(0, 40)
@@ -423,7 +436,7 @@ texture = SubResource("AtlasTexture_pjw14")
 
 [node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_2h4lj")
+store_button_stats = SubResource("Resource_a7qi8")
 is_lock_btn = true
 
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]
@@ -432,11 +445,13 @@ size_flags_vertical = 8
 text = "Unlock"
 
 [node name="TowerDetails" type="VBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
 text = "Tower Details"
 
 [node name="TowerInfo" type="PanelContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerDetails"]
@@ -487,6 +502,7 @@ text = "Proceed
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer/ProceedOrQuit"]
 layout_direction = 3
 layout_mode = 2
+theme = ExtResource("25_ahlng")
 text = "Quit"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=65 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -34,8 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_duo47"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
 [ext_resource type="PackedScene" uid="uid://cu6haqfn23lap" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="30_aahni"]
-[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="31_dot3g"]
-[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="32_ri1cv"]
+[ext_resource type="Resource" uid="uid://dwemfewg0dpu5" path="res://Resources/mouth_tower_stats.tres" id="31_5lp61"]
 [ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 [ext_resource type="Texture2D" uid="uid://nvh0b2musqvj" path="res://Assets/UIassets/TowerContainer.webp" id="34_0uskv"]
 
@@ -2021,26 +2020,6 @@ rate_of_fire = 1.0
 cost = 125
 preview_texture = SubResource("AtlasTexture_01r4s")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mdc65"]
-atlas = ExtResource("31_dot3g")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="Resource" id="Resource_p1hb7"]
-resource_local_to_scene = true
-script = ExtResource("22_xt42b")
-name = "mouth"
-info = "Shoots deadly mushroom spores."
-damage = 100
-speed = 300
-range = 100
-tier = 0
-max_tier = 0
-preview = false
-projectile_scene = ExtResource("32_ri1cv")
-rate_of_fire = 1.5
-cost = 50
-preview_texture = SubResource("AtlasTexture_mdc65")
-
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
 stream_count = 1
 stream_0 = ExtResource("33_8lhf1")
@@ -2169,7 +2148,7 @@ layout_mode = 2
 
 [node name="MouthButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_p1hb7")
+button_stats = ExtResource("31_5lp61")
 
 [node name="SkipContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2

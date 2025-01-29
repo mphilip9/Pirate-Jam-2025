@@ -2,11 +2,11 @@ extends PanelContainer
 
 var selected_tower: TowerStats
 var is_lock_btn: bool
-@onready var money_label = $PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MoneyContainer/MoneyLabel
+@onready var money_label = $PanelContainer/VBoxContainer/SplitContainer/MoneyContainer/MoneyLabel
 
 @onready var upgrade_btn_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer
 @onready var unlock_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer
-@onready var unlock_cost = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockCost
+@onready var unlock_cost = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton/UnlockCost
 @onready var nothing_selected = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/NothingSelected
 #Tower Details
 @onready var tower_details = $PanelContainer/VBoxContainer/SplitContainer/TowerDetails
