@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtpvxl2gv3m48"]
+[gd_scene load_steps=12 format=3 uid="uid://dtpvxl2gv3m48"]
 
 [ext_resource type="Script" path="res://UI/start_screen.gd" id="1_xxel6"]
 [ext_resource type="Texture2D" uid="uid://bmvg4vv4i713f" path="res://Assets/UIassets/TitleScreenClouds.png" id="2_xubx7"]
 [ext_resource type="FontFile" uid="uid://gai1kalbtujs" path="res://Assets/Fonts/8bitlim.ttf" id="3_1t0o2"]
 [ext_resource type="AudioStream" uid="uid://vyddgtogsnut" path="res://Assets/Music/Dragon-Mystery_Looping.mp3" id="4_8145h"]
+[ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="5_7yubl"]
 
 [sub_resource type="FontVariation" id="FontVariation_a0n17"]
 base_font = ExtResource("3_1t0o2")
@@ -560,5 +561,12 @@ stream = ExtResource("4_8145h")
 autoplay = true
 parameters/looping = true
 
+[node name="SceneTransition" parent="." instance=ExtResource("5_7yubl")]
+
+[node name="ColorRect" parent="SceneTransition" index="0"]
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+
+[editable path="SceneTransition"]

@@ -3,7 +3,7 @@ extends PanelContainer
 var selected_tower: TowerStats
 var is_lock_btn: bool
 @onready var money_label = $PanelContainer/VBoxContainer/SplitContainer/MoneyContainer/MoneyLabel
-
+@onready var scene_transition = $SceneTransition
 @onready var upgrade_btn_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UpgradeBtnContainer
 @onready var unlock_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer
 @onready var unlock_cost = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton/UnlockCost
@@ -88,7 +88,7 @@ func _on_unlock_button_pressed():
 
 func _on_proceed_button_pressed():
 	AudioManager.play("res://Assets/SFX/013 JESTER SNARE.wav")
-	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
+	scene_transition.change_scene("res://BaseGame/base_level.tscn")
 
 
 func _on_quit_button_pressed():
