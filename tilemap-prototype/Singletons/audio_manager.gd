@@ -35,6 +35,10 @@ func adjust_volume(volume: float):
 func adjust_pitch(pitch: float):
 	available[0].set_pitch_scale(pitch)
 	has_been_pitched = true
+
+func stop_all() -> void:
+	queue.clear()
+	available.clear()
 	
 func _process(delta):
 	# Play a queued sound if any players are available.
