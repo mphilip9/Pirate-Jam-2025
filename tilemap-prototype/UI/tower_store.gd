@@ -71,6 +71,7 @@ func _on_store_button_pressed(data: TowerStats, is_lock_btn: bool):
 func _on_upgrade_button_pressed(upgrade_type: String, cost: int):
 	if selected_tower and !is_lock_btn:
 		AudioManager.play("res://Assets/SFX/043 chain hit.wav")
+		GameData.tower_store[selected_tower.name].n_upgrades += 1
 		GameData.tower_store[selected_tower.name].upgrades[upgrade_type] = true
 		GameData.mort_flesh -= cost
 		
