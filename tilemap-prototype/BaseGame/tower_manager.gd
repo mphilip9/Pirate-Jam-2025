@@ -1,6 +1,6 @@
 extends Node2D
 @onready var ground = $"../Maps/Ground"
-@onready var mort_flesh = $"../HUD/PanelContainer/MarginContainer/ManagerHUD/MortFleshContainer/MortFlesh"
+@onready var mort_flesh = $"../HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/MortFleshContainer/MortFlesh"
 
 const projectile_tower = preload("res://Tower/projectile_tower.tscn")
 const lazer_tower = preload("res://Tower/lazer_tower.tscn")

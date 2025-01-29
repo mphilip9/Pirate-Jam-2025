@@ -8,6 +8,8 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [resource]
+default_font_size = 36
+Label/font_sizes/font_size = 24
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20

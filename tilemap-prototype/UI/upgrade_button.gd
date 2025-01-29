@@ -25,6 +25,8 @@ func _process(delta):
 		disabled = false
 		modulate = Color(1,1,1,1)
 		cost.text = str(selected_tower.cost * multiplier)
+		cost.set("theme_override_colors/font_color",Color.WHITE)
+
 		# Set it to the non upgraded color or whatever
 	if cost.text and int(cost.text) > GameData.mort_flesh:
 		disabled = true

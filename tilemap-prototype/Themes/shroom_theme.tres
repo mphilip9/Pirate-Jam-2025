@@ -3,7 +3,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkygm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaih5"]
-bg_color = Color(0.054902, 0, 0.0117647, 0.819608)
+bg_color = Color(0, 0, 0.00392157, 0.631373)
 
 [resource]
 Label/colors/font_color = Color(1, 0.993279, 0.99952, 1)
