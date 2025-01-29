@@ -163,6 +163,7 @@ func _on_quit_game_button_pressed() -> void:
 # TODO: this is just a temp button for testing need to change
 
 func _on_button_pressed() -> void:
+	print('hello??')
 	if GameData.wave > 4 :
 		GameData.wave = 0
 		GameData.stage += 1

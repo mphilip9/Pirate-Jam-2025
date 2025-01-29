@@ -14,6 +14,7 @@ func _ready():
 
 func _physics_process(delta):
 	if not target or !is_instance_valid(target):
+		queue_free()
 		return
 	var direction = (target.global_position - global_position).normalized()
 	
@@ -23,9 +24,9 @@ func _physics_process(delta):
 
 
 func _on_hitbox_body_entered(body):
-	speed = 0
-	animated_sprite_2d.stop()
-	animated_sprite_2d.visible = false
 	var explosion = explosion_scene.instantiate()
 	explosion.damage = damage
-	add_child(explosion)
+	explosion.position = position
+#	Attach to the parent, so explosion does not stop when the projectile is removed
+	get_parent().add_child(explosion)
+	queue_free()

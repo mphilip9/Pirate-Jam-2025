@@ -19,5 +19,4 @@ func _on_explosion_hitbox_body_entered(body):
 
 
 func _on_animated_sprite_2d_animation_finished():
-
-	get_parent().queue_free()
+	queue_free()
