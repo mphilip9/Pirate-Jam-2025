@@ -5,15 +5,9 @@ extends PanelContainer
 @onready var game_music_playlist = $"../../GameMusicPlaylist"
 @onready var game_over_music = $GameOverMusic
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_castle_game_over():

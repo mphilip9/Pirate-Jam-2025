@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=78 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="25_p75wh"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="26_7tnkt"]
 [ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="27_07g6n"]
-[ext_resource type="PackedScene" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
+[ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="28_v3yrd"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_duo47"]
@@ -38,12 +38,13 @@
 [ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="32_h5d0j"]
 [ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 [ext_resource type="Texture2D" uid="uid://nvh0b2musqvj" path="res://Assets/UIassets/TowerContainer.webp" id="34_0uskv"]
+[ext_resource type="Texture2D" uid="uid://coyvjedbcqvm0" path="res://Assets/UIassets/Play.png" id="36_ckx2u"]
+[ext_resource type="Texture2D" uid="uid://dmxx4l42ilju0" path="res://Assets/UIassets/Pause.png" id="37_p0mhu"]
 [ext_resource type="Script" path="res://BaseGame/game_over.gd" id="37_x3bv2"]
 [ext_resource type="Texture2D" uid="uid://cwjc24l4eg1dj" path="res://Assets/UIassets/DeadOrc.png" id="38_4c3hv"]
 [ext_resource type="AudioStream" uid="uid://0phaudn7xui3" path="res://Assets/Music/Shattered-Reality.mp3" id="39_3iew2"]
 [ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="39_005f6"]
-[ext_resource type="Texture2D" uid="uid://coyvjedbcqvm0" path="res://Assets/UIassets/Play.png" id="36_ckx2u"]
-[ext_resource type="Texture2D" uid="uid://dmxx4l42ilju0" path="res://Assets/UIassets/Pause.png" id="37_p0mhu"]
+[ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="41_6nfno"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2047,6 +2048,33 @@ rate_of_fire = 1.5
 cost = 50
 preview_texture = SubResource("AtlasTexture_mdc65")
 
+[sub_resource type="Animation" id="Animation_k4yxp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_7wfiv"]
 resource_name = "game_over_fade"
 length = 2.0
@@ -2074,33 +2102,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.027451), Color(1, 1, 1, 0.705882)]
-}
-
-[sub_resource type="Animation" id="Animation_k4yxp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mur07"]
@@ -2306,6 +2307,7 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("41_6nfno")
 alignment = 1
 
 [node name="QuitToMenuContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
@@ -2328,6 +2330,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "QUIT GAME"
 
+[node name="ResumeContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ResumeButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RESUME GAME"
+
 [node name="GameOver" type="PanelContainer" parent="HUD"]
 process_mode = 3
 visible = false
@@ -2346,8 +2357,14 @@ texture = ExtResource("38_4c3hv")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("41_6nfno")
+theme_override_constants/separation = 10
 
-[node name="GameOverText" type="Label" parent="HUD/GameOver/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="GameOverText" type="Label" parent="HUD/GameOver/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Game Over"
@@ -2373,15 +2390,6 @@ libraries = {
 stream = ExtResource("39_3iew2")
 parameters/looping = true
 
-[node name="ResumeContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
-layout_mode = 2
-size_flags_stretch_ratio = 0.0
-
-[node name="ResumeButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "RESUME GAME"
-
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
@@ -2405,7 +2413,7 @@ autoplay = true
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="HUD/PauseMenu" method="_on_play_pause_button_toggled"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
-[connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="HUD/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
