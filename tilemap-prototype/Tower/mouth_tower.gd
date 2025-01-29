@@ -53,7 +53,7 @@ func fire(target: CharacterBody2D):
 	var pitch_scale = randf_range(0.6, 0.8)
 	AudioManager.adjust_volume(-5.0)
 	AudioManager.adjust_pitch(pitch_scale)
-	AudioManager.play("res://Assets/SFX/209 YELL.wav")
+	AudioManager.play("res://Assets/SFX/acid_spell_cast_squish_ball_02.wav")
 	projectile.target = target
 	projectile.damage = tower_stats.calculated_damage
 	projectile.speed = tower_stats.speed
