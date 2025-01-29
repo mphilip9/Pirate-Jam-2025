@@ -67,8 +67,13 @@ func _input(event):
 			preview_tower_scene.get_node("RangeIndicator").modulate = Color(0.3, 0.3, 0.3, 0.4)
 		else:
 			preview_tower_scene.get_node("RangeIndicator").modulate = Color(1.0, 0.0, 0.0, 0.2)
-
-
+	if event.is_action_pressed("escape") or event.is_action_pressed("cancel_tower_selection"):
+		if preview_tower:
+			preview_tower_scene.queue_free()
+			preview_tower = false
+		else:
+			pass
+			
 func place_preview_tower(tower_type: String) -> void:
 	tower_to_place = tower_type
 	preview_tower_scene = towers[tower_to_place].instantiate()
