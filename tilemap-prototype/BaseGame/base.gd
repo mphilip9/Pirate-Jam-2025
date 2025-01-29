@@ -160,10 +160,10 @@ func _on_play_pause_button_toggled(toggled_on: bool) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape") and not play_pause_button.button_pressed:
 		play_pause_button.button_pressed = true
-
+			
 		
 func _on_resume_button_pressed() -> void:
-	get_tree().paused = false
+	play_pause_button.button_pressed = false
 	
 func _on_quit_to_menu_button_pressed() -> void:
 	get_tree().paused = false
