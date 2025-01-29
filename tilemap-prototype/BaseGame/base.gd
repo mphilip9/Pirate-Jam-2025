@@ -3,7 +3,6 @@ extends Node2D
 @onready var grass = $Maps/Grass
 @onready var ground = $Maps/Ground
 @onready var objects = $Maps/Objects
-
 @onready var castle = $Castle
 #Passing in container to toggle visibility depending on unlocked or not
 @onready var lazer_container = $HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer
@@ -34,11 +33,11 @@ func _ready():
 	for i in path_cells :
 		ene_path.curve.add_point(Vector2(i)*16)
 		var offset_cells = [
-			Vector2i(0,0),
-			Vector2i(1,0),
+			Vector2i(0, 0),
+			Vector2i(1, 0),
 			Vector2i(-1, 0),
-			Vector2i(0,1),
-			Vector2i(0,-1),
+			Vector2i(0, 1),
+			Vector2i(0, -1),
 			Vector2i(0, -2)
 		]
 		for offset in offset_cells:
@@ -160,3 +159,27 @@ func _on_quit_to_menu_button_pressed() -> void:
 
 func _on_quit_game_button_pressed() -> void:
 	get_tree().quit()
+
+# TODO: this is just a temp button for testing need to change
+
+func _on_button_pressed() -> void:
+	if GameData.wave > 4 :
+		GameData.wave = 0
+		GameData.stage += 1
+	else :
+		GameData.wave += 1
+	#TODO: maybe a better way to get the price of the turret and refund accordingly
+	# refund currency just 80% of the cost
+	for name in GameData.placed_turrets :
+		if name == 'projectile':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 40
+		if name == 'lazer':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 80
+		if name == 'seismic':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 60
+		if name == 'hand':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 40
+		if name == 'lung':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 100
+		GameData.placed_turrets[name] = 0
+	get_tree().change_scene_to_file("res://UI/tower_store.tscn")

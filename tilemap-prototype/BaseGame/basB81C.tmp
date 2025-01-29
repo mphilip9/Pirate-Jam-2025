@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=59 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -21,10 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cw4qqfshdgfpi" path="res://Assets/TowerAssets/MushroomHeartSheet.png" id="12_13vy7"]
 [ext_resource type="PackedScene" uid="uid://cwe6poa6tqj87" path="res://Tower/TowerAttacks/lazer_projectile.tscn" id="12_eguuf"]
 [ext_resource type="Script" path="res://Tower/tower_stats.gd" id="13_qsws5"]
-[ext_resource type="Curve" uid="uid://cge4p1hfxewg2" path="res://Resources/WaveSpawnCurve/wave_1to3.tres" id="14_y3ibj"]
 [ext_resource type="PackedScene" uid="uid://b8n3mwla1kpds" path="res://Tower/TowerAttacks/spore_projectile.tscn" id="15_0ya8m"]
-[ext_resource type="Curve" uid="uid://cggqwpdllgu1i" path="res://Resources/WaveSpawnCurve/wave_boss.tres" id="15_8a5i6"]
-[ext_resource type="Curve" uid="uid://d0xdyvpn0f74q" path="res://Resources/WaveSpawnCurve/wave_pre_boss.tres" id="16_r7c4o"]
 [ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="20_wr4r2"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="21_jg40d"]
 [ext_resource type="Texture2D" uid="uid://oukj25v8508p" path="res://Assets/UIassets/CoinYellow.png" id="25_0c3ix"]
@@ -32,11 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="26_7o23g"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="27_m34e8"]
 [ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
-[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="28_3fkkl"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
-[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="29_jetpk"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
-[ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1920,6 +1914,12 @@ _data = {
 }
 point_count = 1
 
+[sub_resource type="Curve" id="Curve_lduum"]
+min_value = 0.75
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, -1.25, 0, 1, Vector2(1, 0.75), -1.25, 0.0, 1, 0]
+point_count = 2
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
 atlas = ExtResource("10_0lj0n")
 region = Rect2(0, 0, 64, 64)
@@ -2020,30 +2020,6 @@ rate_of_fire = 0.5
 cost = 50
 preview_texture = SubResource("AtlasTexture_01r4s")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
-atlas = ExtResource("28_3fkkl")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="Resource" id="Resource_2anq0"]
-resource_local_to_scene = true
-script = ExtResource("13_qsws5")
-name = "mouth"
-info = "Shoots deadly mushroom spores."
-damage = 75
-speed = 400
-range = 100
-tier = 0
-max_tier = 0
-preview = false
-projectile_scene = ExtResource("29_jetpk")
-rate_of_fire = 1.0
-cost = 50
-preview_texture = SubResource("AtlasTexture_h7yar")
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
-stream_count = 1
-stream_0 = ExtResource("33_8lhf1")
-
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btitk")
@@ -2084,7 +2060,7 @@ z_index = 3
 position = Vector2(407, -64)
 
 [node name="DifficultyManager" parent="." instance=ExtResource("8_6sswj")]
-spawn_time_curve = Array[Curve]([ExtResource("14_y3ibj"), ExtResource("16_r7c4o"), ExtResource("15_8a5i6")])
+spawn_time_curve = SubResource("Curve_lduum")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -2094,92 +2070,73 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -200.0
+offset_left = -134.0
 offset_top = -162.0
-offset_right = 200.0
+offset_right = 134.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("10_mv33c")
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="ManagerHUD" type="GridContainer" parent="HUD/PanelContainer/MarginContainer"]
+[node name="ManagerHUD" type="GridContainer" parent="HUD/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("10_adqrw")
-theme_override_constants/v_separation = 10
 
-[node name="TowerButtons" type="HBoxContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD"]
+[node name="TowerButtons" type="HBoxContainer" parent="HUD/PanelContainer/ManagerHUD"]
 layout_mode = 2
-theme_override_constants/separation = 10
+alignment = 1
 
-[node name="ProjectileContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
+[node name="ProjectileContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
-[node name="ProjectileButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
+[node name="ProjectileButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_t12fw")
 
-[node name="LazerContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
+[node name="LazerContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+visible = false
 layout_mode = 2
 
-[node name="LazerButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
+[node name="LazerButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_ndmpw")
 
-[node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
+[node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+visible = false
 layout_mode = 2
 
-[node name="SeismicButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
+[node name="SeismicButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_eiupx")
 
-[node name="HandContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
+[node name="HandContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+visible = false
 layout_mode = 2
 
-[node name="HandButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
+[node name="HandButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_u5g32")
 
-[node name="LungContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
+[node name="LungContainer" type="PanelContainer" parent="HUD/PanelContainer/ManagerHUD/TowerButtons"]
+visible = false
 layout_mode = 2
 
-[node name="LungButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
+[node name="LungButton" parent="HUD/PanelContainer/ManagerHUD/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
 button_stats = SubResource("Resource_1qitv")
 
-[node name="MouthContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
-layout_mode = 2
-
-[node name="MouthButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer" instance=ExtResource("11_6iy8u")]
-layout_mode = 2
-button_stats = SubResource("Resource_2anq0")
-
-[node name="SkipContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SkipContainer"]
-layout_mode = 2
-text = "skip"
-
-[node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD"]
+[node name="MortFleshContainer" type="HBoxContainer" parent="HUD/PanelContainer/ManagerHUD"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/MortFleshContainer"]
+[node name="TextureRect" type="TextureRect" parent="HUD/PanelContainer/ManagerHUD/MortFleshContainer"]
 layout_mode = 2
 texture = ExtResource("25_0c3ix")
 expand_mode = 2
 
-[node name="MortFlesh" type="Label" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/MortFleshContainer"]
+[node name="MortFlesh" type="Label" parent="HUD/PanelContainer/ManagerHUD/MortFleshContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "replace me"
@@ -2243,19 +2200,13 @@ text = "QUIT GAME"
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
-[node name="GameMusicPlaylist" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamPlaylist_flc8f")
-autoplay = true
-
 [connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
-[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer/HandButton" to="TowerManager" method="_on_hand_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer/LungButton" to="TowerManager" method="_on_lung_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer/MouthButton" to="TowerManager" method="_on_mouth_button_pressed"]
-[connection signal="pressed" from="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SkipContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/HandContainer/HandButton" to="TowerManager" method="_on_hand_button_pressed"]
+[connection signal="pressed" from="HUD/PanelContainer/ManagerHUD/TowerButtons/LungContainer/LungButton" to="TowerManager" method="_on_lung_button_pressed"]
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="." method="_on_play_pause_button_toggled"]
 [connection signal="toggled" from="HUD/PlayPauseContainer/PlayPauseButton" to="HUD/PauseMenu" method="_on_play_pause_button_toggled"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitToMenuContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]

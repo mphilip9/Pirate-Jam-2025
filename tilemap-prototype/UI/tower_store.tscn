@@ -219,7 +219,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
-text = "Each victory is fleeting, but their flesh lingers. With it, I can summon new terrors or strengthen my defenses. 
+text = "Each victory is fleeting, but their flesh lingers. With it, I can summon new terrors or strengthen my defenses.
 
 Yet I must ration it carefully, for without towers, I am nothing."
 fit_content = true

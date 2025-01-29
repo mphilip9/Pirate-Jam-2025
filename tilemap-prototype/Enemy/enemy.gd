@@ -17,7 +17,7 @@ var current_health: int:
 			animation_player.play("take_damage")
 		current_health = health_in
 		if current_health < 1:
-			GameData.mort_flesh += 2
+			GameData.mort_flesh += stats.gold_value
 			queue_free()
 
 
