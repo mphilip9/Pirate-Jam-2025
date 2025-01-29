@@ -21,26 +21,26 @@
 [ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="15_eyhw4"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="16_1dte5"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="18_h1ga7"]
-[ext_resource type="PackedScene" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="19_apxs0"]
+[ext_resource type="PackedScene" uid="uid://cwth1pwtjveo6" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="19_apxs0"]
 [ext_resource type="AudioStream" uid="uid://c2v6shdef1kvu" path="res://Assets/Music/A-Trail-of-Jewels.mp3" id="23_5h8np"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("3_nwie7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_10wkp"]
+[sub_resource type="Resource" id="Resource_2lcto"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "projectile"
-info = "Shotos deadly mushroom spores."
-damage = 50
+info = "Shoots deadly mushroom spores."
+damage = 100
 speed = 500
 range = 100
 tier = 0
 max_tier = 0
 preview = false
 projectile_scene = ExtResource("10_7lk31")
-rate_of_fire = 0.5
+rate_of_fire = 1.0
 cost = 50
 preview_texture = SubResource("AtlasTexture_h7yar")
 
@@ -48,7 +48,7 @@ preview_texture = SubResource("AtlasTexture_h7yar")
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_xjxpo"]
+[sub_resource type="Resource" id="Resource_o3qew"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -68,7 +68,7 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("13_5f0uv")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_j8unm"]
+[sub_resource type="Resource" id="Resource_jlbk2"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "seismic"
@@ -81,19 +81,19 @@ max_tier = 0
 preview = false
 projectile_scene = ExtResource("14_t224k")
 rate_of_fire = 1.0
-cost = 50
+cost = 75
 preview_texture = SubResource("AtlasTexture_57rqf")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
 atlas = ExtResource("15_eyhw4")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_66key"]
+[sub_resource type="Resource" id="Resource_pndqv"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "hand"
-info = "Shoors claw-like spikes from underneath enemies to hold them in place. Low damage"
-damage = 2
+info = "Shoots claw-like spikes from underneath enemies to hold them in place. Low damage"
+damage = 20
 speed = 500
 range = 100
 tier = 0
@@ -108,11 +108,11 @@ preview_texture = SubResource("AtlasTexture_1enov")
 atlas = ExtResource("18_h1ga7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_hbbxb"]
+[sub_resource type="Resource" id="Resource_mcybt"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lung"
-info = "Emits poisionous gas around enemies and deals damage over time."
+info = "Emits poisonous gas around enemies and deals damage over time."
 damage = 200
 speed = 500
 range = 100
@@ -121,7 +121,7 @@ max_tier = 0
 preview = false
 projectile_scene = ExtResource("19_apxs0")
 rate_of_fire = 1.0
-cost = 50
+cost = 125
 preview_texture = SubResource("AtlasTexture_01r4s")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjw14"]
@@ -132,7 +132,7 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_cen0a"]
+[sub_resource type="Resource" id="Resource_u0kvv"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -269,23 +269,23 @@ columns = 3
 
 [node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_10wkp")
+store_button_stats = SubResource("Resource_2lcto")
 
 [node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_xjxpo")
+store_button_stats = SubResource("Resource_o3qew")
 
 [node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_j8unm")
+store_button_stats = SubResource("Resource_jlbk2")
 
 [node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_66key")
+store_button_stats = SubResource("Resource_pndqv")
 
 [node name="LungButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_hbbxb")
+store_button_stats = SubResource("Resource_mcybt")
 
 [node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
 visible = false
@@ -394,7 +394,7 @@ texture = SubResource("AtlasTexture_pjw14")
 
 [node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_cen0a")
+store_button_stats = SubResource("Resource_u0kvv")
 is_lock_btn = true
 
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]

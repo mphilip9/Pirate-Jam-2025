@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=64 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
+[ext_resource type="PackedScene" uid="uid://cwth1pwtjveo6" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="30_143tv"]
 [ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
@@ -1918,35 +1919,35 @@ _data = {
 }
 point_count = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("10_0lj0n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_t12fw"]
+[sub_resource type="Resource" id="Resource_r5wsx"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
-name = ""
-info = ""
-damage = 50
+name = "projectile"
+info = "Shoots deadly mushroom spores."
+damage = 100
 speed = 500
 range = 100
 tier = 0
 max_tier = 0
 preview = false
 projectile_scene = ExtResource("15_0ya8m")
-rate_of_fire = 0.5
+rate_of_fire = 1.0
 cost = 50
-preview_texture = SubResource("AtlasTexture_57rqf")
+preview_texture = SubResource("AtlasTexture_h7yar")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e32yj"]
 atlas = ExtResource("12_13vy7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_ndmpw"]
+[sub_resource type="Resource" id="Resource_nmuol"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
-name = ""
-info = ""
+name = "lazer"
+info = "A heart that shoots lasers of blood."
 damage = 50
 speed = 200
 range = 200
@@ -1958,15 +1959,15 @@ rate_of_fire = 1.0
 cost = 100
 preview_texture = SubResource("AtlasTexture_e32yj")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fg0no"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_57rqf"]
 atlas = ExtResource("20_wr4r2")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_eiupx"]
+[sub_resource type="Resource" id="Resource_v566b"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
-name = ""
-info = ""
+name = "seismic"
+info = "Produces earth quakes that slow and damage enemies."
 damage = 50
 speed = 500
 range = 100
@@ -1975,19 +1976,19 @@ max_tier = 0
 preview = false
 projectile_scene = ExtResource("21_jg40d")
 rate_of_fire = 1.0
-cost = 50
-preview_texture = SubResource("AtlasTexture_fg0no")
+cost = 75
+preview_texture = SubResource("AtlasTexture_57rqf")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dcv2b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
 atlas = ExtResource("25_bw5g0")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_u5g32"]
+[sub_resource type="Resource" id="Resource_tuqo5"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
-name = ""
-info = ""
-damage = 2
+name = "hand"
+info = "Shoots claw-like spikes from underneath enemies to hold them in place. Low damage"
+damage = 20
 speed = 500
 range = 100
 tier = 0
@@ -1996,26 +1997,26 @@ preview = false
 projectile_scene = ExtResource("26_7o23g")
 rate_of_fire = 2.0
 cost = 50
-preview_texture = SubResource("AtlasTexture_dcv2b")
+preview_texture = SubResource("AtlasTexture_1enov")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_01r4s"]
 atlas = ExtResource("27_m34e8")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_1qitv"]
+[sub_resource type="Resource" id="Resource_iuave"]
 resource_local_to_scene = true
 script = ExtResource("13_qsws5")
-name = "Lung"
-info = "Emits "
+name = "lung"
+info = "Emits poisonous gas around enemies and deals damage over time."
 damage = 200
 speed = 500
 range = 100
 tier = 0
 max_tier = 0
 preview = false
-projectile_scene = ExtResource("21_jg40d")
-rate_of_fire = 0.5
-cost = 50
+projectile_scene = ExtResource("30_143tv")
+rate_of_fire = 1.0
+cost = 125
 preview_texture = SubResource("AtlasTexture_01r4s")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
@@ -2102,35 +2103,35 @@ layout_mode = 2
 
 [node name="ProjectileButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_t12fw")
+button_stats = SubResource("Resource_r5wsx")
 
 [node name="LazerContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="LazerButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_ndmpw")
+button_stats = SubResource("Resource_nmuol")
 
 [node name="SeismicContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="SeismicButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_eiupx")
+button_stats = SubResource("Resource_v566b")
 
 [node name="HandContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="HandButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_u5g32")
+button_stats = SubResource("Resource_tuqo5")
 
 [node name="LungContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="LungButton" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_1qitv")
+button_stats = SubResource("Resource_iuave")
 
 [node name="SkipContainer" type="PanelContainer" parent="HUD/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
