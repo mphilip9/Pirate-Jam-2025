@@ -5,14 +5,16 @@ var bus = "master"
 
 var available = []  # The available players.
 var queue = []  # The queue of sounds to play.
-
+var has_been_pitched := false
 
 func _ready():
 	# Create the pool of AudioStreamPlayer nodes.
 	for i in num_players:
 		var player = AudioStreamPlayer.new()
 		var pitch_scale = randf_range(0.8, 1.2)
-		player.set_pitch_scale(pitch_scale)
+		if (!has_been_pitched):
+			player.set_pitch_scale(pitch_scale)
+			has_been_pitched = false
 		add_child(player)
 		available.append(player)
 		player.finished.connect(_on_stream_finished.bind(player))
@@ -29,6 +31,10 @@ func play(sound_path):
 
 func adjust_volume(volume: float):
 	available[0].set_volume_db(volume)
+
+func adjust_pitch(pitch: float):
+	available[0].set_pitch_scale(pitch)
+	has_been_pitched = true
 	
 func _process(delta):
 	# Play a queued sound if any players are available.
