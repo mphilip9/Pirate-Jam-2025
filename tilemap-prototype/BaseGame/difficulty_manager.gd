@@ -48,6 +48,7 @@ func handle_wave_warning() -> void:
 
 #Something is off here, but I'm on the right track I think
 func start_new_wave() -> void:
+	AudioManager.play("res://Assets/SFX/Bells1.mp3")
 	GameData.wave += 1
 	remaining_time_container.enable_skip_button(10)
 	await start_counter_timer.timeout
