@@ -6,6 +6,7 @@ var bus = "master"
 var available = []  # The available players.
 var queue = []  # The queue of sounds to play.
 var has_been_pitched := false
+var muted := false
 
 func _ready():
 	# Create the pool of AudioStreamPlayer nodes.
@@ -27,7 +28,8 @@ func _on_stream_finished(stream):
 
 
 func play(sound_path):
-	queue.append(sound_path)
+	if !GameData.muted:
+		queue.append(sound_path)
 
 func adjust_volume(volume: float):
 	available[0].set_volume_db(volume)
@@ -46,7 +48,7 @@ func stop_all() -> void:
 	
 func _process(delta):
 	# Play a queued sound if any players are available.
-	if not queue.is_empty() and not available.is_empty():
+	if not queue.is_empty() and not available.is_empty() and not GameData.muted:
 		available[0].stream = load(queue.pop_front())
 		available[0].play()
 		available.pop_front()

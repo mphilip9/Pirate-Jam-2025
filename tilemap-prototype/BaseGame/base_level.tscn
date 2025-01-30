@@ -2339,6 +2339,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "RESUME GAME"
 
+[node name="MuteContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="MuteButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/MuteContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MUTE"
+
 [node name="GameOver" type="PanelContainer" parent="HUD"]
 process_mode = 3
 visible = false
@@ -2415,5 +2424,6 @@ autoplay = true
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="HUD/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/MuteContainer/MuteButton" to="HUD/PauseMenu" method="_on_mute_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
