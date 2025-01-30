@@ -40,7 +40,7 @@ func adjust_volume(volume: float):
 func adjust_multiple_volume(volume: float, range: int):
 		pass
 		#TODO: find out how to adjust multiple volumes
-			
+
 func adjust_pitch(pitch: float):
 	if len(available) == 0:
 		pass
@@ -51,7 +51,7 @@ func adjust_pitch(pitch: float):
 func stop_all() -> void:
 	queue.clear()
 	available.clear()
-	
+
 func _process(delta):
 	# Play a queued sound if any players are available.
 	if not queue.is_empty() and not available.is_empty() and not GameData.muted:

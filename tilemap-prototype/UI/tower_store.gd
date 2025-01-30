@@ -28,8 +28,7 @@ func _ready():
 #Determine tower store stats for the selected tower
 func get_tower_store_stats(tower_type: String):
 	pass
-	
-	pass
+
 
 func toggle_update_buttons():
 	var tower_upgrades = GameData.tower_store[selected_tower].upgrades

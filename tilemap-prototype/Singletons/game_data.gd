@@ -70,7 +70,7 @@ extends Node2D
 		"n_upgrades": 0
 	},
 	'mouth': {
-		"unlocked": true,
+		"unlocked": false,
 		"upgrades": {
 			"range": false,
 			"damage": false,

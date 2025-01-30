@@ -40,7 +40,7 @@ func spawn_enemy() -> void:
 	enemy_spawn_count += 1
 	print('enemy count : ',enemy_spawn_count, ' wave : ', GameData.wave)
 	var enemy_ind: int = 0
-	# TODO: need a better way to manage what spawn. feels like there is an easiser way
+	# TODO: need a better way to manage what spawn. feels like there is an easier way
 	# wave 2 count 40
 	if GameData.wave == 2 :
 		if enemy_spawn_count > 15 and enemy_spawn_count < 30 :
@@ -63,6 +63,7 @@ func spawn_enemy() -> void:
 			enemy_ind = 4
 		if enemy_spawn_count > 44 and enemy_spawn_count < 75 :
 			enemy_ind = 3
+		#spawn boss
 		elif enemy_spawn_count == 75 :
 			enemy_ind = 5
 	
