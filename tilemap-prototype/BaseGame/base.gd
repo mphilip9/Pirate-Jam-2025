@@ -17,6 +17,10 @@ extends Node2D
 
 # Called when the node enters the scene tree  for the first time.
 func _ready():
+	
+	# for shuffling after the first stage
+	if GameData.stage > 1:
+		game_music_playlist.get_stream().shuffle = true
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	var used_grass_cells =grass.get_used_cells()
 	var grass_rect = grass.get_used_rect()
@@ -194,5 +198,4 @@ func _on_button_pressed() -> void:
 		GameData.placed_turrets[name] = 0
 	GameData.wave = 1
 	GameData.stage += 1
-	game_music_playlist.get_stream().shuffle = true
 	scene_transition.change_scene("res://UI/tower_store.tscn")
