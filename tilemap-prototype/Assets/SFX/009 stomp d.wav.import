@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dgqbl0p7t0rxy"
-path="res://.godot/imported/009 stomp d.wav-0a03b05db48e32c05d9c538ca66d988f.sample"
+path="res://.godot/imported/009 stomp d.wav-5cc6ad3b381d02dcdafbe9e821ff1968.sample"
 
 [deps]
 
-source_file="res://Assets/009 stomp d.wav"
-dest_files=["res://.godot/imported/009 stomp d.wav-0a03b05db48e32c05d9c538ca66d988f.sample"]
+source_file="res://Assets/SFX/009 stomp d.wav"
+dest_files=["res://.godot/imported/009 stomp d.wav-5cc6ad3b381d02dcdafbe9e821ff1968.sample"]
 
 [params]
 
