@@ -12,6 +12,7 @@ signal stop_spawning_enemies
 @export var spawn_time_curve: Array[Curve]
 @onready var timer: Timer = $Timer
 var waves_per_stage = 2
+var game_started: bool = false
 # Called when the node enters the scene tree for the first time.
 
 signal handle_final_wave()
@@ -48,11 +49,15 @@ func handle_wave_warning() -> void:
 
 #Something is off here, but I'm on the right track I think
 func start_new_wave() -> void:
-	GameData.wave += 1
-	remaining_time_container.enable_skip_button(10)
-	await start_counter_timer.timeout
-	handle_wave_warning()
-	timer.start(game_length)
+	if !game_started:
+		handle_wave_warning()
+		timer.start(game_length)
+		game_started = true
+	else:
+		GameData.wave += 1
+		remaining_time_container.enable_skip_button(10)
+		await start_counter_timer.timeout
+
 		
 
 
