@@ -31,11 +31,11 @@
 [ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="28_v3yrd"]
-[ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_duo47"]
+[ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_er82n"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
-[ext_resource type="PackedScene" uid="uid://cu6haqfn23lap" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="30_aahni"]
-[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="31_0nysq"]
-[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="32_h5d0j"]
+[ext_resource type="PackedScene" uid="uid://cu6haqfn23lap" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="30_vhwui"]
+[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="31_glvu2"]
+[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="32_i1vhq"]
 [ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 [ext_resource type="Texture2D" uid="uid://nvh0b2musqvj" path="res://Assets/UIassets/TowerContainer.webp" id="34_0uskv"]
 [ext_resource type="Texture2D" uid="uid://coyvjedbcqvm0" path="res://Assets/UIassets/Play.png" id="36_ckx2u"]
@@ -43,7 +43,7 @@
 [ext_resource type="Script" path="res://BaseGame/game_over.gd" id="37_x3bv2"]
 [ext_resource type="Texture2D" uid="uid://cwjc24l4eg1dj" path="res://Assets/UIassets/DeadOrc.png" id="38_4c3hv"]
 [ext_resource type="AudioStream" uid="uid://0phaudn7xui3" path="res://Assets/Music/Shattered-Reality.mp3" id="39_3iew2"]
-[ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="39_005f6"]
+[ext_resource type="PackedScene" path="res://UI/scene_transition.tscn" id="39_005f6"]
 [ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="41_6nfno"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
@@ -1932,7 +1932,7 @@ point_count = 1
 atlas = ExtResource("20_gwfb6")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_rdqtj"]
+[sub_resource type="Resource" id="Resource_d7bd2"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "projectile"
@@ -1952,7 +1952,7 @@ preview_texture = SubResource("AtlasTexture_h7yar")
 atlas = ExtResource("23_8vqap")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_orofv"]
+[sub_resource type="Resource" id="Resource_hh3hc"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "lazer"
@@ -1972,12 +1972,12 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("25_p75wh")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_e6qf7"]
+[sub_resource type="Resource" id="Resource_8qrwy"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "seismic"
 info = "Produces earth quakes that slow and damage enemies."
-damage = 50
+damage = 40
 speed = 500
 range = 100
 tier = 0
@@ -1985,14 +1985,14 @@ max_tier = 0
 preview = false
 projectile_scene = ExtResource("26_7tnkt")
 rate_of_fire = 1.0
-cost = 75
+cost = 100
 preview_texture = SubResource("AtlasTexture_57rqf")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
 atlas = ExtResource("27_07g6n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_2ylvv"]
+[sub_resource type="Resource" id="Resource_g7t56"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "hand"
@@ -2009,10 +2009,10 @@ cost = 50
 preview_texture = SubResource("AtlasTexture_1enov")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_01r4s"]
-atlas = ExtResource("29_duo47")
+atlas = ExtResource("29_er82n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_q2ncm"]
+[sub_resource type="Resource" id="Resource_vad1r"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "lung"
@@ -2023,29 +2023,29 @@ range = 100
 tier = 0
 max_tier = 0
 preview = false
-projectile_scene = ExtResource("30_aahni")
+projectile_scene = ExtResource("30_vhwui")
 rate_of_fire = 1.0
-cost = 125
+cost = 200
 preview_texture = SubResource("AtlasTexture_01r4s")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdc65"]
-atlas = ExtResource("31_0nysq")
+atlas = ExtResource("31_glvu2")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_j8jsu"]
+[sub_resource type="Resource" id="Resource_a5hnn"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "mouth"
 info = "Spits out a volatile spore that explodes on contact"
 damage = 100
 speed = 300
-range = 100
+range = 250
 tier = 0
 max_tier = 0
 preview = false
-projectile_scene = ExtResource("32_h5d0j")
+projectile_scene = ExtResource("32_i1vhq")
 rate_of_fire = 1.5
-cost = 50
+cost = 100
 preview_texture = SubResource("AtlasTexture_mdc65")
 
 [sub_resource type="Animation" id="Animation_k4yxp"]
@@ -2203,42 +2203,42 @@ layout_mode = 2
 
 [node name="ProjectileButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_rdqtj")
+button_stats = SubResource("Resource_d7bd2")
 
 [node name="LazerContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="LazerButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_orofv")
+button_stats = SubResource("Resource_hh3hc")
 
 [node name="SeismicContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="SeismicButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_e6qf7")
+button_stats = SubResource("Resource_8qrwy")
 
 [node name="HandContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="HandButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_2ylvv")
+button_stats = SubResource("Resource_g7t56")
 
 [node name="LungContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="LungButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_q2ncm")
+button_stats = SubResource("Resource_vad1r")
 
 [node name="MouthContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="MouthButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_j8jsu")
+button_stats = SubResource("Resource_a5hnn")
 
 [node name="SkipContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2

@@ -1,6 +1,5 @@
 extends Node2D
 @onready var range_collision_shape = $Range/RangeCollisionShape
-@onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
 @onready var range = $Range
 

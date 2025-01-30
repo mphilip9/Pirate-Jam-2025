@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	# check dot_modifier if DoT is present
 	if dot_modifier[0] > 0 :
 	# DoT is applied when duration is of even #
-		if dot_modifier[0] % 2 == 0 :
+		if dot_modifier[0] % 3 == 0 :
 			take_damage(dot_modifier[1])
 		dot_modifier[0] -= 1
 		if dot_modifier[0] < 1:
@@ -74,7 +74,7 @@ func take_damage(damage) -> void:
 
 # Damage over Time
 func damage_over_time(frame: int, damage: int) -> void:
-	dot_modifier = [frame * 2 , roundi(damage/frame)]
+	dot_modifier = [frame * 3 , roundi(damage/frame)]
 
 # when slow cced
 func crowd_control_slow(frame: int, rate: float) -> void:
