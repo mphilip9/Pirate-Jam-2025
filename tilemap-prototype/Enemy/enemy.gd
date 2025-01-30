@@ -70,7 +70,6 @@ func _process(delta: float) -> void:
 		
 		
 func take_damage(damage) -> void:
-	print('damaged!', damage)
 	current_health -= damage
 
 # Damage over Time

@@ -2114,6 +2114,21 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxepl"]
 
+[sub_resource type="Animation" id="Animation_e67f8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_1gyfl"]
 resource_name = "wave_warning"
 length = 3.0
@@ -2128,21 +2143,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_e67f8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bfttu"]
@@ -2186,7 +2186,7 @@ script = ExtResource("6_3vj5o")
 difficulty_manager = NodePath("../DifficultyManager")
 enemies_array = Array[PackedScene]([ExtResource("6_1dgm3"), ExtResource("10_rtp7h"), ExtResource("7_asakl"), ExtResource("7_yv2kq"), ExtResource("9_0ra5j"), ExtResource("11_op0tf")])
 
-[node name="Timer" type="Timer" parent="Path2D"]
+[node name="EnemySpawnTimer" type="Timer" parent="Path2D"]
 wait_time = 2.0
 autostart = true
 
@@ -2555,7 +2555,7 @@ autoplay = true
 
 [node name="SceneTransition" parent="." instance=ExtResource("39_005f6")]
 
-[connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
+[connection signal="timeout" from="Path2D/EnemySpawnTimer" to="Path2D" method="spawn_enemy"]
 [connection signal="game_over" from="Castle" to="HUD/GameOver" method="_on_castle_game_over"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
