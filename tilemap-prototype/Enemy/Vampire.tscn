@@ -260,6 +260,7 @@ script = ExtResource("1_s3iag")
 stats = ExtResource("2_4gh5d")
 
 [node name="Sprite" type="CharacterBody2D" parent="."]
+z_index = 1
 
 [node name="Body" type="AnimatedSprite2D" parent="Sprite"]
 sprite_frames = SubResource("SpriteFrames_wj6fs")
