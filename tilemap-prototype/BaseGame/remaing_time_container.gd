@@ -1,8 +1,8 @@
 extends PanelContainer
 
-@onready var remaining_t_label = $HBoxContainer/RemainingTime
-@onready var skip_button = $HBoxContainer/Skip
-@onready var start_counter_timer = $HBoxContainer/Skip/StartCounter
+@onready var remaining_t_label = $MarginContainer/HBoxContainer/RemainingTime
+@onready var skip_button = $MarginContainer/HBoxContainer/Skip
+@onready var start_counter_timer = $MarginContainer/HBoxContainer/Skip/StartCounter
 @onready var enemy_spawn_timer = $"../../Path2D/EnemySpawnTimer"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

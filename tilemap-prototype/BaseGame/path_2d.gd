@@ -1,5 +1,6 @@
 extends Path2D
 @onready var scene_transition = $"../SceneTransition"
+@onready var proceed_to_store_container = $"../HUD/ProceedToStoreContainer"
 
 @export var difficulty_manager: Node
 @onready var timer: Timer = $EnemySpawnTimer
@@ -7,30 +8,13 @@ extends Path2D
 var enemy_spawn_count: int = 0
 var final_wave: bool = false
 
-func transition_to_store() -> void:
-	for name in GameData.placed_turrets :
-		if name == 'projectile':
-			GameData.mort_flesh += GameData.placed_turrets[name] * 40
-		if name == 'lazer':
-			GameData.mort_flesh += GameData.placed_turrets[name] * 80
-		if name == 'seismic':
-			GameData.mort_flesh += GameData.placed_turrets[name] * 60
-		if name == 'hand':
-			GameData.mort_flesh += GameData.placed_turrets[name] * 40
-		if name == 'lung':
-			GameData.mort_flesh += GameData.placed_turrets[name] * 100
-		GameData.placed_turrets[name] = 0
-	var store_delay_timer = get_tree().create_timer(5)
-	await store_delay_timer.timeout
-	scene_transition.change_scene("res://UI/tower_store.tscn")
-	GameData.wave = 0
-	GameData.stage += 1
+
 
 func _process(delta):
 	if final_wave:
 		if GameData.enemy_count == 0:
 			final_wave = false
-			transition_to_store()
+			proceed_to_store_container.visible = true
 
 			
 func spawn_enemy() -> void:
