@@ -28,7 +28,7 @@ var current_health: int:
 		current_health = health_in
 		if current_health < 1:
 			#GameData.enemy_count -= 1
-			AudioManager.adjust_volume(-10.0)
+			AudioManager.adjust_volume(-12.0)
 			AudioManager.play(stats.death_sound)
 			GameData.mort_flesh += stats.gold_value
 			GameData.score += stats.gold_value
