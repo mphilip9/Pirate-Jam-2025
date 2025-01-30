@@ -47,7 +47,7 @@ func stop_all() -> void:
 	
 func _process(delta):
 	# Play a queued sound if any players are available.
-	if not queue.is_empty() and not available.is_empty() and not muted:
+	if not queue.is_empty() and not available.is_empty() and not GameData.muted:
 		available[0].stream = load(queue.pop_front())
 		available[0].play()
 		available.pop_front()
