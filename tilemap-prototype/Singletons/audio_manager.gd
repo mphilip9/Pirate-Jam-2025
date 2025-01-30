@@ -1,6 +1,6 @@
 extends Node
 
-var num_players = 10
+var num_players = 1000
 var bus = "master"
 
 var available = []  # The available players.
