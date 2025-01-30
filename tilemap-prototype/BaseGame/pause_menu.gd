@@ -21,3 +21,7 @@ func _on_resume_button_pressed() -> void:
 
 func _on_mute_button_pressed():
 	GameData.muted = !GameData.muted
+	if GameData.muted:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
