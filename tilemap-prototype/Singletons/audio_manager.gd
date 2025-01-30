@@ -28,7 +28,8 @@ func _on_stream_finished(stream):
 
 
 func play(sound_path):
-	queue.append(sound_path)
+	if !GameData.muted:
+		queue.append(sound_path)
 
 func adjust_volume(volume: float):
 	available[0].set_volume_db(volume)
