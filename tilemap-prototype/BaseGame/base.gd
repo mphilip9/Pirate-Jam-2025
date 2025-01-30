@@ -176,11 +176,6 @@ func _on_quit_game_button_pressed() -> void:
 # TODO: this is just a temp button for testing need to change
 
 func _on_button_pressed() -> void:
-	if GameData.wave > 4 :
-		GameData.wave = 0
-		GameData.stage += 1
-	else :
-		GameData.wave += 1
 	#TODO: maybe a better way to get the price of the turret and refund accordingly
 	# refund currency just 80% of the cost
 	for name in GameData.placed_turrets :
@@ -195,4 +190,6 @@ func _on_button_pressed() -> void:
 		if name == 'lung':
 			GameData.mort_flesh += GameData.placed_turrets[name] * 100
 		GameData.placed_turrets[name] = 0
+	GameData.wave = 0
+	GameData.stage += 1
 	scene_transition.change_scene("res://UI/tower_store.tscn")
