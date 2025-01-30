@@ -1,5 +1,5 @@
 extends PanelContainer
-
+@onready var muteButton = $MenuOptions/MenuButtons/MuteContainer/MuteButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,5 +23,7 @@ func _on_mute_button_pressed():
 	GameData.muted = !GameData.muted
 	if GameData.muted:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+		muteButton.text = "UNMUTE"
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+		muteButton.text = "MUTE"

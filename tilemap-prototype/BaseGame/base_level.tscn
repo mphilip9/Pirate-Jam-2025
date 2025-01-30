@@ -2283,6 +2283,7 @@ texture_normal = ExtResource("36_ckx2u")
 texture_pressed = ExtResource("37_p0mhu")
 
 [node name="PauseMenu" type="PanelContainer" parent="HUD"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

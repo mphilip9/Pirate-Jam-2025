@@ -6,7 +6,7 @@ extends Node2D
 @export var mort_flesh: int = 200
 
 # muted global
-@export var muted: bool = true
+@export var muted: bool = false
 
 # wave & stage variable
 @export var wave: int = 1
