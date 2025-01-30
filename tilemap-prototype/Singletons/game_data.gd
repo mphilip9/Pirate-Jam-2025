@@ -11,6 +11,11 @@ extends Node2D
 # wave & stage variable
 @export var wave: int = 1
 @export var stage: int = 1
+@export var enemy_count: int = 0
+
+# score and kill count
+@export var score: int = 0
+@export var kills: int = 0
 
 # placed tower tracker
 @export var placed_turrets = {"projectile": 0, "lazer": 0, "seismic": 0, "hand": 0, "lung": 0, "mouth": 0}
