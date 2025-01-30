@@ -24,6 +24,8 @@ var current_health: int:
 			AudioManager.adjust_volume(-10.0)
 			AudioManager.play(stats.death_sound)
 			GameData.mort_flesh += stats.gold_value
+			GameData.score += stats.gold_value
+			GameData.kills += 1
 			queue_free()
 
 var last_fram_pos = Vector2()

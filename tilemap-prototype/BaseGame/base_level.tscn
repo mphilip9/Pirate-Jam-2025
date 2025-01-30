@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=81 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -45,6 +45,8 @@
 [ext_resource type="AudioStream" uid="uid://0phaudn7xui3" path="res://Assets/Music/Shattered-Reality.mp3" id="39_3iew2"]
 [ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="39_005f6"]
 [ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="41_6nfno"]
+[ext_resource type="Script" path="res://BaseGame/score_tracker.gd" id="43_pe87a"]
+[ext_resource type="Theme" uid="uid://d2562xkfscffg" path="res://Themes/score_container_theme.tres" id="44_blax5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2110,6 +2112,8 @@ _data = {
 "game_over_fade": SubResource("Animation_7wfiv")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxepl"]
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
 stream_count = 1
 stream_0 = ExtResource("33_8lhf1")
@@ -2389,6 +2393,106 @@ libraries = {
 [node name="GameOverMusic" type="AudioStreamPlayer2D" parent="HUD/GameOver"]
 stream = ExtResource("39_3iew2")
 parameters/looping = true
+
+[node name="ScoreTracker" type="MarginContainer" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 287.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("43_pe87a")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/ScoreTracker"]
+layout_mode = 2
+texture = ExtResource("34_0uskv")
+expand_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/ScoreTracker"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lxepl")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ScoreTracker/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("44_blax5")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScoreContainer" type="VBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/ScoreContainer"]
+layout_mode = 2
+text = "Score"
+
+[node name="Score" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/ScoreContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="KillContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/KillContainer"]
+layout_mode = 2
+text = "Enemies Slain"
+
+[node name="Kills" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/KillContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="WaveContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/WaveContainer"]
+layout_mode = 2
+text = "Wave"
+
+[node name="Wave" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/WaveContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="StageContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/StageContainer"]
+layout_mode = 2
+text = "Stage"
+
+[node name="Stage" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/StageContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="WaveWarningContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -20.0
+offset_right = 117.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/WaveWarningContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.294118, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0.176471, 1)
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 36
+text = "Wave 1 coming in..."
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
