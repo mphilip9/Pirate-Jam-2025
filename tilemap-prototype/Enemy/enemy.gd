@@ -12,26 +12,35 @@ var speed_cc_frame: int = 0
 # TODO: need to think about how DoT mechanism works when multiple were applied
 # for now it refreshes DoT when applied
 var dot_modifier: Array[int] = [0, 0] # duration, damage/tick 
+var is_dying: bool = false
 
+func die() -> void:
+	if is_dying:
+		return
+	is_dying = true
+	GameData.enemy_count -= 1
+	queue_free()
+	
 var current_health: int:
 	set(health_in):
 		if health_in < current_health:
 			animation_player.play("take_damage")
 		current_health = health_in
 		if current_health < 1:
+			#GameData.enemy_count -= 1
 			AudioManager.adjust_volume(-10.0)
 			AudioManager.play(stats.death_sound)
 			GameData.mort_flesh += stats.gold_value
 			GameData.score += stats.gold_value
 			GameData.kills += 1
-			GameData.enemy_count -= 1
-			queue_free()
+			die()
 
 var last_fram_pos = Vector2()
 
 func _ready() -> void:
 	# now health scale with stage number increase by 10%(additive not geometric)
 	current_health = stats.max_health * (1 + (GameData.stage - 1) *0.1)
+	GameData.enemy_count += 1
 
 	
 func _process(delta: float) -> void:
@@ -66,10 +75,9 @@ func _process(delta: float) -> void:
 
 	last_fram_pos = position
 	if progress_ratio == 1.0:
-		GameData.enemy_count -= 1
 		castle.take_damage(stats.damage)
 		set_process(false)
-		queue_free()
+		die()
 		
 		
 func take_damage(damage) -> void:

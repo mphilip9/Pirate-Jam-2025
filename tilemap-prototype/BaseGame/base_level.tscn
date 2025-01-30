@@ -2558,9 +2558,13 @@ libraries = {
 }
 
 [node name="RemaingTimeContainer" type="PanelContainer" parent="HUD"]
-offset_left = 920.0
-offset_right = 1061.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.5
+offset_right = 70.5
 offset_bottom = 64.0
+grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5ief4")
 script = ExtResource("45_0gw0t")
 
