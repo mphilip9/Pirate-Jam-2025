@@ -190,6 +190,6 @@ func _on_button_pressed() -> void:
 		if name == 'lung':
 			GameData.mort_flesh += GameData.placed_turrets[name] * 100
 		GameData.placed_turrets[name] = 0
-	GameData.wave = 0
+	GameData.wave = 1
 	GameData.stage += 1
 	scene_transition.change_scene("res://UI/tower_store.tscn")

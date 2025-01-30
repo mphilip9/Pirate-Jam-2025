@@ -5,20 +5,21 @@ signal stop_spawning_enemies
 @onready var wave_warning_label = $"../HUD/WaveWarningContainer/WaveWarningLabel"
 @onready var enemy_spawn_timer = $"../Path2D/EnemySpawnTimer"
 @onready var scene_transition = $"../SceneTransition"
-@onready var start_counter_timer = $"../HUD/RemaingTimeContainer/HBoxContainer/Skip/StartCounter"
+@onready var start_counter_timer = $"../HUD/RemaingTimeContainer/MarginContainer/HBoxContainer/Skip/StartCounter"
 @onready var remaining_time_container = $"../HUD/RemaingTimeContainer"
+@onready var cooldown_timer = $CooldownTimer
 
 @export var game_length := 30.0
 @export var spawn_time_curve: Array[Curve]
 @onready var timer: Timer = $Timer
 var waves_per_stage = 2
+var game_started: bool = false
+var cooldown = 10
 # Called when the node enters the scene tree for the first time.
 
 signal handle_final_wave()
 
 func _ready() -> void:
-	handle_wave_warning()
-	timer.start(game_length)
 #	TODO: Revisit this logic when we can have more than 5 waves per stage
 	if GameData.stage + waves_per_stage < 6:
 		waves_per_stage += GameData.stage - 1
@@ -49,19 +50,35 @@ func handle_wave_warning() -> void:
 #Something is off here, but I'm on the right track I think
 func start_new_wave() -> void:
 	AudioManager.play("res://Assets/SFX/Bells1.mp3")
-	GameData.wave += 1
-	remaining_time_container.enable_skip_button(10)
-	await start_counter_timer.timeout
 	handle_wave_warning()
 	timer.start(game_length)
-		
+	enemy_spawn_timer.start()
+	#if !game_started:
+		#timer.start(game_length)
+		#game_started = true
+		#enemy_spawn_timer.start()
+	#else:
+		#GameData.wave += 1
+		#remaining_time_container.enable_skip_button(10)
+		#await start_counter_timer.timeout
+		#timer.start(game_length)
+		#enemy_spawn_timer.start()
 
 
 func _on_timer_timeout() -> void:
+	#print('emitted the diff timeout!')
 	stop_spawning_enemies.emit()
 	if GameData.enemy_count < 1:
 		AudioManager.queue.clear()
 	if GameData.wave < waves_per_stage:
-		start_new_wave()
+		remaining_time_container.visible = true
+		cooldown_timer.start(cooldown)
 	else: 
 		handle_final_wave.emit()
+	GameData.wave += 1
+
+
+
+func _on_cooldown_timer_timeout():
+	remaining_time_container.visible = false
+	start_new_wave()
