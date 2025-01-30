@@ -29,5 +29,5 @@ func _on_hitbox_body_entered(body):
 	explosion.damage = damage
 	explosion.position = position
 #	Attach to the parent, so explosion does not stop when the projectile is removed
-	get_parent().add_child(explosion)
+	get_parent().call_deferred("add_child", explosion)
 	queue_free()

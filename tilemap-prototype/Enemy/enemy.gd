@@ -22,6 +22,9 @@ var current_health: int:
 			AudioManager.adjust_volume(-10.0)
 			AudioManager.play(stats.death_sound)
 			GameData.mort_flesh += stats.gold_value
+			GameData.score += stats.gold_value
+			GameData.kills += 1
+			GameData.enemy_count -= 1
 			queue_free()
 
 var last_fram_pos = Vector2()
@@ -63,13 +66,13 @@ func _process(delta: float) -> void:
 
 	last_fram_pos = position
 	if progress_ratio == 1.0:
+		GameData.enemy_count -= 1
 		castle.take_damage(stats.damage)
 		set_process(false)
 		queue_free()
 		
 		
 func take_damage(damage) -> void:
-	print('damaged!', damage)
 	current_health -= damage
 
 # Damage over Time

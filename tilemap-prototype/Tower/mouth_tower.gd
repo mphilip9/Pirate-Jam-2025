@@ -15,13 +15,11 @@ func _ready():
 		# NOTE: We set the Resource in the Inspector to be 'Local to Scene'
 		# TO ensure each copy has a unique resource attached to it. So 
 		# if we edit one, we don't edit all of them
-	print('here', tower_stats.calculated_range)
 	if tower_stats.preview:
 		range.monitoring = false
 		range.monitorable = false
 		return
 	animation_player.play("idle_tower")
-	print('after', tower_stats.calculated_range)
 	range_collision_shape.shape.radius = tower_stats.calculated_range
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,7 +54,6 @@ func fire(target: CharacterBody2D):
 	projectile.speed = tower_stats.speed
 	add_child(projectile)
 func _on_range_body_entered(body):
-	print('hello???')
 	if !current_target:
 		current_target = body
 	else:
