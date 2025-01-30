@@ -267,6 +267,7 @@ script = ExtResource("1_8rpns")
 stats = ExtResource("2_n7j2o")
 
 [node name="Sprite" type="CharacterBody2D" parent="."]
+z_index = 1
 
 [node name="Body" type="AnimatedSprite2D" parent="Sprite"]
 sprite_frames = SubResource("SpriteFrames_wj6fs")
