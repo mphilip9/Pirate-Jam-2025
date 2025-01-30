@@ -9,7 +9,7 @@ signal stop_spawning_enemies
 @export var game_length := 30.0
 @export var spawn_time_curve: Array[Curve]
 @onready var timer: Timer = $Timer
-var waves_per_stage = 3
+var waves_per_stage = 2
 # Called when the node enters the scene tree for the first time.
 
 signal handle_final_wave()
@@ -17,7 +17,9 @@ signal handle_final_wave()
 func _ready() -> void:
 	handle_wave_warning()
 	timer.start(game_length)
-	waves_per_stage += GameData.stage
+#	TODO: Revisit this logic when we can have more than 5 waves per stage
+	if GameData.stage < 3:
+		waves_per_stage += GameData.stage
 #	We could do something similar for game_length if we wanted
 
 
@@ -45,7 +47,9 @@ func start_new_wave() -> void:
 	GameData.wave += 1
 	handle_wave_warning()
 	timer.start(game_length)
-	enemy_spawn_timer.start(2)
+#	TODO: Consider the best time to wait between scene endings
+#	TODO: This timer should not start until the last enemy is dead. Maybe a signal from the path2d??
+	enemy_spawn_timer.start(30)
 		
 
 

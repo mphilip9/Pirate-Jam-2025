@@ -8,6 +8,18 @@ var enemy_spawn_count: int = 0
 var final_wave: bool = false
 
 func transition_to_store() -> void:
+	for name in GameData.placed_turrets :
+		if name == 'projectile':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 40
+		if name == 'lazer':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 80
+		if name == 'seismic':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 60
+		if name == 'hand':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 40
+		if name == 'lung':
+			GameData.mort_flesh += GameData.placed_turrets[name] * 100
+		GameData.placed_turrets[name] = 0
 	var store_delay_timer = get_tree().create_timer(5)
 	await store_delay_timer.timeout
 	#get_tree().change_scene_to_file("res://UI/tower_store.tscn")
@@ -21,8 +33,7 @@ func _process(delta):
 		if GameData.enemy_count == 0:
 			final_wave = false
 			transition_to_store()
-			print('enemies are 0')
-				#	TODO: Write a function that can handle incrementing waves based on stage
+
 			
 func spawn_enemy() -> void:
 	enemy_spawn_count += 1
