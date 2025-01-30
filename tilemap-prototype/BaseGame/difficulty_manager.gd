@@ -20,6 +20,8 @@ func _ready() -> void:
 #	TODO: Revisit this logic when we can have more than 5 waves per stage
 	if GameData.stage + waves_per_stage < 6:
 		waves_per_stage += GameData.stage - 1
+	else :
+		waves_per_stage = 5
 #	We could do something similar for game_length if we wanted
 
 
