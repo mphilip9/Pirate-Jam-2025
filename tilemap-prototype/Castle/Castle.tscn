@@ -36,10 +36,17 @@ value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="ProgressBar"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = -3.0
-offset_right = 86.0
-offset_bottom = 20.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -9.5
+offset_right = 17.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "50/50
 "
