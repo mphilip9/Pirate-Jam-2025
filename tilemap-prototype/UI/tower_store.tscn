@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://g3ptffd3pae4"]
+[gd_scene load_steps=44 format=3 uid="uid://g3ptffd3pae4"]
 
 [ext_resource type="Theme" uid="uid://c22kl2v8r7xl7" path="res://Themes/store_container_theme.tres" id="1_64hk4"]
 [ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="2_hwlt7"]
@@ -26,12 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="22_8mt84"]
 [ext_resource type="AudioStream" uid="uid://c2v6shdef1kvu" path="res://Assets/Music/A-Trail-of-Jewels.mp3" id="23_5h8np"]
 [ext_resource type="Theme" uid="uid://b2ycmtth6b4ht" path="res://Themes/quit_button_theme.tres" id="25_ahlng"]
+[ext_resource type="PackedScene" path="res://UI/scene_transition.tscn" id="27_03ny0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7yar"]
 atlas = ExtResource("3_nwie7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_jlosw"]
+[sub_resource type="Resource" id="Resource_a1lhi"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "projectile"
@@ -51,7 +52,7 @@ preview_texture = SubResource("AtlasTexture_h7yar")
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_nva0p"]
+[sub_resource type="Resource" id="Resource_udgi7"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -71,7 +72,7 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("15_hap3n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_wmbqx"]
+[sub_resource type="Resource" id="Resource_tuu1d"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "seismic"
@@ -91,7 +92,7 @@ preview_texture = SubResource("AtlasTexture_57rqf")
 atlas = ExtResource("17_n1hlf")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_u7lio"]
+[sub_resource type="Resource" id="Resource_joctk"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "hand"
@@ -111,7 +112,7 @@ preview_texture = SubResource("AtlasTexture_1enov")
 atlas = ExtResource("19_m5h4i")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_ej584"]
+[sub_resource type="Resource" id="Resource_i1exp"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lung"
@@ -131,7 +132,7 @@ preview_texture = SubResource("AtlasTexture_01r4s")
 atlas = ExtResource("21_qpdar")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_l1lyb"]
+[sub_resource type="Resource" id="Resource_q1ttk"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "mouth"
@@ -155,7 +156,7 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("10_boybp")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_0rcw5"]
+[sub_resource type="Resource" id="Resource_3kn37"]
 resource_local_to_scene = true
 script = ExtResource("12_yv8y7")
 name = "lazer"
@@ -299,27 +300,27 @@ columns = 3
 
 [node name="ProjectileButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_jlosw")
+store_button_stats = SubResource("Resource_a1lhi")
 
 [node name="LazerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_nva0p")
+store_button_stats = SubResource("Resource_udgi7")
 
 [node name="SeismicButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_wmbqx")
+store_button_stats = SubResource("Resource_tuu1d")
 
 [node name="HandButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_u7lio")
+store_button_stats = SubResource("Resource_joctk")
 
 [node name="LungButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_ej584")
+store_button_stats = SubResource("Resource_i1exp")
 
 [node name="MouthButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_l1lyb")
+store_button_stats = SubResource("Resource_q1ttk")
 
 [node name="UpgradeBtnContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer"]
 visible = false
@@ -436,7 +437,7 @@ texture = SubResource("AtlasTexture_pjw14")
 
 [node name="StoreTowerButton" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer/GridContainer" instance=ExtResource("8_1yq66")]
 layout_mode = 2
-store_button_stats = SubResource("Resource_0rcw5")
+store_button_stats = SubResource("Resource_3kn37")
 is_lock_btn = true
 
 [node name="UnlockButton" type="Button" parent="PanelContainer/VBoxContainer/SplitContainer/TowerUnlock/PanelContainer2/MarginContainer"]
@@ -509,6 +510,9 @@ text = "Quit"
 stream = ExtResource("23_5h8np")
 autoplay = true
 parameters/looping = true
+
+[node name="SceneTransition" parent="." instance=ExtResource("27_03ny0")]
+layout_mode = 2
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton" to="." method="_on_unlock_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ProceedOrQuit/ProceedButton" to="." method="_on_proceed_button_pressed"]
