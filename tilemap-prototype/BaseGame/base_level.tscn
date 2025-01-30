@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=93 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="25_p75wh"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="26_7tnkt"]
 [ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="27_07g6n"]
-[ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
+[ext_resource type="PackedScene" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="28_v3yrd"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_er82n"]
@@ -50,6 +50,9 @@
 [ext_resource type="Script" path="res://BaseGame/remaing_time_container.gd" id="45_0gw0t"]
 [ext_resource type="Texture2D" uid="uid://b7y6ytbxoeu47" path="res://Assets/UIassets/skip.png" id="46_xvabs"]
 [ext_resource type="Script" path="res://UI/proceed_to_store_container.gd" id="47_gfdl4"]
+[ext_resource type="AudioStream" uid="uid://ndnna84qkn2o" path="res://Assets/Music/Dark-Quest.mp3" id="50_uovx2"]
+[ext_resource type="AudioStream" uid="uid://vyddgtogsnut" path="res://Assets/Music/Dragon-Mystery_Looping.mp3" id="51_6ojvh"]
+[ext_resource type="AudioStream" uid="uid://c8pwqmuaa1vlp" path="res://Assets/Music/Mysterious-Lands_Looping.mp3" id="52_xn2rw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2165,8 +2168,12 @@ atlas = ExtResource("46_xvabs")
 region = Rect2(0, 64, 82, 64)
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
-stream_count = 1
+shuffle = true
+stream_count = 4
 stream_0 = ExtResource("33_8lhf1")
+stream_1 = ExtResource("50_uovx2")
+stream_2 = ExtResource("51_6ojvh")
+stream_3 = ExtResource("52_xn2rw")
 
 [node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true

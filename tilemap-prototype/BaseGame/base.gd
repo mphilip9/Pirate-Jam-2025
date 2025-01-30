@@ -13,6 +13,7 @@ extends Node2D
 @onready var mouth_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer
 @onready var play_pause_button: TextureButton = $HUD/PlayPauseContainer/PlayPauseButton
 @onready var pause_menu: PanelContainer = $HUD/PauseMenu
+@onready var game_music_playlist: AudioStreamPlayer2D = $GameMusicPlaylist
 
 # Called when the node enters the scene tree  for the first time.
 func _ready():
@@ -192,4 +193,5 @@ func _on_button_pressed() -> void:
 		GameData.placed_turrets[name] = 0
 	GameData.wave = 1
 	GameData.stage += 1
+	game_music_playlist.get_stream().shuffle = true
 	scene_transition.change_scene("res://UI/tower_store.tscn")
