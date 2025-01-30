@@ -2283,7 +2283,6 @@ texture_normal = ExtResource("36_ckx2u")
 texture_pressed = ExtResource("37_p0mhu")
 
 [node name="PauseMenu" type="PanelContainer" parent="HUD"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2338,6 +2337,15 @@ size_flags_stretch_ratio = 0.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "RESUME GAME"
+
+[node name="MuteContainer" type="PanelContainer" parent="HUD/PauseMenu/MenuOptions/MenuButtons"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ResumeButton" type="Button" parent="HUD/PauseMenu/MenuOptions/MenuButtons/MuteContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MUTE"
 
 [node name="GameOver" type="PanelContainer" parent="HUD"]
 process_mode = 3
@@ -2415,5 +2423,7 @@ autoplay = true
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="HUD/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/MuteContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/MuteContainer/ResumeButton" to="HUD/PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
