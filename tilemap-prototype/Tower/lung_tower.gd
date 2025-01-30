@@ -54,8 +54,6 @@ func fire(target: CharacterBody2D):
 	projectile.speed = tower_stats.speed
 	add_child(projectile)
 func _on_range_body_entered(body):
-	#print('body here', body, body.get_parent())
-	#fire(body)
 	if !current_target:
 		current_target = body
 	else:
@@ -67,8 +65,6 @@ func _on_range_body_exited(body):
 	if current_target == body:
 		current_target = null
 		
-		
-		#
 func draw_range():
 	var color = Color(0, 0, 0, 0)
 	draw_circle(Vector2(0,0), 100.0, color)

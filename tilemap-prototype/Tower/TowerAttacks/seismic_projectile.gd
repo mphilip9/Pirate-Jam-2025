@@ -27,5 +27,5 @@ func _physics_process(delta):
 	
 func _on_hitbox_body_entered(body):
 	body.get_parent().take_damage(damage)
-	body.get_parent().crowd_control_slow(100, 0.60)
+	body.get_parent().crowd_control_slow(100, 0.40)
 	

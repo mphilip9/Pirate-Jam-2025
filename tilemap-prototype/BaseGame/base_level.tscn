@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=84 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -31,11 +31,11 @@
 [ext_resource type="PackedScene" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="28_v3yrd"]
-[ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_duo47"]
+[ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_er82n"]
 [ext_resource type="Script" path="res://BaseGame/pause_menu.gd" id="30_3kv07"]
-[ext_resource type="PackedScene" uid="uid://cu6haqfn23lap" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="30_aahni"]
-[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="31_0nysq"]
-[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="32_h5d0j"]
+[ext_resource type="PackedScene" uid="uid://cu6haqfn23lap" path="res://Tower/TowerAttacks/lung_projectile.tscn" id="30_vhwui"]
+[ext_resource type="Texture2D" uid="uid://cmk4op0ebe8v1" path="res://Assets/TowerAssets/MushroomMouthSheet.png" id="31_glvu2"]
+[ext_resource type="PackedScene" uid="uid://cxlpf2sbhtbt" path="res://Tower/TowerAttacks/mouth_projectile.tscn" id="32_i1vhq"]
 [ext_resource type="AudioStream" uid="uid://n8r61kvh74rl" path="res://Assets/Music/Grumpy-Monster-Sorcerer.mp3" id="33_8lhf1"]
 [ext_resource type="Texture2D" uid="uid://nvh0b2musqvj" path="res://Assets/UIassets/TowerContainer.webp" id="34_0uskv"]
 [ext_resource type="Texture2D" uid="uid://coyvjedbcqvm0" path="res://Assets/UIassets/Play.png" id="36_ckx2u"]
@@ -43,8 +43,10 @@
 [ext_resource type="Script" path="res://BaseGame/game_over.gd" id="37_x3bv2"]
 [ext_resource type="Texture2D" uid="uid://cwjc24l4eg1dj" path="res://Assets/UIassets/DeadOrc.png" id="38_4c3hv"]
 [ext_resource type="AudioStream" uid="uid://0phaudn7xui3" path="res://Assets/Music/Shattered-Reality.mp3" id="39_3iew2"]
-[ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="39_005f6"]
+[ext_resource type="PackedScene" path="res://UI/scene_transition.tscn" id="39_005f6"]
 [ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="41_6nfno"]
+[ext_resource type="Script" path="res://BaseGame/score_tracker.gd" id="43_pe87a"]
+[ext_resource type="Theme" uid="uid://d2562xkfscffg" path="res://Themes/score_container_theme.tres" id="44_blax5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -1932,7 +1934,7 @@ point_count = 1
 atlas = ExtResource("20_gwfb6")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_rdqtj"]
+[sub_resource type="Resource" id="Resource_d7bd2"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "projectile"
@@ -1952,7 +1954,7 @@ preview_texture = SubResource("AtlasTexture_h7yar")
 atlas = ExtResource("23_8vqap")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_orofv"]
+[sub_resource type="Resource" id="Resource_hh3hc"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "lazer"
@@ -1972,12 +1974,12 @@ preview_texture = SubResource("AtlasTexture_e32yj")
 atlas = ExtResource("25_p75wh")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_e6qf7"]
+[sub_resource type="Resource" id="Resource_8qrwy"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "seismic"
 info = "Produces earth quakes that slow and damage enemies."
-damage = 50
+damage = 40
 speed = 500
 range = 100
 tier = 0
@@ -1985,14 +1987,14 @@ max_tier = 0
 preview = false
 projectile_scene = ExtResource("26_7tnkt")
 rate_of_fire = 1.0
-cost = 75
+cost = 100
 preview_texture = SubResource("AtlasTexture_57rqf")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1enov"]
 atlas = ExtResource("27_07g6n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_2ylvv"]
+[sub_resource type="Resource" id="Resource_g7t56"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "hand"
@@ -2009,10 +2011,10 @@ cost = 50
 preview_texture = SubResource("AtlasTexture_1enov")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_01r4s"]
-atlas = ExtResource("29_duo47")
+atlas = ExtResource("29_er82n")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_q2ncm"]
+[sub_resource type="Resource" id="Resource_vad1r"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "lung"
@@ -2023,29 +2025,29 @@ range = 100
 tier = 0
 max_tier = 0
 preview = false
-projectile_scene = ExtResource("30_aahni")
+projectile_scene = ExtResource("30_vhwui")
 rate_of_fire = 1.0
-cost = 125
+cost = 200
 preview_texture = SubResource("AtlasTexture_01r4s")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdc65"]
-atlas = ExtResource("31_0nysq")
+atlas = ExtResource("31_glvu2")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_j8jsu"]
+[sub_resource type="Resource" id="Resource_a5hnn"]
 resource_local_to_scene = true
 script = ExtResource("22_xt42b")
 name = "mouth"
 info = "Spits out a volatile spore that explodes on contact"
 damage = 100
 speed = 300
-range = 100
+range = 250
 tier = 0
 max_tier = 0
 preview = false
-projectile_scene = ExtResource("32_h5d0j")
+projectile_scene = ExtResource("32_i1vhq")
 rate_of_fire = 1.5
-cost = 50
+cost = 100
 preview_texture = SubResource("AtlasTexture_mdc65")
 
 [sub_resource type="Animation" id="Animation_k4yxp"]
@@ -2110,6 +2112,45 @@ _data = {
 "game_over_fade": SubResource("Animation_7wfiv")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxepl"]
+
+[sub_resource type="Animation" id="Animation_e67f8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1gyfl"]
+resource_name = "wave_warning"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfttu"]
+_data = {
+"RESET": SubResource("Animation_e67f8"),
+"wave_warning": SubResource("Animation_1gyfl")
+}
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
 stream_count = 1
 stream_0 = ExtResource("33_8lhf1")
@@ -2146,7 +2187,7 @@ script = ExtResource("6_3vj5o")
 difficulty_manager = NodePath("../DifficultyManager")
 enemies_array = Array[PackedScene]([ExtResource("6_1dgm3"), ExtResource("10_rtp7h"), ExtResource("7_asakl"), ExtResource("7_yv2kq"), ExtResource("9_0ra5j"), ExtResource("11_op0tf")])
 
-[node name="Timer" type="Timer" parent="Path2D"]
+[node name="EnemySpawnTimer" type="Timer" parent="Path2D"]
 wait_time = 2.0
 autostart = true
 
@@ -2204,42 +2245,42 @@ layout_mode = 2
 
 [node name="ProjectileButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_rdqtj")
+button_stats = SubResource("Resource_d7bd2")
 
 [node name="LazerContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="LazerButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_orofv")
+button_stats = SubResource("Resource_hh3hc")
 
 [node name="SeismicContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="SeismicButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_e6qf7")
+button_stats = SubResource("Resource_8qrwy")
 
 [node name="HandContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="HandButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/HandContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_2ylvv")
+button_stats = SubResource("Resource_g7t56")
 
 [node name="LungContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="LungButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LungContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_q2ncm")
+button_stats = SubResource("Resource_vad1r")
 
 [node name="MouthContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
 
 [node name="MouthButton" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer" instance=ExtResource("11_6iy8u")]
 layout_mode = 2
-button_stats = SubResource("Resource_j8jsu")
+button_stats = SubResource("Resource_a5hnn")
 
 [node name="SkipContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
 layout_mode = 2
@@ -2400,6 +2441,112 @@ libraries = {
 stream = ExtResource("39_3iew2")
 parameters/looping = true
 
+[node name="ScoreTracker" type="MarginContainer" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 287.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("43_pe87a")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/ScoreTracker"]
+layout_mode = 2
+texture = ExtResource("34_0uskv")
+expand_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/ScoreTracker"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lxepl")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ScoreTracker/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("44_blax5")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScoreContainer" type="VBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/ScoreContainer"]
+layout_mode = 2
+text = "Score"
+
+[node name="Score" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/ScoreContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="KillContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/KillContainer"]
+layout_mode = 2
+text = "Enemies Slain"
+
+[node name="Kills" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/KillContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="WaveContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/WaveContainer"]
+layout_mode = 2
+text = "Wave"
+
+[node name="Wave" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/WaveContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="StageContainer" type="HBoxContainer" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/StageContainer"]
+layout_mode = 2
+text = "Stage"
+
+[node name="Stage" type="Label" parent="HUD/ScoreTracker/PanelContainer/MarginContainer/ScoreContainer/StageContainer"]
+layout_mode = 2
+text = "---"
+
+[node name="WaveWarningContainer" type="MarginContainer" parent="HUD"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -20.0
+offset_right = 117.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaveWarningLabel" type="Label" parent="HUD/WaveWarningContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.294118, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0.176471, 1)
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 36
+text = "Wave 1 coming in..."
+
+[node name="WaveWarningAnimation" type="AnimationPlayer" parent="HUD/WaveWarningContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bfttu")
+}
+
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
 
@@ -2409,8 +2556,9 @@ autoplay = true
 
 [node name="SceneTransition" parent="." instance=ExtResource("39_005f6")]
 
-[connection signal="timeout" from="Path2D/Timer" to="Path2D" method="spawn_enemy"]
+[connection signal="timeout" from="Path2D/EnemySpawnTimer" to="Path2D" method="spawn_enemy"]
 [connection signal="game_over" from="Castle" to="HUD/GameOver" method="_on_castle_game_over"]
+[connection signal="handle_final_wave" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_handle_final_wave"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]

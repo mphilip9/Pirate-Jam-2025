@@ -14,7 +14,6 @@ extends Node2D
 @onready var play_pause_button: TextureButton = $HUD/PlayPauseContainer/PlayPauseButton
 @onready var pause_menu: PanelContainer = $HUD/PauseMenu
 
-
 # Called when the node enters the scene tree  for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
