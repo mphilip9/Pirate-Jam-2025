@@ -19,5 +19,5 @@ func _on_resume_button_pressed() -> void:
 	AudioManager.play("res://Assets/SFX/013 JESTER SNARE.wav")
 	visible = false
 
-#func _on_mute_button_pressed() -> void:
-	
+func _on_mute_button_pressed():
+	GameData.muted = !GameData.muted

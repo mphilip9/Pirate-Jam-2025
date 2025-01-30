@@ -2423,5 +2423,6 @@ autoplay = true
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/QuitGameContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/ResumeContainer/ResumeButton" to="HUD/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/MuteContainer/MuteButton" to="HUD/PauseMenu" method="_on_mute_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
