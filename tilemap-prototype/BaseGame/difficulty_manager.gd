@@ -5,6 +5,8 @@ signal stop_spawning_enemies
 @onready var wave_warning_label = $"../HUD/WaveWarningContainer/WaveWarningLabel"
 @onready var enemy_spawn_timer = $"../Path2D/EnemySpawnTimer"
 @onready var scene_transition = $"../SceneTransition"
+@onready var start_counter_timer = $"../HUD/RemaingTimeContainer/HBoxContainer/Skip/StartCounter"
+@onready var remaining_time_container = $"../HUD/RemaingTimeContainer"
 
 @export var game_length := 30.0
 @export var spawn_time_curve: Array[Curve]
@@ -47,11 +49,10 @@ func handle_wave_warning() -> void:
 #Something is off here, but I'm on the right track I think
 func start_new_wave() -> void:
 	GameData.wave += 1
-	var wave_cooldown_timer = get_tree().create_timer(10)
-	await wave_cooldown_timer.timeout
+	remaining_time_container.enable_skip_button(10)
+	await start_counter_timer.timeout
 	handle_wave_warning()
 	timer.start(game_length)
-	enemy_spawn_timer.start(2)
 		
 
 
