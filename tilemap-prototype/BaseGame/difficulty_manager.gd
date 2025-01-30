@@ -63,6 +63,8 @@ func start_new_wave() -> void:
 
 func _on_timer_timeout() -> void:
 	stop_spawning_enemies.emit()
+	if GameData.enemy_count < 1:
+		AudioManager.queue.clear()
 	if GameData.wave < waves_per_stage:
 		start_new_wave()
 	else: 
