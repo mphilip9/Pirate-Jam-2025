@@ -38,6 +38,7 @@ func spawn_enemy() -> void:
 	var enemy_scene = enemies_array[enemy_ind]
 	var new_enemy = enemy_scene.instantiate()
 	add_child(new_enemy)
+	print('what is happening here')
 	timer.wait_time = difficulty_manager.get_spawn_time()
 
 

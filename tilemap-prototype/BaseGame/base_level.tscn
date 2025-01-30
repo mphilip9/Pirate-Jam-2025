@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=84 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -2114,6 +2114,43 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxepl"]
 
+[sub_resource type="Animation" id="Animation_1gyfl"]
+resource_name = "wave_warning"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_e67f8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfttu"]
+_data = {
+"RESET": SubResource("Animation_e67f8"),
+"wave_warning": SubResource("Animation_1gyfl")
+}
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_flc8f"]
 stream_count = 1
 stream_0 = ExtResource("33_8lhf1")
@@ -2472,6 +2509,7 @@ layout_mode = 2
 text = "---"
 
 [node name="WaveWarningContainer" type="MarginContainer" parent="HUD"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2484,7 +2522,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="HUD/WaveWarningContainer"]
+[node name="WaveWarningLabel" type="Label" parent="HUD/WaveWarningContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.0941176, 0.294118, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 0.176471, 1)
@@ -2493,6 +2531,11 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 36
 text = "Wave 1 coming in..."
+
+[node name="WaveWarningAnimation" type="AnimationPlayer" parent="HUD/WaveWarningContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_bfttu")
+}
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")

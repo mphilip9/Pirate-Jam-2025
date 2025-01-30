@@ -1,6 +1,8 @@
 extends Node
 
 signal stop_spawning_enemies
+@onready var wave_warning_animation = $"../HUD/WaveWarningContainer/WaveWarningAnimation"
+@onready var wave_warning_label = $"../HUD/WaveWarningContainer/WaveWarningLabel"
 
 @export var game_length := 30.0
 @export var spawn_time_curve: Array[Curve]
@@ -8,6 +10,8 @@ signal stop_spawning_enemies
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+	wave_warning_label.text = 'Stage: ' + str(GameData.stage) + '   Wave ' + str(GameData.wave) + ' incoming'
+	wave_warning_animation.play('wave_warning')
 	timer.start(game_length)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
