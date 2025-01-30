@@ -19,7 +19,12 @@ func enable_skip_button(wait_time) -> void:
 
 
 func _on_skip_pressed() -> void:
-	print("hello?")
+	skip_button.disabled = true
+	start_counter_timer.stop()
+	enemy_spawn_timer.start()
+
+
+func _on_start_counter_timeout() -> void:
 	skip_button.disabled = true
 	start_counter_timer.stop()
 	enemy_spawn_timer.start()
