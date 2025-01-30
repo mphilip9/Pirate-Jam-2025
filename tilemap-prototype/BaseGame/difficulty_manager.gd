@@ -9,15 +9,16 @@ signal stop_spawning_enemies
 @export var game_length := 30.0
 @export var spawn_time_curve: Array[Curve]
 @onready var timer: Timer = $Timer
+var waves_per_stage = 3
 # Called when the node enters the scene tree for the first time.
+
+signal handle_final_wave()
 
 func _ready() -> void:
 	handle_wave_warning()
 	timer.start(game_length)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	waves_per_stage += GameData.stage
+#	We could do something similar for game_length if we wanted
 
 
 func game_progress_ratio() -> float:
@@ -41,22 +42,17 @@ func handle_wave_warning() -> void:
 
 #Something is off here, but I'm on the right track I think
 func start_new_wave() -> void:
-	if GameData.wave < 4:
-		GameData.wave += 1
-		handle_wave_warning()
-		timer.start(game_length)
-		enemy_spawn_timer.start(2)
+	GameData.wave += 1
+	handle_wave_warning()
+	timer.start(game_length)
+	enemy_spawn_timer.start(2)
 		
-#	TODO: Write a function that can handle incrementing waves based on stage
-	else: 
-		GameData.wave = 0
-		GameData.stage += 1
-		var store_delay_timer = get_tree().create_timer(20)
-		await store_delay_timer.timeout
-		scene_transition.change_scene("res://UI/tower_store.tscn")
-		return
+
 
 
 func _on_timer_timeout() -> void:
 	stop_spawning_enemies.emit()
-	start_new_wave()
+	if GameData.wave < waves_per_stage:
+		start_new_wave()
+	else: 
+		handle_final_wave.emit()

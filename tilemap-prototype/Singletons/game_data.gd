@@ -11,6 +11,7 @@ extends Node2D
 # wave & stage variable
 @export var wave: int = 1
 @export var stage: int = 1
+@export var enemy_count: int = 0
 
 # score and kill count
 @export var score: int = 0

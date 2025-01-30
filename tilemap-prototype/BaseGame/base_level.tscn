@@ -2557,6 +2557,7 @@ autoplay = true
 
 [connection signal="timeout" from="Path2D/EnemySpawnTimer" to="Path2D" method="spawn_enemy"]
 [connection signal="game_over" from="Castle" to="HUD/GameOver" method="_on_castle_game_over"]
+[connection signal="handle_final_wave" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_handle_final_wave"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]

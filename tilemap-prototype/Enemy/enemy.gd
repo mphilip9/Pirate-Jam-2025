@@ -26,6 +26,7 @@ var current_health: int:
 			GameData.mort_flesh += stats.gold_value
 			GameData.score += stats.gold_value
 			GameData.kills += 1
+			GameData.enemy_count -= 1
 			queue_free()
 
 var last_fram_pos = Vector2()
@@ -64,6 +65,7 @@ func _process(delta: float) -> void:
 
 	last_fram_pos = position
 	if progress_ratio == 1.0:
+		GameData.enemy_count -= 1
 		castle.take_damage(stats.damage)
 		set_process(false)
 		queue_free()
