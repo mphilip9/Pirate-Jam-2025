@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=90 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ci72w8pyh8u41" path="res://Assets/TowerAssets/MushroomSpineSheet.png" id="25_p75wh"]
 [ext_resource type="PackedScene" uid="uid://b70wc88mt121k" path="res://Tower/TowerAttacks/seismic_projectile.tscn" id="26_7tnkt"]
 [ext_resource type="Texture2D" uid="uid://bg5yy6xlxv1mo" path="res://Assets/TowerAssets/MushroomHandGrasp.png" id="27_07g6n"]
-[ext_resource type="PackedScene" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
+[ext_resource type="PackedScene" uid="uid://drgmi3dr4dx7n" path="res://BaseGame/play_pause_button.tscn" id="28_0kwfa"]
 [ext_resource type="Script" path="res://BaseGame/play_pause_container.gd" id="28_lg64e"]
 [ext_resource type="PackedScene" uid="uid://c3ia4hct4jigq" path="res://Tower/TowerAttacks/hand_projectile.tscn" id="28_v3yrd"]
 [ext_resource type="Texture2D" uid="uid://8xgbgbh10j2x" path="res://Assets/TowerAssets/MushroomLungs.png" id="29_er82n"]
@@ -49,6 +49,7 @@
 [ext_resource type="Theme" uid="uid://d2562xkfscffg" path="res://Themes/score_container_theme.tres" id="44_blax5"]
 [ext_resource type="Script" path="res://BaseGame/remaing_time_container.gd" id="45_0gw0t"]
 [ext_resource type="Texture2D" uid="uid://b7y6ytbxoeu47" path="res://Assets/UIassets/skip.png" id="46_xvabs"]
+[ext_resource type="Script" path="res://UI/proceed_to_store_container.gd" id="47_gfdl4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1acvt"]
 texture = ExtResource("2_t5sja")
@@ -2209,6 +2210,11 @@ position = Vector2(407, -64)
 [node name="DifficultyManager" parent="." instance=ExtResource("8_6sswj")]
 spawn_time_curve = Array[Curve]([ExtResource("14_y3ibj"), ExtResource("16_r7c4o"), ExtResource("15_8a5i6")])
 
+[node name="CooldownTimer" type="Timer" parent="DifficultyManager"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD"]
@@ -2569,23 +2575,59 @@ grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5ief4")
 script = ExtResource("45_0gw0t")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/RemaingTimeContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/RemaingTimeContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/RemaingTimeContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="RemainingTime" type="Label" parent="HUD/RemaingTimeContainer/HBoxContainer"]
+[node name="RemainingTime" type="Label" parent="HUD/RemaingTimeContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "30"
 
-[node name="Skip" type="TextureButton" parent="HUD/RemaingTimeContainer/HBoxContainer"]
+[node name="Skip" type="TextureButton" parent="HUD/RemaingTimeContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_ck5b4")
 texture_disabled = SubResource("AtlasTexture_11sjw")
 stretch_mode = 0
 
-[node name="StartCounter" type="Timer" parent="HUD/RemaingTimeContainer/HBoxContainer/Skip"]
-wait_time = 30.0
-autostart = true
+[node name="ProceedToStoreContainer" type="MarginContainer" parent="HUD"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -20.0
+offset_right = 55.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("47_gfdl4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ProceedToStoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("41_6nfno")
+theme_override_constants/separation = 20
+
+[node name="StageCompleteLabel" type="Label" parent="HUD/ProceedToStoreContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("44_blax5")
+text = "Stage Complete"
+uppercase = true
+
+[node name="ProceedToStoreButton" type="Button" parent="HUD/ProceedToStoreContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+text = "Proceed to Store"
 
 [node name="TowerManager" type="Node2D" parent="."]
 script = ExtResource("11_8vmam")
@@ -2600,6 +2642,7 @@ autoplay = true
 [connection signal="game_over" from="Castle" to="HUD/GameOver" method="_on_castle_game_over"]
 [connection signal="handle_final_wave" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_handle_final_wave"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="Path2D" method="_on_difficulty_manager_stop_spawning_enemies"]
+[connection signal="timeout" from="DifficultyManager/CooldownTimer" to="DifficultyManager" method="_on_cooldown_timer_timeout"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/ProjectileContainer/ProjectileButton" to="TowerManager" method="_on_projectile_button_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/LazerContainer/LazerButton" to="TowerManager" method="_on_lazer_button_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SeismicContainer/SeismicButton" to="TowerManager" method="_on_seismic_button_pressed"]
@@ -2616,5 +2659,7 @@ autoplay = true
 [connection signal="pressed" from="HUD/PauseMenu/MenuOptions/MenuButtons/MuteContainer/MuteButton" to="HUD/PauseMenu" method="_on_mute_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/NewGameButton" to="HUD/GameOver" method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/VBoxContainer/QuitToMenuButton" to="HUD/GameOver" method="_on_quit_to_menu_button_pressed"]
-[connection signal="pressed" from="HUD/RemaingTimeContainer/HBoxContainer/Skip" to="HUD/RemaingTimeContainer" method="_on_skip_pressed"]
-[connection signal="timeout" from="HUD/RemaingTimeContainer/HBoxContainer/Skip/StartCounter" to="HUD/RemaingTimeContainer" method="_on_start_counter_timeout"]
+[connection signal="pressed" from="HUD/RemaingTimeContainer/MarginContainer/HBoxContainer/Skip" to="HUD/RemaingTimeContainer" method="_on_skip_pressed"]
+[connection signal="pressed" from="HUD/ProceedToStoreContainer/VBoxContainer/ProceedToStoreButton" to="HUD/ProceedToStoreContainer" method="_on_proceed_to_store_button_pressed"]
+
+[editable path="DifficultyManager"]
