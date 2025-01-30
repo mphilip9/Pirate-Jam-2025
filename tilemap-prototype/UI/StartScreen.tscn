@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmvg4vv4i713f" path="res://Assets/UIassets/TitleScreenClouds.png" id="2_xubx7"]
 [ext_resource type="FontFile" uid="uid://gai1kalbtujs" path="res://Assets/Fonts/8bitlim.ttf" id="3_1t0o2"]
 [ext_resource type="AudioStream" uid="uid://vyddgtogsnut" path="res://Assets/Music/Dragon-Mystery_Looping.mp3" id="4_8145h"]
-[ext_resource type="PackedScene" path="res://UI/scene_transition.tscn" id="5_7yubl"]
+[ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="5_7yubl"]
 
 [sub_resource type="FontVariation" id="FontVariation_a0n17"]
 base_font = ExtResource("3_1t0o2")
