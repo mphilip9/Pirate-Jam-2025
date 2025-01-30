@@ -25,6 +25,7 @@ func _ready() -> void:
 		waves_per_stage += GameData.stage - 1
 	else :
 		waves_per_stage = 5
+	game_length = (GameData.stage * 2) + game_length
 #	We could do something similar for game_length if we wanted
 
 
@@ -53,16 +54,6 @@ func start_new_wave() -> void:
 	handle_wave_warning()
 	timer.start(game_length)
 	enemy_spawn_timer.start()
-	#if !game_started:
-		#timer.start(game_length)
-		#game_started = true
-		#enemy_spawn_timer.start()
-	#else:
-		#GameData.wave += 1
-		#remaining_time_container.enable_skip_button(10)
-		#await start_counter_timer.timeout
-		#timer.start(game_length)
-		#enemy_spawn_timer.start()
 
 
 func _on_timer_timeout() -> void:
@@ -73,9 +64,10 @@ func _on_timer_timeout() -> void:
 	if GameData.wave < waves_per_stage:
 		remaining_time_container.visible = true
 		cooldown_timer.start(cooldown)
+		GameData.wave += 1
 	else: 
 		handle_final_wave.emit()
-	GameData.wave += 1
+	
 
 
 
