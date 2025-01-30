@@ -87,8 +87,9 @@ func _on_unlock_button_pressed():
 
 func _on_proceed_button_pressed():
 	AudioManager.play("res://Assets/SFX/013 JESTER SNARE.wav")
-	scene_transition.change_scene("res://BaseGame/base_level.tscn")
+	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
 
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	GameData.restore_game_data()
+	scene_transition.change_scene("res://UI/StartScreen.tscn")
