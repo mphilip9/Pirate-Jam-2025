@@ -82,9 +82,74 @@ extends Node2D
 #Use this to calculate the price in the store
 @export var upgrade_cost_multiplier = {
 	"range": 2,
-	"damage": 2,
+	"damage": 3,
 	"rate_of_fire": 2
 }
 
 func restore_game_data() -> void:
+	mort_flesh = 200
+	wave = 1
+	stage = 1
+	enemy_count = 0
+	kills = 0
+	score = 0
+	muted = false
 	occupied_tiles = []
+	placed_turrets = {"projectile": 0, "lazer": 0, "seismic": 0, "hand": 0, "lung": 0, "mouth": 0}
+	tower_store = {
+	'projectile': {
+		"unlocked": true,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+		"n_upgrades": 0
+		
+	},
+	'lazer': {
+		"unlocked": false,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+		"n_upgrades": 0
+	},
+	'seismic': {
+		"unlocked": false,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+		"n_upgrades": 0
+	},
+	'hand': {
+		"unlocked": false,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+		"n_upgrades": 0
+	},
+	'lung': {
+		"unlocked": false,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+		"n_upgrades": 0
+	},
+	'mouth': {
+		"unlocked": false,
+		"upgrades": {
+			"range": false,
+			"damage": false,
+			"rate_of_fire": false,
+		},
+		"n_upgrades": 0
+	},
+}

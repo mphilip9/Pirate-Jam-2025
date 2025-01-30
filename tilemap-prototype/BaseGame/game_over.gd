@@ -20,10 +20,10 @@ func _on_castle_game_over():
 
 func _on_new_game_button_pressed():
 	get_tree().paused = false
-	GameData.wave = 1
-	GameData.stage = 1
+	GameData.restore_game_data()
 	scene_transition.change_scene("res://BaseGame/base_level.tscn")
 
 func _on_quit_to_menu_button_pressed():
 	get_tree().paused = false
+	GameData.restore_game_data()
 	scene_transition.change_scene("res://UI/StartScreen.tscn")
