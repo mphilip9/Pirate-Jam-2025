@@ -49,6 +49,7 @@ func handle_wave_warning() -> void:
 
 #Something is off here, but I'm on the right track I think
 func start_new_wave() -> void:
+	AudioManager.play("res://Assets/SFX/Bells1.mp3")
 	handle_wave_warning()
 	timer.start(game_length)
 	enemy_spawn_timer.start()

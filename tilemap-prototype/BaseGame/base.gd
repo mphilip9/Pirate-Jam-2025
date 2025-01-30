@@ -13,9 +13,14 @@ extends Node2D
 @onready var mouth_container = $HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/MouthContainer
 @onready var play_pause_button: TextureButton = $HUD/PlayPauseContainer/PlayPauseButton
 @onready var pause_menu: PanelContainer = $HUD/PauseMenu
+@onready var game_music_playlist: AudioStreamPlayer2D = $GameMusicPlaylist
 
 # Called when the node enters the scene tree  for the first time.
 func _ready():
+	
+	# for shuffling after the first stage
+	if GameData.stage > 1:
+		game_music_playlist.get_stream().shuffle = true
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	var used_grass_cells =grass.get_used_cells()
 	var grass_rect = grass.get_used_rect()
