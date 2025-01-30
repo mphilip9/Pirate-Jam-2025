@@ -8,6 +8,7 @@ var enemy_spawn_count: int = 0
 var final_wave: bool = false
 
 func transition_to_store() -> void:
+	print('final wave??')
 	for name in GameData.placed_turrets :
 		if name == 'projectile':
 			GameData.mort_flesh += GameData.placed_turrets[name] * 40
@@ -80,6 +81,7 @@ func _on_difficulty_manager_stop_spawning_enemies() -> void:
 
 
 func _on_difficulty_manager_handle_final_wave():
-	var delay_timer = get_tree().create_timer(10)
+	print('we hit it!')
+	var delay_timer = get_tree().create_timer(5)
 	await delay_timer.timeout
 	final_wave = true

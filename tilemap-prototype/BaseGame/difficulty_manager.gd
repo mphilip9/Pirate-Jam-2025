@@ -18,8 +18,8 @@ func _ready() -> void:
 	handle_wave_warning()
 	timer.start(game_length)
 #	TODO: Revisit this logic when we can have more than 5 waves per stage
-	if GameData.stage < 3:
-		waves_per_stage += GameData.stage
+	if GameData.stage + waves_per_stage < 6:
+		waves_per_stage += GameData.stage - 1
 #	We could do something similar for game_length if we wanted
 
 
@@ -45,13 +45,12 @@ func handle_wave_warning() -> void:
 #Something is off here, but I'm on the right track I think
 func start_new_wave() -> void:
 	GameData.wave += 1
+	var wave_cooldown_timer = get_tree().create_timer(10)
+	await wave_cooldown_timer.timeout
 	handle_wave_warning()
 	timer.start(game_length)
-#	TODO: Consider the best time to wait between scene endings
-#	TODO: This timer should not start until the last enemy is dead. Maybe a signal from the path2d??
-	enemy_spawn_timer.start(30)
+	enemy_spawn_timer.start(2)
 		
-
 
 
 func _on_timer_timeout() -> void:
