@@ -53,8 +53,8 @@ func _unhandled_input(event):
 		# appending w/e turret gets placed
 		GameData.placed_turrets[tower_to_place] += 1
 		print(GameData.placed_turrets)
-		for y in range(2):
-			for x in range(2):
+		for y in range(1,3):
+			for x in range(1,3):
 				GameData.occupied_tiles.append(top_left_tile + Vector2i(x, y))
 
 
