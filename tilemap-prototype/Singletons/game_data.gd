@@ -5,6 +5,9 @@ extends Node2D
 # yall got a better name?: nah this is the currency name now
 @export var mort_flesh: int = 200
 
+# muted global
+@export var muted: bool = false
+
 # wave & stage variable
 @export var wave: int = 1
 @export var stage: int = 1
