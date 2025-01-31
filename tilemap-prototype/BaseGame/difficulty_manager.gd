@@ -5,7 +5,6 @@ signal stop_spawning_enemies
 @onready var wave_warning_label = $"../HUD/WaveWarningContainer/WaveWarningLabel"
 @onready var enemy_spawn_timer = $"../Path2D/EnemySpawnTimer"
 @onready var scene_transition = $"../SceneTransition"
-@onready var start_counter_timer = $"../HUD/RemaingTimeContainer/MarginContainer/HBoxContainer/Skip/StartCounter"
 @onready var remaining_time_container = $"../HUD/RemaingTimeContainer"
 @onready var cooldown_timer = $CooldownTimer
 

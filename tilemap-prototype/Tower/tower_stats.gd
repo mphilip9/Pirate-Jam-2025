@@ -17,15 +17,15 @@ extends Resource
 
 var calculated_range: float:
 	get:
-		var modifier = 1.5 if GameData.tower_store[name].upgrades.range else 1
+		var modifier = 2 if GameData.tower_store[name].upgrades.range else 1
 		return range * modifier
 
 var calculated_damage: float:
 	get:
-		var modifier = 1.5 if GameData.tower_store[name].upgrades.damage else 1
+		var modifier = 2 if GameData.tower_store[name].upgrades.damage else 1
 		return damage * modifier
 
 var calculated_rate_of_fire: float:
 	get:
-		var modifier = 1.5 if GameData.tower_store[name].upgrades.rate_of_fire else 1
+		var modifier = 0.5 if GameData.tower_store[name].upgrades.rate_of_fire else 1
 		return rate_of_fire * modifier
