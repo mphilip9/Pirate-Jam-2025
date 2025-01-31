@@ -33,10 +33,11 @@ func spawn_enemy() -> void:
 	# wave 5 - boss count = 95
 	if GameData.wave == 5 :
 		if GameData.enemy_count % 20 == 0 :
-			if GameData.stage >= 5 :
-				pass
-			else :
-				enemy_ind = 5
+			enemy_ind = 5
+			if GameData.stage >= 5 and GameData.stage < 8 :
+				enemy_ind = randi_range(5,6)
+			elif GameData.stage > 7 :
+				enemy_ind = randi_range(5,7)
 		else :
 			enemy_ind = randi_range(0,4)
 		
