@@ -7,6 +7,6 @@ script = ExtResource("1_vid2v")
 max_health = 5000
 speed = 40
 damage = 30
-gold_value = 125
+gold_value = 150
 resistance = 1.0
 death_sound = "res://Assets/SFX/197 grunt f.wav"

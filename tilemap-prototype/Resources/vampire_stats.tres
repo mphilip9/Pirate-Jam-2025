@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_1j2u6")
-max_health = 200
+max_health = 350
 speed = 100
-damage = 10
-gold_value = 10
+damage = 15
+gold_value = 12
 resistance = 0.2
 death_sound = "res://Assets/SFX/192 grunt a.wav"
