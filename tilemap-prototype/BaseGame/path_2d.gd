@@ -17,8 +17,7 @@ func _process(delta):
 
 			
 func spawn_enemy() -> void:
-
-	print('enemy count : ',enemy_spawn_count, ' wave : ', GameData.wave)
+	enemy_spawn_count += 1
 	var enemy_ind: int = 0
 	# TODO: need a better way to manage what spawn. feels like there is an easier way
 	# wave 2 count 40
@@ -32,7 +31,7 @@ func spawn_enemy() -> void:
 		enemy_ind = randi_range(0,4)
 	# wave 5 - boss count = 95
 	if GameData.wave == 5 :
-		if GameData.enemy_count % 20 == 0 :
+		if enemy_spawn_count % 20 == 0 :
 			enemy_ind = 5
 			if GameData.stage >= 5 and GameData.stage < 8 :
 				enemy_ind = randi_range(5,6)

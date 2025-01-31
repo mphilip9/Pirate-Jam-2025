@@ -2306,14 +2306,13 @@ layout_mode = 2
 button_stats = SubResource("Resource_a5hnn")
 
 [node name="SkipContainer" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
+visible = false
 layout_mode = 2
 
 [node name="Button" type="Button" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons/SkipContainer"]
+visible = false
 layout_mode = 2
 text = "skip"
-
-[node name="SkipContainer2" type="PanelContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD/TowerButtons"]
-layout_mode = 2
 
 [node name="MortFleshContainer" type="HBoxContainer" parent="HUD/MarginContainer/PanelContainer/MarginContainer/ManagerHUD"]
 layout_mode = 2

@@ -1,7 +1,6 @@
 extends PanelContainer
 
 @onready var game_over_animation = $GameOverAnimation
-@onready var scene_transition = $"../../SceneTransition"
 @onready var game_music_playlist = $"../../GameMusicPlaylist"
 @onready var game_over_music = $GameOverMusic
 
@@ -21,9 +20,9 @@ func _on_castle_game_over():
 func _on_new_game_button_pressed():
 	get_tree().paused = false
 	GameData.restore_game_data()
-	scene_transition.change_scene("res://BaseGame/base_level.tscn")
+	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
 
 func _on_quit_to_menu_button_pressed():
 	get_tree().paused = false
 	GameData.restore_game_data()
-	scene_transition.change_scene("res://UI/StartScreen.tscn")
+	get_tree().change_scene_to_file("res://UI/StartScreen.tscn")
