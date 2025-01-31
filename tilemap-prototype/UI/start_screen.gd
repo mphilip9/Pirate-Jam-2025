@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 func _on_start_pressed() :
 	AudioManager.adjust_pitch(1.0)
 	AudioManager.adjust_volume(-8.0)
-	AudioManager.play("res://Assets/SFX/208 witchlaughter.wav")
-	get_tree().change_scene_to_file("res://BaseGame/base_level.tscn")
+	AudioManager.play("res://Assets/SFX/013 JESTER SNARE.wav")
+	get_tree().change_scene_to_file("res://UI/StoryTime.tscn")
 
 # exit out game when pressed
 func _on_quit_pressed() -> void:
