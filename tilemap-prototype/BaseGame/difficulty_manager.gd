@@ -8,7 +8,7 @@ signal stop_spawning_enemies
 @onready var remaining_time_container = $"../HUD/RemaingTimeContainer"
 @onready var cooldown_timer = $CooldownTimer
 
-@export var game_length := 20.0
+@export var game_length := 30.0
 @export var spawn_time_curve: Array[Curve]
 @onready var timer: Timer = $Timer
 var waves_per_stage = 2

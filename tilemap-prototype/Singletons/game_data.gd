@@ -82,8 +82,8 @@ extends Node2D
 #Use this to calculate the price in the store
 @export var upgrade_cost_multiplier = {
 	"range": 2,
-	"damage": 3,
-	"rate_of_fire": 2
+	"damage": 6,
+	"rate_of_fire": 6
 }
 
 func restore_game_data() -> void:
