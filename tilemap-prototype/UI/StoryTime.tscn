@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckrnhpg4idbbo"]
+
+[ext_resource type="FontFile" uid="uid://gai1kalbtujs" path="res://Assets/Fonts/8bitlim.ttf" id="1_2ml7e"]
+[ext_resource type="Script" path="res://UI/story_time.gd" id="1_f4ih0"]
+[ext_resource type="Theme" uid="uid://c8dep7i21lg13" path="res://Themes/store_grid.tres" id="2_7qn0t"]
+[ext_resource type="AudioStream" uid="uid://bwbuso7bv8iqq" path="res://Assets/Music/The-Bog-of-Despair.mp3" id="2_sa8ee"]
+[ext_resource type="Texture2D" uid="uid://ciy8b4s6djy8o" path="res://Assets/UIassets/Shroomenstein.png" id="3_chshk"]
+[ext_resource type="PackedScene" uid="uid://evka42tqpdgb" path="res://UI/scene_transition.tscn" id="5_15c30"]
+
+[node name="StoryTime" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f4ih0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_sa8ee")
+autoplay = true
+parameters/looping = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1115.0
+offset_top = -1118.0
+offset_right = -315.0
+offset_bottom = -318.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.4, 1.4)
+size_flags_horizontal = 3
+size_flags_vertical = 8
+texture = ExtResource("3_chshk")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 125
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("1_2ml7e")
+theme_override_font_sizes/font_size = 41
+text = "\"I just wanted to be left alone, a part of MY MYCELIUM network. But the small people are always afraid of what they cannot understand. Fine. It shall be their undoing. Their flesh shall become my weapon!\""
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -32.5
+offset_right = 80.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_7qn0t")
+theme_override_font_sizes/font_size = 41
+action_mode = 0
+text = "Proceed"
+
+[node name="SceneTransition" parent="." instance=ExtResource("5_15c30")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
