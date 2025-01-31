@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://do41p3vaq1ret"]
+[gd_scene load_steps=94 format=4 uid="uid://do41p3vaq1ret"]
 
 [ext_resource type="Script" path="res://BaseGame/base.gd" id="1_btitk"]
 [ext_resource type="PackedScene" uid="uid://dlkb681j8x2vp" path="res://Castle/Castle.tscn" id="2_3co8d"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dxvc7sv3uiqxn" path="res://BaseGame/tower_button.tscn" id="11_6iy8u"]
 [ext_resource type="Script" path="res://BaseGame/tower_manager.gd" id="11_8vmam"]
 [ext_resource type="PackedScene" uid="uid://dq7ch4bvufyn5" path="res://Enemy/Ogre.tscn" id="11_op0tf"]
+[ext_resource type="PackedScene" uid="uid://c0ukyum3l5r5q" path="res://Enemy/Stonegre.tscn" id="12_5h2h3"]
+[ext_resource type="PackedScene" uid="uid://d2cbsg0d821ks" path="res://Enemy/Beholder.tscn" id="13_v7pjm"]
 [ext_resource type="Curve" uid="uid://cge4p1hfxewg2" path="res://Resources/WaveSpawnCurve/wave_1to3.tres" id="14_y3ibj"]
 [ext_resource type="Curve" uid="uid://cggqwpdllgu1i" path="res://Resources/WaveSpawnCurve/wave_boss.tres" id="15_8a5i6"]
 [ext_resource type="Curve" uid="uid://d0xdyvpn0f74q" path="res://Resources/WaveSpawnCurve/wave_pre_boss.tres" id="16_r7c4o"]
@@ -2202,7 +2204,7 @@ zoom = Vector2(2, 2)
 curve = SubResource("Curve2D_8bpkv")
 script = ExtResource("6_3vj5o")
 difficulty_manager = NodePath("../DifficultyManager")
-enemies_array = Array[PackedScene]([ExtResource("6_1dgm3"), ExtResource("10_rtp7h"), ExtResource("7_asakl"), ExtResource("7_yv2kq"), ExtResource("9_0ra5j"), ExtResource("11_op0tf")])
+enemies_array = Array[PackedScene]([ExtResource("6_1dgm3"), ExtResource("10_rtp7h"), ExtResource("7_asakl"), ExtResource("7_yv2kq"), ExtResource("9_0ra5j"), ExtResource("11_op0tf"), ExtResource("12_5h2h3"), ExtResource("13_v7pjm")])
 
 [node name="EnemySpawnTimer" type="Timer" parent="Path2D"]
 wait_time = 2.0
