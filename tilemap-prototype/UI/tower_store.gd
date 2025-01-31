@@ -8,6 +8,7 @@ var is_lock_btn: bool
 @onready var unlock_container = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer
 @onready var unlock_cost = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton/UnlockCost
 @onready var nothing_selected = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/NothingSelected
+@onready var unlock_button: Button = $PanelContainer/VBoxContainer/SplitContainer/TowerUpgrades/PanelContainer3/MarginContainer/PanelContainer/UnlockContainer/UnlockButton
 #Tower Details
 @onready var tower_details = $PanelContainer/VBoxContainer/SplitContainer/TowerDetails
 @onready var tower_details_image = $PanelContainer/VBoxContainer/SplitContainer/TowerDetails/TowerInfo/MarginContainer/HBoxContainer/TowerDetailsImage
@@ -56,7 +57,11 @@ func _process(delta):
 	tower_details_image.texture = selected_tower.preview_texture
 	tower_title.text = selected_tower.name
 	tower_info_blurb.text = selected_tower.info
-		
+	
+	if int(unlock_cost.text) > GameData.mort_flesh :
+		unlock_button.disabled = true
+	else :
+		unlock_button.disabled = false
 
 func _on_store_button_pressed(data: TowerStats, is_lock_btn: bool):
 	AudioManager.adjust_pitch(1)
@@ -64,7 +69,7 @@ func _on_store_button_pressed(data: TowerStats, is_lock_btn: bool):
 	GameData.selected_tower_stats = data
 	selected_tower = data
 	is_lock_btn = is_lock_btn
-	unlock_cost.text = str(data.cost)
+	unlock_cost.text = str(data.cost * 2)
 	nothing_selected.visible = false
 
 func _on_upgrade_button_pressed(upgrade_type: String, cost: int):
